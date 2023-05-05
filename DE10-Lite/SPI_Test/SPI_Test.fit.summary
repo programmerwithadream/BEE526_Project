@@ -1,0 +1,18 @@
+Fitter Status : Successful - Mon May  1 03:49:50 2023
+Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+Revision Name : SPI_Test
+Top-level Entity Name : SPI_Test
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 269 / 49,760 ( < 1 % )
+    Total combinational functions : 256 / 49,760 ( < 1 % )
+    Dedicated logic registers : 153 / 49,760 ( < 1 % )
+Total registers : 153
+Total pins : 185 / 360 ( 51 % )
+Total virtual pins : 0
+Total memory bits : 0 / 1,677,312 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )
