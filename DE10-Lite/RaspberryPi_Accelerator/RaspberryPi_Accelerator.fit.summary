@@ -1,14 +1,14 @@
-Fitter Status : Successful - Thu May  4 15:47:37 2023
+Fitter Status : Successful - Thu May 11 02:38:36 2023
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : RaspberryPi_Accelerator
 Top-level Entity Name : RaspberryPi_Accelerator
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 86 / 49,760 ( < 1 % )
-    Total combinational functions : 86 / 49,760 ( < 1 % )
-    Dedicated logic registers : 33 / 49,760 ( < 1 % )
-Total registers : 33
+Total logic elements : 348 / 49,760 ( < 1 % )
+    Total combinational functions : 338 / 49,760 ( < 1 % )
+    Dedicated logic registers : 54 / 49,760 ( < 1 % )
+Total registers : 54
 Total pins : 185 / 360 ( 51 % )
 Total virtual pins : 0
 Total memory bits : 0 / 1,677,312 ( 0 % )

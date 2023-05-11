@@ -107,28 +107,36 @@ logic [31:0] clkCounter;
 logic clk;
 
 //signals for raspberry pi
-logic MOSI, MISO, RPiclk, cs0, cs1;
+logic MOSI, MISO, RPiclk;
+logic cs[1:0];
 
 //signals for two-to-four decoder
 logic [3:0] d;
-logic [1:0] chip_select;
+logic [1:0] sram_select;
 
 //signals going into srams
-logic SI0, SO0, sclk0, ce0;
-logic SI1, SO1, sclk1, ce1;
-logic SI2, SO2, sclk2, ce2;
-logic SI3, SO3, sclk3, ce3;
+//signals from device into sram
+logic [3:0] si;
+//signals from sram to device
+logic [3:0] so;
+//sram system clocks
+logic [3:0] sclk;
+//sram chip enables
+logic [3:0] ce;
 
 //signals from fpga
-logic [3:0] FI;
+logic [3:0] fi;
 logic [3:0] fs;
 
 //signals for spi read/write modules
-logic [7:0] out_reg [3:0];
 logic [3:0] output_valid;
 logic [7:0] inst [3:0];
 logic [23:0] address [3:0];
 logic [7:0] in_reg [3:0];
+logic [23:0] length [3:0];
+
+//handshake signals between raspberry pi  and fpga
+logic inst_valid, job_done, execute_task;
 
 //=======================================================
 //  Structural coding
@@ -152,77 +160,85 @@ end
 assign MOSI = GPIO[MOSI_PIN];
 assign GPIO[MISO_PIN] = MISO;
 assign RPiclk = GPIO[RPICLK_PIN];
-assign cs0 = GPIO[CS0_PIN];
-assign cs1 = GPIO[CS1_PIN];
+assign cs[0] = GPIO[CS0_PIN];
+assign cs[1] = GPIO[CS1_PIN];
+
+//assigning so signals to their corresponding SRAMs
+assign so[0] = GPIO[SO0_PIN];
+assign so[1] = GPIO[SO1_PIN];
+assign so[2] = GPIO[SO2_PIN];
+assign so[3] = GPIO[SO3_PIN];
 
 //TODO:connect input signals for decoder from raspberry pi
 //temporary signals
-assign chip_select[0] = SW[0];
-assign chip_select[1] = SW[1];
+assign sram_select[0] = SW[0];
+assign sram_select[1] = SW[1];
 
 //FPGA read/write modules
-SRAM_SPI_RW S0(fs[0], GPIO[SO0_PIN], FI[0], clk, out_reg[0], output_valid[0], inst[0], address[0], in_reg[0]);
-SRAM_SPI_RW S1(fs[1], GPIO[SO1_PIN], FI[1], clk, out_reg[1], output_valid[1], inst[1], address[1], in_reg[1]);
-SRAM_SPI_RW S2(fs[2], GPIO[SO2_PIN], FI[2], clk, out_reg[2], output_valid[2], inst[2], address[2], in_reg[2]);
-SRAM_SPI_RW S3(fs[3], GPIO[SO3_PIN], FI[3], clk, out_reg[3], output_valid[3], inst[3], address[3], in_reg[3]);
+SRAM_SPI_RW S0(fs[0], fi[0], clk, inst[0], address[0], in_reg[0], length[0], output_valid[0]);
+SRAM_SPI_RW S1(fs[1], fi[1], clk, inst[1], address[1], in_reg[1], length[1], output_valid[1]);
+SRAM_SPI_RW S2(fs[2], fi[2], clk, inst[2], address[2], in_reg[2], length[2], output_valid[2]);
+SRAM_SPI_RW S3(fs[3], fi[3], clk, inst[3], address[3], in_reg[3], length[3], output_valid[3]);
 
 //two-to-four decoder used for select signals for muxes
-two_to_four_decoder D0(d[0], d[1], d[2], d[3], chip_select[0], chip_select[1]);
+two_to_four_decoder D0(d[0], d[1], d[2], d[3], sram_select[0], sram_select[1]);
 
 //muxes for sram0
-two_to_one_mux MI0(SI0, FI0, MOSI, d[0]);
-two_to_one_mux MSCLK0(sclk0, clk, RPiclk, d[0]);
-two_to_one_mux MCE0(ce0, fs0, cs0, d[0]);
+two_to_one_mux MI0(si[0], fi[0], MOSI, d[0]);
+two_to_one_mux MSCLK0(sclk[0], clk, RPiclk, d[0]);
+two_to_one_mux MCE0(ce[0], fs[0], cs[0], d[0]);
 
 //assign signals for sram0
-assign GPIO[CE0_PIN] = ce0;
+assign GPIO[CE0_PIN] = ce[0];
 assign SO0 = GPIO[SO0_PIN];
-assign GPIO[SCLK0_PIN] = sclk0;
-assign GPIO[SI0_PIN] = SI0;
+assign GPIO[SCLK0_PIN] = sclk[0];
+assign GPIO[SI0_PIN] = si[0];
 
 //muxes for sram1
-two_to_one_mux MI1(SI1, FI1, MOSI, d[1]);
-two_to_one_mux MSCLK1(sclk1, clk, RPiclk, d[1]);
-two_to_one_mux MCE1(ce1, fs1, cs0, d[1]);
+two_to_one_mux MI1(si[1], fi[1], MOSI, d[1]);
+two_to_one_mux MSCLK1(sclk[1], clk, RPiclk, d[1]);
+two_to_one_mux MCE1(ce[1], fs[1], cs[0], d[1]);
 
 //assign signals for sram1
-assign GPIO[CE1_PIN] = ce1;
+assign GPIO[CE1_PIN] = ce[1];
 assign SO1 = GPIO[SO1_PIN];
-assign GPIO[SCLK1_PIN] = sclk1;
-assign GPIO[SI1_PIN] = SI1;
+assign GPIO[SCLK1_PIN] = sclk[1];
+assign GPIO[SI1_PIN] = si[1];
 
 //muxes for sram2
-two_to_one_mux MI2(SI2, FI2, MOSI, d[2]);
-two_to_one_mux MSCLK2(sclk2, clk, RPiclk, d[2]);
-two_to_one_mux MCE2(ce2, fs2, cs0, d[2]);
+two_to_one_mux MI2(si[2], fi[2], MOSI, d[2]);
+two_to_one_mux MSCLK2(sclk[2], clk, RPiclk, d[2]);
+two_to_one_mux MCE2(ce[2], fs[2], cs[0], d[2]);
 
 //assign signals for sram2
-assign GPIO[CE2_PIN] = ce2;
+assign GPIO[CE2_PIN] = ce[2];
 assign SO2 = GPIO[SO2_PIN];
-assign GPIO[SCLK2_PIN] = sclk2;
-assign GPIO[SI2_PIN] = SI2;
+assign GPIO[SCLK2_PIN] = sclk[2];
+assign GPIO[SI2_PIN] = si[2];
 
 //muxes for sram3
-two_to_one_mux MI3(SI3, FI3, MOSI, d[3]);
-two_to_one_mux MSCLK3(sclk3, clk, RPiclk, d[3]);
-two_to_one_mux MCE3(ce3, fs3, cs0, d[3]);
+two_to_one_mux MI3(si[3], fi[3], MOSI, d[3]);
+two_to_one_mux MSCLK3(sclk[3], clk, RPiclk, d[3]);
+two_to_one_mux MCE3(ce[3], fs[3], cs[0], d[3]);
 
 //assign signals for sram3
-assign GPIO[CE3_PIN] = ce3;
+assign GPIO[CE3_PIN] = ce[3];
 assign SO3 = GPIO[SO3_PIN];
-assign GPIO[SCLK3_PIN] = sclk3;
-assign GPIO[SI3_PIN] = SI3;
+assign GPIO[SCLK3_PIN] = sclk[3];
+assign GPIO[SI3_PIN] = si[3];
 
 //mux for MISO signal back to raspberry pi
-four_to_one_mux MMISO(MISO, SO0, SO1, SO2, SO3, chip_select[0], chip_select[1]);
+four_to_one_mux MMISO(MISO, SO0, SO1, SO2, SO3, sram_select[0], sram_select[1]);
 
 
 
 
-
+//***************
 //temporary test
-
-
-
+//***************
+logic [31:0] temp_inst;
+instruction_handler #32 I0(temp_inst, MOSI, RPiclk, cs[1]);
+task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, in_reg, length, so, output_valid);
+display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, temp_inst);
 
 endmodule

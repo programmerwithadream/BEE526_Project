@@ -1,5 +1,5 @@
 Fitter report for RaspberryPi_Accelerator
-Thu May  4 15:47:37 2023
+Thu May 11 02:38:36 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -67,17 +67,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Thu May  4 15:47:37 2023       ;
+; Fitter Status                      ; Successful - Thu May 11 02:38:36 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 86 / 49,760 ( < 1 % )                       ;
-;     Total combinational functions  ; 86 / 49,760 ( < 1 % )                       ;
-;     Dedicated logic registers      ; 33 / 49,760 ( < 1 % )                       ;
-; Total registers                    ; 33                                          ;
+; Total logic elements               ; 348 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 338 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 54 / 49,760 ( < 1 % )                       ;
+; Total registers                    ; 54                                          ;
 ; Total pins                         ; 185 / 360 ( 51 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -153,12 +153,12 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.05        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.5%      ;
+;     Processors 2-4         ;   1.6%      ;
 +----------------------------+-------------+
 
 
@@ -168,8 +168,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 580 ) ; 0.00 % ( 0 / 580 )         ; 0.00 % ( 0 / 580 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 580 ) ; 0.00 % ( 0 / 580 )         ; 0.00 % ( 0 / 580 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 853 ) ; 0.00 % ( 0 / 853 )         ; 0.00 % ( 0 / 853 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 853 ) ; 0.00 % ( 0 / 853 )         ; 0.00 % ( 0 / 853 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -192,7 +192,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 564 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 837 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 16 )     ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -203,131 +203,131 @@ https://fpgasoftware.intel.com/eula.
 The pin-out file can be found in C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.pin.
 
 
-+---------------------------------------------------------------------+
-; Fitter Resource Usage Summary                                       ;
-+---------------------------------------------+-----------------------+
-; Resource                                    ; Usage                 ;
-+---------------------------------------------+-----------------------+
-; Total logic elements                        ; 86 / 49,760 ( < 1 % ) ;
-;     -- Combinational with no register       ; 53                    ;
-;     -- Register only                        ; 0                     ;
-;     -- Combinational with a register        ; 33                    ;
-;                                             ;                       ;
-; Logic element usage by number of LUT inputs ;                       ;
-;     -- 4 input functions                    ; 16                    ;
-;     -- 3 input functions                    ; 8                     ;
-;     -- <=2 input functions                  ; 62                    ;
-;     -- Register only                        ; 0                     ;
-;                                             ;                       ;
-; Logic elements by mode                      ;                       ;
-;     -- normal mode                          ; 55                    ;
-;     -- arithmetic mode                      ; 31                    ;
-;                                             ;                       ;
-; Total registers*                            ; 33 / 51,509 ( < 1 % ) ;
-;     -- Dedicated logic registers            ; 33 / 49,760 ( < 1 % ) ;
-;     -- I/O registers                        ; 0 / 1,749 ( 0 % )     ;
-;                                             ;                       ;
-; Total LABs:  partially or completely used   ; 8 / 3,110 ( < 1 % )   ;
-; Virtual pins                                ; 0                     ;
-; I/O pins                                    ; 185 / 360 ( 51 % )    ;
-;     -- Clock pins                           ; 4 / 8 ( 50 % )        ;
-;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )       ;
-;                                             ;                       ;
-; M9Ks                                        ; 0 / 182 ( 0 % )       ;
-; UFM blocks                                  ; 0 / 1 ( 0 % )         ;
-; ADC blocks                                  ; 0 / 2 ( 0 % )         ;
-; Total block memory bits                     ; 0 / 1,677,312 ( 0 % ) ;
-; Total block memory implementation bits      ; 0 / 1,677,312 ( 0 % ) ;
-; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ;
-; PLLs                                        ; 0 / 4 ( 0 % )         ;
-; Global signals                              ; 1                     ;
-;     -- Global clocks                        ; 1 / 20 ( 5 % )        ;
-; JTAGs                                       ; 0 / 1 ( 0 % )         ;
-; CRC blocks                                  ; 0 / 1 ( 0 % )         ;
-; Remote update blocks                        ; 0 / 1 ( 0 % )         ;
-; Oscillator blocks                           ; 0 / 1 ( 0 % )         ;
-; Impedance control blocks                    ; 0 / 1 ( 0 % )         ;
-; Average interconnect usage (total/H/V)      ; 0.1% / 0.1% / 0.0%    ;
-; Peak interconnect usage (total/H/V)         ; 0.7% / 0.9% / 0.5%    ;
-; Maximum fan-out                             ; 33                    ;
-; Highest non-global fan-out                  ; 28                    ;
-; Total fan-out                               ; 556                   ;
-; Average fan-out                             ; 0.96                  ;
-+---------------------------------------------+-----------------------+
++----------------------------------------------------------------------+
+; Fitter Resource Usage Summary                                        ;
++---------------------------------------------+------------------------+
+; Resource                                    ; Usage                  ;
++---------------------------------------------+------------------------+
+; Total logic elements                        ; 348 / 49,760 ( < 1 % ) ;
+;     -- Combinational with no register       ; 294                    ;
+;     -- Register only                        ; 10                     ;
+;     -- Combinational with a register        ; 44                     ;
+;                                             ;                        ;
+; Logic element usage by number of LUT inputs ;                        ;
+;     -- 4 input functions                    ; 262                    ;
+;     -- 3 input functions                    ; 12                     ;
+;     -- <=2 input functions                  ; 64                     ;
+;     -- Register only                        ; 10                     ;
+;                                             ;                        ;
+; Logic elements by mode                      ;                        ;
+;     -- normal mode                          ; 307                    ;
+;     -- arithmetic mode                      ; 31                     ;
+;                                             ;                        ;
+; Total registers*                            ; 54 / 51,509 ( < 1 % )  ;
+;     -- Dedicated logic registers            ; 54 / 49,760 ( < 1 % )  ;
+;     -- I/O registers                        ; 0 / 1,749 ( 0 % )      ;
+;                                             ;                        ;
+; Total LABs:  partially or completely used   ; 29 / 3,110 ( < 1 % )   ;
+; Virtual pins                                ; 0                      ;
+; I/O pins                                    ; 185 / 360 ( 51 % )     ;
+;     -- Clock pins                           ; 4 / 8 ( 50 % )         ;
+;     -- Dedicated input pins                 ; 1 / 1 ( 100 % )        ;
+;                                             ;                        ;
+; M9Ks                                        ; 0 / 182 ( 0 % )        ;
+; UFM blocks                                  ; 0 / 1 ( 0 % )          ;
+; ADC blocks                                  ; 0 / 2 ( 0 % )          ;
+; Total block memory bits                     ; 0 / 1,677,312 ( 0 % )  ;
+; Total block memory implementation bits      ; 0 / 1,677,312 ( 0 % )  ;
+; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )        ;
+; PLLs                                        ; 0 / 4 ( 0 % )          ;
+; Global signals                              ; 1                      ;
+;     -- Global clocks                        ; 1 / 20 ( 5 % )         ;
+; JTAGs                                       ; 0 / 1 ( 0 % )          ;
+; CRC blocks                                  ; 0 / 1 ( 0 % )          ;
+; Remote update blocks                        ; 0 / 1 ( 0 % )          ;
+; Oscillator blocks                           ; 0 / 1 ( 0 % )          ;
+; Impedance control blocks                    ; 0 / 1 ( 0 % )          ;
+; Average interconnect usage (total/H/V)      ; 0.2% / 0.2% / 0.2%     ;
+; Peak interconnect usage (total/H/V)         ; 1.2% / 1.2% / 1.4%     ;
+; Maximum fan-out                             ; 33                     ;
+; Highest non-global fan-out                  ; 28                     ;
+; Total fan-out                               ; 1665                   ;
+; Average fan-out                             ; 1.94                   ;
++---------------------------------------------+------------------------+
 *  Register count does not include registers inside RAM blocks or DSP blocks.
 
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Fitter Partition Statistics                                                                         ;
-+---------------------------------------------+----------------------+--------------------------------+
-; Statistic                                   ; Top                  ; hard_block:auto_generated_inst ;
-+---------------------------------------------+----------------------+--------------------------------+
-; Difficulty Clustering Region                ; Low                  ; Low                            ;
-;                                             ;                      ;                                ;
-; Total logic elements                        ; 86 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- Combinational with no register       ; 53                   ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
-;     -- Combinational with a register        ; 33                   ; 0                              ;
-;                                             ;                      ;                                ;
-; Logic element usage by number of LUT inputs ;                      ;                                ;
-;     -- 4 input functions                    ; 16                   ; 0                              ;
-;     -- 3 input functions                    ; 8                    ; 0                              ;
-;     -- <=2 input functions                  ; 62                   ; 0                              ;
-;     -- Register only                        ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Logic elements by mode                      ;                      ;                                ;
-;     -- normal mode                          ; 55                   ; 0                              ;
-;     -- arithmetic mode                      ; 31                   ; 0                              ;
-;                                             ;                      ;                                ;
-; Total registers                             ; 33                   ; 0                              ;
-;     -- Dedicated logic registers            ; 33 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
-;     -- I/O registers                        ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Total LABs:  partially or completely used   ; 8 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
-;                                             ;                      ;                                ;
-; Virtual pins                                ; 0                    ; 0                              ;
-; I/O pins                                    ; 185                  ; 0                              ;
-; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )      ; 0 / 288 ( 0 % )                ;
-; Total memory bits                           ; 0                    ; 0                              ;
-; Total RAM block bits                        ; 0                    ; 0                              ;
-; Clock control block                         ; 1 / 24 ( 4 % )       ; 0 / 24 ( 0 % )                 ;
-; User Flash Memory                           ; 1 / 1 ( 100 % )      ; 0 / 1 ( 0 % )                  ;
-; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )      ; 0 / 2 ( 0 % )                  ;
-;                                             ;                      ;                                ;
-; Connections                                 ;                      ;                                ;
-;     -- Input Connections                    ; 71                   ; 0                              ;
-;     -- Registered Input Connections         ; 0                    ; 0                              ;
-;     -- Output Connections                   ; 71                   ; 0                              ;
-;     -- Registered Output Connections        ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Internal Connections                        ;                      ;                                ;
-;     -- Total Connections                    ; 562                  ; 8                              ;
-;     -- Registered Connections               ; 69                   ; 0                              ;
-;                                             ;                      ;                                ;
-; External Connections                        ;                      ;                                ;
-;     -- Top                                  ; 142                  ; 0                              ;
-;     -- hard_block:auto_generated_inst       ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Partition Interface                         ;                      ;                                ;
-;     -- Input Ports                          ; 17                   ; 0                              ;
-;     -- Output Ports                         ; 97                   ; 0                              ;
-;     -- Bidir Ports                          ; 71                   ; 0                              ;
-;                                             ;                      ;                                ;
-; Registered Ports                            ;                      ;                                ;
-;     -- Registered Input Ports               ; 0                    ; 0                              ;
-;     -- Registered Output Ports              ; 0                    ; 0                              ;
-;                                             ;                      ;                                ;
-; Port Connectivity                           ;                      ;                                ;
-;     -- Input Ports driven by GND            ; 0                    ; 0                              ;
-;     -- Output Ports driven by GND           ; 0                    ; 0                              ;
-;     -- Input Ports driven by VCC            ; 0                    ; 0                              ;
-;     -- Output Ports driven by VCC           ; 0                    ; 0                              ;
-;     -- Input Ports with no Source           ; 0                    ; 0                              ;
-;     -- Output Ports with no Source          ; 0                    ; 0                              ;
-;     -- Input Ports with no Fanout           ; 0                    ; 0                              ;
-;     -- Output Ports with no Fanout          ; 0                    ; 0                              ;
-+---------------------------------------------+----------------------+--------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Fitter Partition Statistics                                                                          ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Statistic                                   ; Top                   ; hard_block:auto_generated_inst ;
++---------------------------------------------+-----------------------+--------------------------------+
+; Difficulty Clustering Region                ; Low                   ; Low                            ;
+;                                             ;                       ;                                ;
+; Total logic elements                        ; 348 / 49760 ( < 1 % ) ; 0 / 49760 ( 0 % )              ;
+;     -- Combinational with no register       ; 294                   ; 0                              ;
+;     -- Register only                        ; 10                    ; 0                              ;
+;     -- Combinational with a register        ; 44                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic element usage by number of LUT inputs ;                       ;                                ;
+;     -- 4 input functions                    ; 262                   ; 0                              ;
+;     -- 3 input functions                    ; 12                    ; 0                              ;
+;     -- <=2 input functions                  ; 64                    ; 0                              ;
+;     -- Register only                        ; 10                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Logic elements by mode                      ;                       ;                                ;
+;     -- normal mode                          ; 307                   ; 0                              ;
+;     -- arithmetic mode                      ; 31                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Total registers                             ; 54                    ; 0                              ;
+;     -- Dedicated logic registers            ; 54 / 49760 ( < 1 % )  ; 0 / 49760 ( 0 % )              ;
+;     -- I/O registers                        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Total LABs:  partially or completely used   ; 29 / 3110 ( < 1 % )   ; 0 / 3110 ( 0 % )               ;
+;                                             ;                       ;                                ;
+; Virtual pins                                ; 0                     ; 0                              ;
+; I/O pins                                    ; 185                   ; 0                              ;
+; Embedded Multiplier 9-bit elements          ; 0 / 288 ( 0 % )       ; 0 / 288 ( 0 % )                ;
+; Total memory bits                           ; 0                     ; 0                              ;
+; Total RAM block bits                        ; 0                     ; 0                              ;
+; Clock control block                         ; 1 / 24 ( 4 % )        ; 0 / 24 ( 0 % )                 ;
+; User Flash Memory                           ; 1 / 1 ( 100 % )       ; 0 / 1 ( 0 % )                  ;
+; Analog-to-Digital Converter                 ; 2 / 2 ( 100 % )       ; 0 / 2 ( 0 % )                  ;
+;                                             ;                       ;                                ;
+; Connections                                 ;                       ;                                ;
+;     -- Input Connections                    ; 71                    ; 0                              ;
+;     -- Registered Input Connections         ; 0                     ; 0                              ;
+;     -- Output Connections                   ; 71                    ; 0                              ;
+;     -- Registered Output Connections        ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Internal Connections                        ;                       ;                                ;
+;     -- Total Connections                    ; 1671                  ; 8                              ;
+;     -- Registered Connections               ; 199                   ; 0                              ;
+;                                             ;                       ;                                ;
+; External Connections                        ;                       ;                                ;
+;     -- Top                                  ; 142                   ; 0                              ;
+;     -- hard_block:auto_generated_inst       ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Partition Interface                         ;                       ;                                ;
+;     -- Input Ports                          ; 17                    ; 0                              ;
+;     -- Output Ports                         ; 97                    ; 0                              ;
+;     -- Bidir Ports                          ; 71                    ; 0                              ;
+;                                             ;                       ;                                ;
+; Registered Ports                            ;                       ;                                ;
+;     -- Registered Input Ports               ; 0                     ; 0                              ;
+;     -- Registered Output Ports              ; 0                     ; 0                              ;
+;                                             ;                       ;                                ;
+; Port Connectivity                           ;                       ;                                ;
+;     -- Input Ports driven by GND            ; 0                     ; 0                              ;
+;     -- Output Ports driven by GND           ; 0                     ; 0                              ;
+;     -- Input Ports driven by VCC            ; 0                     ; 0                              ;
+;     -- Output Ports driven by VCC           ; 0                     ; 0                              ;
+;     -- Input Ports with no Source           ; 0                     ; 0                              ;
+;     -- Output Ports with no Source          ; 0                     ; 0                              ;
+;     -- Input Ports with no Fanout           ; 0                     ; 0                              ;
+;     -- Output Ports with no Fanout          ; 0                     ; 0                              ;
++---------------------------------------------+-----------------------+--------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -509,7 +509,7 @@ The pin-out file can be found in C:/Users/justi/Desktop/MSEE/BEE525/Material/DE1
 ; GPIO[17]        ; Y11   ; 4        ; 36           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[18]        ; AB11  ; 4        ; 38           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[19]        ; W11   ; 4        ; 36           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; GPIO[1]         ; W10   ; 3        ; 24           ; 0            ; 28           ; 4                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
+; GPIO[1]         ; W10   ; 3        ; 24           ; 0            ; 28           ; 5                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[20]        ; AB10  ; 4        ; 38           ; 0            ; 14           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[21]        ; AA10  ; 3        ; 34           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[22]        ; AA9   ; 3        ; 34           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
@@ -520,7 +520,7 @@ The pin-out file can be found in C:/Users/justi/Desktop/MSEE/BEE525/Material/DE1
 ; GPIO[27]        ; Y6    ; 3        ; 20           ; 0            ; 28           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[28]        ; AA6   ; 3        ; 29           ; 0            ; 21           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[29]        ; Y5    ; 3        ; 18           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; GPIO[2]         ; V9    ; 3        ; 31           ; 0            ; 28           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
+; GPIO[2]         ; V9    ; 3        ; 31           ; 0            ; 28           ; 1                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[30]        ; AA5   ; 3        ; 26           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[31]        ; Y4    ; 3        ; 24           ; 0            ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[32]        ; AB3   ; 3        ; 22           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
@@ -529,7 +529,7 @@ The pin-out file can be found in C:/Users/justi/Desktop/MSEE/BEE525/Material/DE1
 ; GPIO[35]        ; AA2   ; 3        ; 18           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[3]         ; W9    ; 3        ; 22           ; 0            ; 0            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; no         ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[4]         ; V8    ; 3        ; 20           ; 0            ; 14           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
-; GPIO[5]         ; W8    ; 3        ; 24           ; 0            ; 0            ; 4                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
+; GPIO[5]         ; W8    ; 3        ; 24           ; 0            ; 0            ; 25                    ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[6]         ; V7    ; 3        ; 20           ; 0            ; 21           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[7]         ; W7    ; 3        ; 24           ; 0            ; 7            ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
 ; GPIO[8]         ; W6    ; 3        ; 16           ; 0            ; 28           ; 0                     ; 0                  ; no     ; no             ; no              ; no                     ; no            ; 2         ; yes             ; yes        ; no       ; Off          ; 3.3-V LVTTL           ; 8mA              ; Off                ; --                        ; no                         ; User                 ; 0 pF                 ; -                   ;
@@ -1202,7 +1202,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; ARDUINO_IO[14]  ; Missing drive strength ;
 ; ARDUINO_IO[15]  ; Missing drive strength ;
 ; ARDUINO_RESET_N ; Missing drive strength ;
-; GPIO[2]         ; Missing drive strength ;
 ; GPIO[4]         ; Missing drive strength ;
 ; GPIO[6]         ; Missing drive strength ;
 ; GPIO[7]         ; Missing drive strength ;
@@ -1220,6 +1219,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ; GPIO[31]        ; Missing drive strength ;
 ; GPIO[0]         ; Missing drive strength ;
 ; GPIO[1]         ; Missing drive strength ;
+; GPIO[2]         ; Missing drive strength ;
 ; GPIO[3]         ; Missing drive strength ;
 ; GPIO[5]         ; Missing drive strength ;
 ; GPIO[10]        ; Missing drive strength ;
@@ -1241,26 +1241,155 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------+------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                          ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                            ; Entity Name             ; Library Name ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------+-------------------------+--------------+
-; |RaspberryPi_Accelerator   ; 86 (72)     ; 33 (33)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 185  ; 0            ; 53 (39)      ; 0 (0)             ; 33 (33)          ; 0          ; |RaspberryPi_Accelerator                       ; RaspberryPi_Accelerator ; work         ;
-;    |four_to_one_mux:MMISO| ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|four_to_one_mux:MMISO ; four_to_one_mux         ; work         ;
-;    |two_to_one_mux:MCE0|   ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE0   ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE1|   ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE1   ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE2|   ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE2   ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE3|   ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE3   ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI0|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI0    ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI1    ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI2|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI2    ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI3|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI3    ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK0| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK0 ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK1 ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK2| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK2 ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK3| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK3 ; two_to_one_mux          ; work         ;
-+----------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------+-------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                            ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node           ; Logic Cells ; Dedicated Logic Registers ; I/O Registers ; Memory Bits ; M9Ks ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; ADC blocks ; Full Hierarchy Name                                                                                                    ; Entity Name             ; Library Name ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |RaspberryPi_Accelerator             ; 348 (72)    ; 54 (33)                   ; 0 (0)         ; 0           ; 0    ; 1          ; 0            ; 0       ; 0         ; 185  ; 0            ; 294 (39)     ; 10 (0)            ; 44 (33)          ; 0          ; |RaspberryPi_Accelerator                                                                                               ; RaspberryPi_Accelerator ; work         ;
+;    |display:DI0|                     ; 251 (0)     ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 241 (0)      ; 0 (0)             ; 10 (0)           ; 0          ; |RaspberryPi_Accelerator|display:DI0                                                                                   ; display                 ; work         ;
+;       |BCD_converter:comb_3|         ; 209 (153)   ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 199 (153)    ; 0 (0)             ; 10 (0)           ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3                                                              ; BCD_converter           ; work         ;
+;          |n_bit_adder:comb_1006|     ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006                                        ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;          |n_bit_adder:comb_1017|     ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1017                                        ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1017|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;          |n_bit_adder:comb_1028|     ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1028                                        ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1028|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;          |n_bit_adder:comb_1039|     ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1039                                        ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1039|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;          |n_bit_adder:comb_131|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_131                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_131|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_193|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_193                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_193|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_255|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_255                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_255|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_317|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_317                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_317|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_324|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_324                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_324|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_379|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_379                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_379|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_386|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_386                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_386|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_441|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_441                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_441|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_448|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_448                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_448|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_503|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_503                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_503|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_510|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_510                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_510|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_521|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_521                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_521|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_565|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_565                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_565|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_572|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_572                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_572|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_583|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_583                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_583|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_627|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_627                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_627|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_634|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_634                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_634|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_645|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_645                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_645|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_689|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_689                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_689|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_696|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_696                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_696|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_707|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_707                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_707|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_718|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_718                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_718|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_751|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_751                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_751|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_758|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_758                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_758|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_769|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_769                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_769|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_780|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_780                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_780|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_813|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_813                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_813|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_820|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_820                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_820|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_831|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_831                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_831|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_842|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_842                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_842|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_875|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_875                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_875|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_882|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_882                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_882|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_893|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_893                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_893|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_904|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_904                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_904|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_915|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_915                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_915|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_937|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_937                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_937|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_944|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_944                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_944|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_955|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_955                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_955|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_966|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_966                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_966|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_977|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_977                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_977|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_adder:comb_999|      ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_999                                         ; n_bit_adder             ; work         ;
+;             |full_adder:F1[3].D1|    ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_999|full_adder:F1[3].D1                     ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_199| ; 2 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 2 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[2].D1| ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 2 (2)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_261| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[3].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_396| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[2].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_458| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[3].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_593| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[2].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_655| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[3].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_68|  ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68                                     ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68|n_bit_adder:D1                      ; n_bit_adder             ; work         ;
+;                |full_adder:F1[3].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68|n_bit_adder:D1|full_adder:F1[3].D1  ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_6|   ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6                                      ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6|n_bit_adder:D1                       ; n_bit_adder             ; work         ;
+;                |full_adder:F1[2].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 1 (1)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6|n_bit_adder:D1|full_adder:F1[2].D1   ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_790| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[2].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;          |n_bit_comparator:comb_852| ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852                                    ; n_bit_comparator        ; work         ;
+;             |n_bit_adder:D1|         ; 1 (0)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (0)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
+;                |full_adder:F1[3].D1| ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;       |bcd_to_segment:comb_4|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_4                                                             ; bcd_to_segment          ; work         ;
+;       |bcd_to_segment:comb_5|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_5                                                             ; bcd_to_segment          ; work         ;
+;       |bcd_to_segment:comb_6|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_6                                                             ; bcd_to_segment          ; work         ;
+;       |bcd_to_segment:comb_7|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_7                                                             ; bcd_to_segment          ; work         ;
+;       |bcd_to_segment:comb_8|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_8                                                             ; bcd_to_segment          ; work         ;
+;       |bcd_to_segment:comb_9|        ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_9                                                             ; bcd_to_segment          ; work         ;
+;    |four_to_one_mux:MMISO|           ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|four_to_one_mux:MMISO                                                                         ; four_to_one_mux         ; work         ;
+;    |instruction_handler:I0|          ; 21 (21)     ; 21 (21)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0 (0)        ; 10 (10)           ; 11 (11)          ; 0          ; |RaspberryPi_Accelerator|instruction_handler:I0                                                                        ; instruction_handler     ; work         ;
+;    |two_to_one_mux:MCE0|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE0                                                                           ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE1|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE1                                                                           ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE2|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE2                                                                           ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE3|             ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE3                                                                           ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI0|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI0                                                                            ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI1|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI1                                                                            ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI2|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI2                                                                            ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI3|              ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI3                                                                            ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK0|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK0                                                                         ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK1|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK1                                                                         ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK2|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK2                                                                         ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK3|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK3                                                                         ; two_to_one_mux          ; work         ;
++--------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1415,7 +1544,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ARDUINO_IO[14]  ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; ARDUINO_IO[15]  ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; ARDUINO_RESET_N ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
-; GPIO[2]         ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[4]         ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[6]         ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[7]         ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
@@ -1432,9 +1560,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO[30]        ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[31]        ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[0]         ; Bidir    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
-; GPIO[1]         ; Bidir    ; --            ; (6) 868 ps    ; --                    ; --  ; --   ;
+; GPIO[1]         ; Bidir    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; GPIO[2]         ; Bidir    ; (0) 0 ps      ; --            ; --                    ; --  ; --   ;
 ; GPIO[3]         ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
-; GPIO[5]         ; Bidir    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
+; GPIO[5]         ; Bidir    ; (6) 868 ps    ; (0) 0 ps      ; --                    ; --  ; --   ;
 ; GPIO[10]        ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[11]        ; Bidir    ; --            ; --            ; --                    ; --  ; --   ;
 ; GPIO[12]        ; Bidir    ; (6) 868 ps    ; --            ; --                    ; --  ; --   ;
@@ -1457,152 +1586,177 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------+----------+---------------+---------------+-----------------------+-----+------+
 
 
-+----------------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                                       ;
-+----------------------------------------+-------------------+---------+
-; Source Pin / Fanout                    ; Pad To Core Index ; Setting ;
-+----------------------------------------+-------------------+---------+
-; ADC_CLK_10                             ;                   ;         ;
-; MAX10_CLK2_50                          ;                   ;         ;
-; KEY[0]                                 ;                   ;         ;
-; KEY[1]                                 ;                   ;         ;
-; SW[2]                                  ;                   ;         ;
-; SW[3]                                  ;                   ;         ;
-; SW[4]                                  ;                   ;         ;
-; SW[5]                                  ;                   ;         ;
-; SW[6]                                  ;                   ;         ;
-; SW[7]                                  ;                   ;         ;
-; SW[8]                                  ;                   ;         ;
-; SW[9]                                  ;                   ;         ;
-; GSENSOR_INT[1]                         ;                   ;         ;
-; GSENSOR_INT[2]                         ;                   ;         ;
-; DRAM_DQ[0]                             ;                   ;         ;
-; DRAM_DQ[1]                             ;                   ;         ;
-; DRAM_DQ[2]                             ;                   ;         ;
-; DRAM_DQ[3]                             ;                   ;         ;
-; DRAM_DQ[4]                             ;                   ;         ;
-; DRAM_DQ[5]                             ;                   ;         ;
-; DRAM_DQ[6]                             ;                   ;         ;
-; DRAM_DQ[7]                             ;                   ;         ;
-; DRAM_DQ[8]                             ;                   ;         ;
-; DRAM_DQ[9]                             ;                   ;         ;
-; DRAM_DQ[10]                            ;                   ;         ;
-; DRAM_DQ[11]                            ;                   ;         ;
-; DRAM_DQ[12]                            ;                   ;         ;
-; DRAM_DQ[13]                            ;                   ;         ;
-; DRAM_DQ[14]                            ;                   ;         ;
-; DRAM_DQ[15]                            ;                   ;         ;
-; GSENSOR_SDI                            ;                   ;         ;
-; GSENSOR_SDO                            ;                   ;         ;
-; ARDUINO_IO[0]                          ;                   ;         ;
-; ARDUINO_IO[1]                          ;                   ;         ;
-; ARDUINO_IO[2]                          ;                   ;         ;
-; ARDUINO_IO[3]                          ;                   ;         ;
-; ARDUINO_IO[4]                          ;                   ;         ;
-; ARDUINO_IO[5]                          ;                   ;         ;
-; ARDUINO_IO[6]                          ;                   ;         ;
-; ARDUINO_IO[7]                          ;                   ;         ;
-; ARDUINO_IO[8]                          ;                   ;         ;
-; ARDUINO_IO[9]                          ;                   ;         ;
-; ARDUINO_IO[10]                         ;                   ;         ;
-; ARDUINO_IO[11]                         ;                   ;         ;
-; ARDUINO_IO[12]                         ;                   ;         ;
-; ARDUINO_IO[13]                         ;                   ;         ;
-; ARDUINO_IO[14]                         ;                   ;         ;
-; ARDUINO_IO[15]                         ;                   ;         ;
-; ARDUINO_RESET_N                        ;                   ;         ;
-; GPIO[2]                                ;                   ;         ;
-; GPIO[4]                                ;                   ;         ;
-; GPIO[6]                                ;                   ;         ;
-; GPIO[7]                                ;                   ;         ;
-; GPIO[8]                                ;                   ;         ;
-; GPIO[9]                                ;                   ;         ;
-; GPIO[14]                               ;                   ;         ;
-; GPIO[15]                               ;                   ;         ;
-; GPIO[16]                               ;                   ;         ;
-; GPIO[17]                               ;                   ;         ;
-; GPIO[22]                               ;                   ;         ;
-; GPIO[23]                               ;                   ;         ;
-; GPIO[24]                               ;                   ;         ;
-; GPIO[25]                               ;                   ;         ;
-; GPIO[30]                               ;                   ;         ;
-; GPIO[31]                               ;                   ;         ;
-; GPIO[0]                                ;                   ;         ;
-;      - two_to_one_mux:MCE0|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE1|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE2|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE3|sig_out~0   ; 0                 ; 6       ;
-; GPIO[1]                                ;                   ;         ;
-;      - two_to_one_mux:MI0|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MI1|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MI2|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MI3|sig_out~0    ; 1                 ; 6       ;
-; GPIO[3]                                ;                   ;         ;
-; GPIO[5]                                ;                   ;         ;
-;      - two_to_one_mux:MSCLK0|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK1|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK2|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK3|sig_out~0 ; 0                 ; 6       ;
-; GPIO[10]                               ;                   ;         ;
-; GPIO[11]                               ;                   ;         ;
-; GPIO[12]                               ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~1 ; 0                 ; 6       ;
-; GPIO[13]                               ;                   ;         ;
-; GPIO[18]                               ;                   ;         ;
-; GPIO[19]                               ;                   ;         ;
-; GPIO[20]                               ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~0 ; 1                 ; 6       ;
-; GPIO[21]                               ;                   ;         ;
-; GPIO[26]                               ;                   ;         ;
-; GPIO[27]                               ;                   ;         ;
-; GPIO[28]                               ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~1 ; 0                 ; 6       ;
-; GPIO[29]                               ;                   ;         ;
-; GPIO[32]                               ;                   ;         ;
-; GPIO[33]                               ;                   ;         ;
-; GPIO[34]                               ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~0 ; 1                 ; 6       ;
-; GPIO[35]                               ;                   ;         ;
-; SW[0]                                  ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~0 ; 0                 ; 6       ;
-;      - four_to_one_mux:MMISO|sig_out~1 ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE0|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK0|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MI0|sig_out~0    ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE1|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK1|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MI1|sig_out~0    ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE2|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK2|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MI2|sig_out~0    ; 0                 ; 6       ;
-;      - two_to_one_mux:MCE3|sig_out~0   ; 0                 ; 6       ;
-;      - two_to_one_mux:MSCLK3|sig_out~0 ; 0                 ; 6       ;
-;      - two_to_one_mux:MI3|sig_out~0    ; 0                 ; 6       ;
-; SW[1]                                  ;                   ;         ;
-;      - four_to_one_mux:MMISO|sig_out~0 ; 1                 ; 6       ;
-;      - two_to_one_mux:MCE0|sig_out~0   ; 1                 ; 6       ;
-;      - two_to_one_mux:MSCLK0|sig_out~0 ; 1                 ; 6       ;
-;      - two_to_one_mux:MI0|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MCE1|sig_out~0   ; 1                 ; 6       ;
-;      - two_to_one_mux:MSCLK1|sig_out~0 ; 1                 ; 6       ;
-;      - two_to_one_mux:MI1|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MCE2|sig_out~0   ; 1                 ; 6       ;
-;      - two_to_one_mux:MSCLK2|sig_out~0 ; 1                 ; 6       ;
-;      - two_to_one_mux:MI2|sig_out~0    ; 1                 ; 6       ;
-;      - two_to_one_mux:MCE3|sig_out~0   ; 1                 ; 6       ;
-;      - two_to_one_mux:MSCLK3|sig_out~0 ; 1                 ; 6       ;
-;      - two_to_one_mux:MI3|sig_out~0    ; 1                 ; 6       ;
-; MAX10_CLK1_50                          ;                   ;         ;
-+----------------------------------------+-------------------+---------+
++--------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                           ;
++--------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                        ; Pad To Core Index ; Setting ;
++--------------------------------------------+-------------------+---------+
+; ADC_CLK_10                                 ;                   ;         ;
+; MAX10_CLK2_50                              ;                   ;         ;
+; KEY[0]                                     ;                   ;         ;
+; KEY[1]                                     ;                   ;         ;
+; SW[2]                                      ;                   ;         ;
+; SW[3]                                      ;                   ;         ;
+; SW[4]                                      ;                   ;         ;
+; SW[5]                                      ;                   ;         ;
+; SW[6]                                      ;                   ;         ;
+; SW[7]                                      ;                   ;         ;
+; SW[8]                                      ;                   ;         ;
+; SW[9]                                      ;                   ;         ;
+; GSENSOR_INT[1]                             ;                   ;         ;
+; GSENSOR_INT[2]                             ;                   ;         ;
+; DRAM_DQ[0]                                 ;                   ;         ;
+; DRAM_DQ[1]                                 ;                   ;         ;
+; DRAM_DQ[2]                                 ;                   ;         ;
+; DRAM_DQ[3]                                 ;                   ;         ;
+; DRAM_DQ[4]                                 ;                   ;         ;
+; DRAM_DQ[5]                                 ;                   ;         ;
+; DRAM_DQ[6]                                 ;                   ;         ;
+; DRAM_DQ[7]                                 ;                   ;         ;
+; DRAM_DQ[8]                                 ;                   ;         ;
+; DRAM_DQ[9]                                 ;                   ;         ;
+; DRAM_DQ[10]                                ;                   ;         ;
+; DRAM_DQ[11]                                ;                   ;         ;
+; DRAM_DQ[12]                                ;                   ;         ;
+; DRAM_DQ[13]                                ;                   ;         ;
+; DRAM_DQ[14]                                ;                   ;         ;
+; DRAM_DQ[15]                                ;                   ;         ;
+; GSENSOR_SDI                                ;                   ;         ;
+; GSENSOR_SDO                                ;                   ;         ;
+; ARDUINO_IO[0]                              ;                   ;         ;
+; ARDUINO_IO[1]                              ;                   ;         ;
+; ARDUINO_IO[2]                              ;                   ;         ;
+; ARDUINO_IO[3]                              ;                   ;         ;
+; ARDUINO_IO[4]                              ;                   ;         ;
+; ARDUINO_IO[5]                              ;                   ;         ;
+; ARDUINO_IO[6]                              ;                   ;         ;
+; ARDUINO_IO[7]                              ;                   ;         ;
+; ARDUINO_IO[8]                              ;                   ;         ;
+; ARDUINO_IO[9]                              ;                   ;         ;
+; ARDUINO_IO[10]                             ;                   ;         ;
+; ARDUINO_IO[11]                             ;                   ;         ;
+; ARDUINO_IO[12]                             ;                   ;         ;
+; ARDUINO_IO[13]                             ;                   ;         ;
+; ARDUINO_IO[14]                             ;                   ;         ;
+; ARDUINO_IO[15]                             ;                   ;         ;
+; ARDUINO_RESET_N                            ;                   ;         ;
+; GPIO[4]                                    ;                   ;         ;
+; GPIO[6]                                    ;                   ;         ;
+; GPIO[7]                                    ;                   ;         ;
+; GPIO[8]                                    ;                   ;         ;
+; GPIO[9]                                    ;                   ;         ;
+; GPIO[14]                                   ;                   ;         ;
+; GPIO[15]                                   ;                   ;         ;
+; GPIO[16]                                   ;                   ;         ;
+; GPIO[17]                                   ;                   ;         ;
+; GPIO[22]                                   ;                   ;         ;
+; GPIO[23]                                   ;                   ;         ;
+; GPIO[24]                                   ;                   ;         ;
+; GPIO[25]                                   ;                   ;         ;
+; GPIO[30]                                   ;                   ;         ;
+; GPIO[31]                                   ;                   ;         ;
+; GPIO[0]                                    ;                   ;         ;
+;      - two_to_one_mux:MCE0|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE1|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE2|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE3|sig_out         ; 0                 ; 6       ;
+; GPIO[1]                                    ;                   ;         ;
+;      - instruction_handler:I0|RPi_inst[0]  ; 0                 ; 6       ;
+;      - two_to_one_mux:MI0|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MI1|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MI2|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MI3|sig_out~0        ; 0                 ; 6       ;
+; GPIO[2]                                    ;                   ;         ;
+;      - instruction_handler:I0|states[0]~0  ; 0                 ; 0       ;
+; GPIO[3]                                    ;                   ;         ;
+; GPIO[5]                                    ;                   ;         ;
+;      - instruction_handler:I0|RPi_inst[0]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[19] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[18] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[17] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[16] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[15] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[14] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[13] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[12] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[11] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[10] ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[9]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[8]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[7]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[6]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[5]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[4]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[3]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[2]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|RPi_inst[1]  ; 1                 ; 0       ;
+;      - instruction_handler:I0|states[0]    ; 1                 ; 0       ;
+;      - two_to_one_mux:MSCLK0|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK1|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK2|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK3|sig_out~0     ; 0                 ; 6       ;
+; GPIO[10]                                   ;                   ;         ;
+; GPIO[11]                                   ;                   ;         ;
+; GPIO[12]                                   ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~1     ; 0                 ; 6       ;
+; GPIO[13]                                   ;                   ;         ;
+; GPIO[18]                                   ;                   ;         ;
+; GPIO[19]                                   ;                   ;         ;
+; GPIO[20]                                   ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~0     ; 1                 ; 6       ;
+; GPIO[21]                                   ;                   ;         ;
+; GPIO[26]                                   ;                   ;         ;
+; GPIO[27]                                   ;                   ;         ;
+; GPIO[28]                                   ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~1     ; 0                 ; 6       ;
+; GPIO[29]                                   ;                   ;         ;
+; GPIO[32]                                   ;                   ;         ;
+; GPIO[33]                                   ;                   ;         ;
+; GPIO[34]                                   ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~0     ; 1                 ; 6       ;
+; GPIO[35]                                   ;                   ;         ;
+; SW[0]                                      ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~0     ; 0                 ; 6       ;
+;      - four_to_one_mux:MMISO|sig_out~1     ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE0|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK0|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MI0|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE1|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK1|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MI1|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE2|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK2|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MI2|sig_out~0        ; 0                 ; 6       ;
+;      - two_to_one_mux:MCE3|sig_out         ; 0                 ; 6       ;
+;      - two_to_one_mux:MSCLK3|sig_out~0     ; 0                 ; 6       ;
+;      - two_to_one_mux:MI3|sig_out~0        ; 0                 ; 6       ;
+; SW[1]                                      ;                   ;         ;
+;      - four_to_one_mux:MMISO|sig_out~0     ; 1                 ; 6       ;
+;      - two_to_one_mux:MCE0|sig_out         ; 1                 ; 6       ;
+;      - two_to_one_mux:MSCLK0|sig_out~0     ; 1                 ; 6       ;
+;      - two_to_one_mux:MI0|sig_out~0        ; 1                 ; 6       ;
+;      - two_to_one_mux:MCE1|sig_out         ; 1                 ; 6       ;
+;      - two_to_one_mux:MSCLK1|sig_out~0     ; 1                 ; 6       ;
+;      - two_to_one_mux:MI1|sig_out~0        ; 1                 ; 6       ;
+;      - two_to_one_mux:MCE2|sig_out         ; 1                 ; 6       ;
+;      - two_to_one_mux:MSCLK2|sig_out~0     ; 1                 ; 6       ;
+;      - two_to_one_mux:MI2|sig_out~0        ; 1                 ; 6       ;
+;      - two_to_one_mux:MCE3|sig_out         ; 1                 ; 6       ;
+;      - two_to_one_mux:MSCLK3|sig_out~0     ; 1                 ; 6       ;
+;      - two_to_one_mux:MI3|sig_out~0        ; 1                 ; 6       ;
+; MAX10_CLK1_50                              ;                   ;         ;
++--------------------------------------------+-------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                           ;
-+---------------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; Name          ; Location ; Fan-Out ; Usage ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+---------------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
-; MAX10_CLK1_50 ; PIN_P11  ; 33      ; Clock ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-+---------------+----------+---------+-------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                           ;
++----------------------------------+----------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                             ; Location       ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++----------------------------------+----------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; GPIO[5]                          ; PIN_W8         ; 25      ; Clock        ; no     ; --                   ; --               ; --                        ;
+; MAX10_CLK1_50                    ; PIN_P11        ; 33      ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; instruction_handler:I0|states[0] ; FF_X58_Y38_N15 ; 20      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++----------------------------------+----------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1614,142 +1768,143 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------+----------+---------+--------------------------------------+----------------------+------------------+---------------------------+
 
 
-+------------------------------------------------+
-; Routing Usage Summary                          ;
-+-----------------------+------------------------+
-; Routing Resource Type ; Usage                  ;
-+-----------------------+------------------------+
-; Block interconnects   ; 93 / 148,641 ( < 1 % ) ;
-; C16 interconnects     ; 7 / 5,382 ( < 1 % )    ;
-; C4 interconnects      ; 29 / 106,704 ( < 1 % ) ;
-; Direct links          ; 44 / 148,641 ( < 1 % ) ;
-; Global clocks         ; 1 / 20 ( 5 % )         ;
-; Local interconnects   ; 40 / 49,760 ( < 1 % )  ;
-; NSLEEPs               ; 0 / 500 ( 0 % )        ;
-; R24 interconnects     ; 8 / 5,406 ( < 1 % )    ;
-; R4 interconnects      ; 56 / 147,764 ( < 1 % ) ;
-+-----------------------+------------------------+
-
-
-+---------------------------------------------------------------------------+
-; LAB Logic Elements                                                        ;
-+---------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 10.75) ; Number of LABs  (Total = 8) ;
-+---------------------------------------------+-----------------------------+
-; 1                                           ; 2                           ;
-; 2                                           ; 0                           ;
-; 3                                           ; 0                           ;
-; 4                                           ; 0                           ;
-; 5                                           ; 0                           ;
-; 6                                           ; 0                           ;
-; 7                                           ; 0                           ;
-; 8                                           ; 0                           ;
-; 9                                           ; 0                           ;
-; 10                                          ; 0                           ;
-; 11                                          ; 2                           ;
-; 12                                          ; 0                           ;
-; 13                                          ; 0                           ;
-; 14                                          ; 1                           ;
-; 15                                          ; 0                           ;
-; 16                                          ; 3                           ;
-+---------------------------------------------+-----------------------------+
-
-
-+------------------------------------------------------------------+
-; LAB-wide Signals                                                 ;
-+------------------------------------+-----------------------------+
-; LAB-wide Signals  (Average = 0.63) ; Number of LABs  (Total = 8) ;
-+------------------------------------+-----------------------------+
-; 1 Clock                            ; 5                           ;
-+------------------------------------+-----------------------------+
++-------------------------------------------------+
+; Routing Usage Summary                           ;
++-----------------------+-------------------------+
+; Routing Resource Type ; Usage                   ;
++-----------------------+-------------------------+
+; Block interconnects   ; 272 / 148,641 ( < 1 % ) ;
+; C16 interconnects     ; 20 / 5,382 ( < 1 % )    ;
+; C4 interconnects      ; 186 / 106,704 ( < 1 % ) ;
+; Direct links          ; 73 / 148,641 ( < 1 % )  ;
+; Global clocks         ; 1 / 20 ( 5 % )          ;
+; Local interconnects   ; 161 / 49,760 ( < 1 % )  ;
+; NSLEEPs               ; 0 / 500 ( 0 % )         ;
+; R24 interconnects     ; 18 / 5,406 ( < 1 % )    ;
+; R4 interconnects      ; 212 / 147,764 ( < 1 % ) ;
++-----------------------+-------------------------+
 
 
 +----------------------------------------------------------------------------+
-; LAB Signals Sourced                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 14.88) ; Number of LABs  (Total = 8) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 1                           ;
-; 2                                            ; 1                           ;
-; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
-; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 0                           ;
-; 11                                           ; 0                           ;
-; 12                                           ; 0                           ;
-; 13                                           ; 0                           ;
-; 14                                           ; 1                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 1                           ;
-; 17                                           ; 0                           ;
-; 18                                           ; 0                           ;
-; 19                                           ; 2                           ;
-; 20                                           ; 0                           ;
-; 21                                           ; 1                           ;
-; 22                                           ; 0                           ;
-; 23                                           ; 0                           ;
-; 24                                           ; 0                           ;
-; 25                                           ; 0                           ;
-; 26                                           ; 0                           ;
-; 27                                           ; 1                           ;
-+----------------------------------------------+-----------------------------+
+; LAB Logic Elements                                                         ;
++---------------------------------------------+------------------------------+
+; Number of Logic Elements  (Average = 12.00) ; Number of LABs  (Total = 29) ;
++---------------------------------------------+------------------------------+
+; 1                                           ; 3                            ;
+; 2                                           ; 0                            ;
+; 3                                           ; 0                            ;
+; 4                                           ; 0                            ;
+; 5                                           ; 0                            ;
+; 6                                           ; 0                            ;
+; 7                                           ; 2                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 1                            ;
+; 10                                          ; 1                            ;
+; 11                                          ; 4                            ;
+; 12                                          ; 3                            ;
+; 13                                          ; 1                            ;
+; 14                                          ; 2                            ;
+; 15                                          ; 1                            ;
+; 16                                          ; 11                           ;
++---------------------------------------------+------------------------------+
 
 
-+-------------------------------------------------------------------------------+
-; LAB Signals Sourced Out                                                       ;
-+-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 9.63) ; Number of LABs  (Total = 8) ;
-+-------------------------------------------------+-----------------------------+
-; 0                                               ; 0                           ;
-; 1                                               ; 2                           ;
-; 2                                               ; 0                           ;
-; 3                                               ; 0                           ;
-; 4                                               ; 0                           ;
-; 5                                               ; 0                           ;
-; 6                                               ; 0                           ;
-; 7                                               ; 0                           ;
-; 8                                               ; 0                           ;
-; 9                                               ; 2                           ;
-; 10                                              ; 0                           ;
-; 11                                              ; 0                           ;
-; 12                                              ; 1                           ;
-; 13                                              ; 1                           ;
-; 14                                              ; 0                           ;
-; 15                                              ; 0                           ;
-; 16                                              ; 2                           ;
-+-------------------------------------------------+-----------------------------+
++-------------------------------------------------------------------+
+; LAB-wide Signals                                                  ;
++------------------------------------+------------------------------+
+; LAB-wide Signals  (Average = 0.59) ; Number of LABs  (Total = 29) ;
++------------------------------------+------------------------------+
+; 1 Clock                            ; 12                           ;
+; 1 Clock enable                     ; 5                            ;
++------------------------------------+------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; LAB Signals Sourced                                                         ;
++----------------------------------------------+------------------------------+
+; Number of Signals Sourced  (Average = 13.72) ; Number of LABs  (Total = 29) ;
++----------------------------------------------+------------------------------+
+; 0                                            ; 0                            ;
+; 1                                            ; 1                            ;
+; 2                                            ; 2                            ;
+; 3                                            ; 0                            ;
+; 4                                            ; 0                            ;
+; 5                                            ; 0                            ;
+; 6                                            ; 0                            ;
+; 7                                            ; 2                            ;
+; 8                                            ; 0                            ;
+; 9                                            ; 0                            ;
+; 10                                           ; 0                            ;
+; 11                                           ; 5                            ;
+; 12                                           ; 2                            ;
+; 13                                           ; 1                            ;
+; 14                                           ; 2                            ;
+; 15                                           ; 1                            ;
+; 16                                           ; 5                            ;
+; 17                                           ; 1                            ;
+; 18                                           ; 1                            ;
+; 19                                           ; 0                            ;
+; 20                                           ; 3                            ;
+; 21                                           ; 2                            ;
+; 22                                           ; 0                            ;
+; 23                                           ; 0                            ;
+; 24                                           ; 0                            ;
+; 25                                           ; 0                            ;
+; 26                                           ; 0                            ;
+; 27                                           ; 1                            ;
++----------------------------------------------+------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; LAB Signals Sourced Out                                                        ;
++-------------------------------------------------+------------------------------+
+; Number of Signals Sourced Out  (Average = 7.62) ; Number of LABs  (Total = 29) ;
++-------------------------------------------------+------------------------------+
+; 0                                               ; 0                            ;
+; 1                                               ; 3                            ;
+; 2                                               ; 0                            ;
+; 3                                               ; 0                            ;
+; 4                                               ; 0                            ;
+; 5                                               ; 1                            ;
+; 6                                               ; 4                            ;
+; 7                                               ; 8                            ;
+; 8                                               ; 7                            ;
+; 9                                               ; 0                            ;
+; 10                                              ; 2                            ;
+; 11                                              ; 0                            ;
+; 12                                              ; 1                            ;
+; 13                                              ; 1                            ;
+; 14                                              ; 0                            ;
+; 15                                              ; 0                            ;
+; 16                                              ; 2                            ;
++-------------------------------------------------+------------------------------+
 
 
 +----------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                        ;
-+----------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 10.00) ; Number of LABs  (Total = 8) ;
-+----------------------------------------------+-----------------------------+
-; 0                                            ; 0                           ;
-; 1                                            ; 0                           ;
-; 2                                            ; 1                           ;
-; 3                                            ; 0                           ;
-; 4                                            ; 0                           ;
-; 5                                            ; 0                           ;
-; 6                                            ; 0                           ;
-; 7                                            ; 0                           ;
-; 8                                            ; 0                           ;
-; 9                                            ; 0                           ;
-; 10                                           ; 2                           ;
-; 11                                           ; 1                           ;
-; 12                                           ; 1                           ;
-; 13                                           ; 0                           ;
-; 14                                           ; 0                           ;
-; 15                                           ; 0                           ;
-; 16                                           ; 0                           ;
-; 17                                           ; 1                           ;
-; 18                                           ; 1                           ;
-+----------------------------------------------+-----------------------------+
++---------------------------------------------+------------------------------+
+; Number of Distinct Inputs  (Average = 6.86) ; Number of LABs  (Total = 29) ;
++---------------------------------------------+------------------------------+
+; 0                                           ; 0                            ;
+; 1                                           ; 0                            ;
+; 2                                           ; 1                            ;
+; 3                                           ; 1                            ;
+; 4                                           ; 3                            ;
+; 5                                           ; 3                            ;
+; 6                                           ; 10                           ;
+; 7                                           ; 4                            ;
+; 8                                           ; 0                            ;
+; 9                                           ; 0                            ;
+; 10                                          ; 1                            ;
+; 11                                          ; 2                            ;
+; 12                                          ; 1                            ;
+; 13                                          ; 0                            ;
+; 14                                          ; 0                            ;
+; 15                                          ; 0                            ;
+; 16                                          ; 0                            ;
+; 17                                          ; 1                            ;
+; 18                                          ; 1                            ;
++---------------------------------------------+------------------------------+
 
 
 +------------------------------------------+
@@ -1958,7 +2113,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ARDUINO_IO[14]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; ARDUINO_IO[15]     ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; ARDUINO_RESET_N    ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
-; GPIO[2]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[4]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[6]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[7]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -1976,6 +2130,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; GPIO[31]           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[0]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[1]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
+; GPIO[2]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[3]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[5]            ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
 ; GPIO[10]           ; Pass      ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Pass      ; Pass      ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Pass         ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Inapplicable ; Pass      ; Inapplicable ; Inapplicable ;
@@ -2077,6 +2232,8 @@ Info (12825): DCLK dual-purpose pin not reserved
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (332104): Reading SDC File: 'RaspberryPi_Accelerator.SDC'
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Warning (332060): Node: GPIO[5] was determined to be a clock but was found without an associated clock assignment.
+    Info (13166): Register instruction_handler:I0|RPi_inst[0] is being clocked by GPIO[5]
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
 Info (332111): Found 3 clocks
@@ -2090,26 +2247,26 @@ Info (176353): Automatically promoted node MAX10_CLK1_50~input (placed in PIN P1
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:04
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:03
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 0% of the available device resources in the region that extends from location X22_Y0 to location X32_Y10
+    Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X67_Y33 to location X78_Y43
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.21 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
+Info (11888): Total time spent on timing analysis during the Fitter is 0.11 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:06
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:04
 Warning (169177): 88 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing MAX 10 Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems.
     Info (169178): Pin ADC_CLK_10 uses I/O standard 3.3-V LVTTL at N5 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 9
     Info (169178): Pin MAX10_CLK2_50 uses I/O standard 3.3-V LVTTL at N14 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 11
@@ -2160,7 +2317,6 @@ Warning (169177): 88 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin ARDUINO_IO[14] uses I/O standard 3.3-V LVTTL at AB21 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Info (169178): Pin ARDUINO_IO[15] uses I/O standard 3.3-V LVTTL at AA20 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Info (169178): Pin ARDUINO_RESET_N uses I/O standard 3.3 V Schmitt Trigger at F16 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 59
-    Info (169178): Pin GPIO[2] uses I/O standard 3.3-V LVTTL at V9 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[4] uses I/O standard 3.3-V LVTTL at V8 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[6] uses I/O standard 3.3-V LVTTL at V7 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[7] uses I/O standard 3.3-V LVTTL at W7 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -2178,6 +2334,7 @@ Warning (169177): 88 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
     Info (169178): Pin GPIO[31] uses I/O standard 3.3-V LVTTL at Y4 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[0] uses I/O standard 3.3-V LVTTL at V10 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[1] uses I/O standard 3.3-V LVTTL at W10 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Info (169178): Pin GPIO[2] uses I/O standard 3.3-V LVTTL at V9 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[3] uses I/O standard 3.3-V LVTTL at W9 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[5] uses I/O standard 3.3-V LVTTL at W8 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169178): Pin GPIO[10] uses I/O standard 3.3-V LVTTL at W5 File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -2235,7 +2392,6 @@ Warning (169064): Following 71 pins have no output enable or a GND or VCC output
     Info (169065): Pin ARDUINO_IO[14] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Info (169065): Pin ARDUINO_IO[15] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Info (169065): Pin ARDUINO_RESET_N has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 59
-    Info (169065): Pin GPIO[2] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[4] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[6] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[7] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -2253,6 +2409,7 @@ Warning (169064): Following 71 pins have no output enable or a GND or VCC output
     Info (169065): Pin GPIO[31] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[0] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[1] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Info (169065): Pin GPIO[2] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[3] has a permanently enabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[5] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[10] has a permanently enabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -2272,11 +2429,11 @@ Warning (169064): Following 71 pins have no output enable or a GND or VCC output
     Info (169065): Pin GPIO[34] has a permanently disabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Info (169065): Pin GPIO[35] has a permanently enabled output enable File: C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Info (144001): Generated suppressed messages file C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/RaspberryPi_Accelerator.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 5648 megabytes
-    Info: Processing ended: Thu May  4 15:47:38 2023
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:29
+Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 5651 megabytes
+    Info: Processing ended: Thu May 11 02:38:37 2023
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:24
 
 
 +----------------------------+

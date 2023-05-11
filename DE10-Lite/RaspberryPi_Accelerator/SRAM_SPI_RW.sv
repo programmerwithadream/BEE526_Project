@@ -2,28 +2,24 @@
 //currently only supports reading and writing one byte
 module SRAM_SPI_RW(
 	output cs,
-	input MISO,
 	output MOSI,
 	input sclk,
-	
-	//outputs of the module giving output from read and
-	//indicating output is valid
-	output [7:0] out_reg,
-	output output_valid,
 	
 	//inputs into the module specifying instruction,
 	//address, and inputs for write
 	input [7:0] inst,
 	input [23:0] address,
-	input [7:0] in_reg
+	input [7:0] in_reg,
+	input [23:0] length,
+	
+	//signal showing SO line on SRAM is ongoing
+	output output_valid
 );
 
 enum {WAIT, READ, READHOLD, WRITE} states = WAIT;
-logic [5:0] state_counter;
+logic [23:0] state_counter;
 
 logic [39:0] shift_reg;
-
-assign out_reg = shift_reg[7:0];
 
 always_ff @(posedge sclk)
 begin
@@ -58,7 +54,7 @@ begin
 		READ:
 		begin
 			cs <= 0;
-			if (state_counter == 41)
+			if (state_counter == 33 + length)
 			begin
 				states <= READHOLD;
 				state_counter <= 0;
@@ -75,7 +71,7 @@ begin
 				end
 				else
 				begin
-					shift_reg <= {shift_reg[38:0], MISO};
+					output_valid <= 1;
 				end
 			end
 		end
@@ -87,12 +83,11 @@ begin
 		WRITE:
 		begin
 			cs <= 0;
-			if (state_counter == 41)
+			if (state_counter == 33 + length)
 			begin
 				states <= WAIT;
 				state_counter <= 0;
 				cs <= 1;
-				output_valid <= 1;
 			end
 			else
 			begin
