@@ -31,44 +31,44 @@ int main()
     gpioSetMode(execute_task, PI_OUTPUT);
 
     for (int i = 0; i < 10; i++) {
+        gpioWrite(sram_select1, 0);
         gpioWrite(sram_select0, 0);
-        gpiowrite(sram_select1, 0);
-        gpiowrite(execute_task, 0);
+        gpioWrite(execute_task, 0);
         sleep(1);             // Wait for a second
 
+        gpioWrite(sram_select1, 0);
         gpioWrite(sram_select0, 0);
-        gpiowrite(sram_select1, 0);
-        gpiowrite(execute_task, 1);
+        gpioWrite(execute_task, 1);
         sleep(1);             // Wait for a second
 
+        gpioWrite(sram_select1, 0);
+        gpioWrite(sram_select0, 1);
+        gpioWrite(execute_task, 0);
+        sleep(1);             // Wait for a second
+
+        gpioWrite(sram_select1, 0);
+        gpioWrite(sram_select0, 1);
+        gpioWrite(execute_task, 1);
+        sleep(1);             // Wait for a second
+
+        gpioWrite(sram_select1, 1);
         gpioWrite(sram_select0, 0);
-        gpiowrite(sram_select1, 1);
-        gpiowrite(execute_task, 0);
+        gpioWrite(execute_task, 0);
         sleep(1);             // Wait for a second
 
+        gpioWrite(sram_select1, 1);
         gpioWrite(sram_select0, 0);
-        gpiowrite(sram_select1, 1);
-        gpiowrite(execute_task, 1);
+        gpioWrite(execute_task, 1);
         sleep(1);             // Wait for a second
 
+        gpioWrite(sram_select1, 1);
         gpioWrite(sram_select0, 1);
-        gpiowrite(sram_select1, 0);
-        gpiowrite(execute_task, 0);
+        gpioWrite(execute_task, 0);
         sleep(1);             // Wait for a second
 
+        gpioWrite(sram_select1, 1);
         gpioWrite(sram_select0, 1);
-        gpiowrite(sram_select1, 0);
-        gpiowrite(execute_task, 1);
-        sleep(1);             // Wait for a second
-
-        gpioWrite(sram_select0, 1);
-        gpiowrite(sram_select1, 1);
-        gpiowrite(execute_task, 0);
-        sleep(1);             // Wait for a second
-
-        gpioWrite(sram_select0, 1);
-        gpiowrite(sram_select1, 1);
-        gpiowrite(execute_task, 1);
+        gpioWrite(execute_task, 1);
         sleep(1);             // Wait for a second
     }
 
