@@ -46,7 +46,9 @@ void read_arr(uint32_t address, uint8_t* arr, int size) {
     buffer[2] = static_cast<uint8_t>((address >> 8) & 0xFF);
     buffer[3] = static_cast<uint8_t>(address & 0xFF);
     
+    digitalWrite(10, LOW);
     wiringPiSPIDataRW(spi_channel, buffer, size + 4);
+    digitalWrite(10, HIGH);
     for (int i = 0; i < size; i++) {
         arr[i] = buffer[4 + i];
     }
@@ -60,6 +62,8 @@ int main() {
         std::cerr << "Error initializing SPI" << std::endl;
         return 1;
     }
+    
+    digitalWrite(10, HIGH);
     
     //int test = 257;
     //uint8_t testuint = test;

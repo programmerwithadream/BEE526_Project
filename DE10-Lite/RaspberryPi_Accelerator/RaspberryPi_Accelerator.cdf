@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("C:/Users/justi/Desktop/MSEE/BEE525/Material/DE10/Tools/SystemBuilder/CodeGenerated/DE10_LITE/RaspberryPi_Accelerator/") File("RaspberryPi_Accelerator.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/") File("RaspberryPi_Accelerator.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
