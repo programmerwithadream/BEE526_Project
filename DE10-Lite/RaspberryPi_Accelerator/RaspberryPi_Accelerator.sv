@@ -78,10 +78,10 @@ localparam int RPICLK_PIN = 5;
 localparam int CS0_PIN = 0;
 localparam int CS1_PIN = 2;
 
-localparam int CE0_PIN = 10;
-localparam int SO0_PIN = 12;
-localparam int SCLK0_PIN = 11;
-localparam int SI0_PIN = 13;
+localparam int CE0_PIN = 22;
+localparam int SO0_PIN = 24;
+localparam int SCLK0_PIN = 23;
+localparam int SI0_PIN = 25;
 
 localparam int CE1_PIN = 18;
 localparam int SO1_PIN = 20;
@@ -97,6 +97,13 @@ localparam int CE3_PIN = 32;
 localparam int SO3_PIN = 34;
 localparam int SCLK3_PIN = 33;
 localparam int SI3_PIN = 35;
+
+//pins for RPi signals to instruction handler
+localparam int SRAM_SELECT0_PIN = 10; //connect to RPI GPIO 24
+localparam int SRAM_SELECT1_PIN = 12; //connect to RPI GPIO 23
+localparam int INST_VALID_PIN = 14; //connect to RPI GPIO pin 17
+localparam int JOB_DONE_PIN = 13; //connect to RPI GPIO pin  27
+localparam int EXECUTE_TASK_PIN = 11; //connect to RPI GPIO pin 22
 
 //=======================================================
 //  REG/WIRE declarations
@@ -169,10 +176,11 @@ assign so[1] = GPIO[SO1_PIN];
 assign so[2] = GPIO[SO2_PIN];
 assign so[3] = GPIO[SO3_PIN];
 
-//TODO:connect input signals for decoder from raspberry pi
-//temporary signals
-assign sram_select[0] = SW[0];
-assign sram_select[1] = SW[1];
+//signals between RPi and FPGA task_manager
+assign sram_select[0] = GPIO[SRAM_SELECT0_PIN];
+assign sram_select[1] = GPIO[SRAM_SELECT1_PIN];
+assign execute_task = GPIO[EXECUTE_TASK_PIN];
+
 
 //FPGA read/write modules
 SRAM_SPI_RW S0(fs[0], fi[0], clk, inst[0], address[0], in_reg[0], length[0], output_valid[0]);
@@ -237,8 +245,12 @@ four_to_one_mux MMISO(MISO, SO0, SO1, SO2, SO3, sram_select[0], sram_select[1]);
 //temporary test
 //***************
 logic [31:0] temp_inst;
+logic [2:0] temp_pins;
+assign temp_pins[0] = execute_task;
+assign temp_pins[1] = sram_select[0];
+assign temp_pins[2] = sram_select[1];
 instruction_handler #32 I0(temp_inst, MOSI, RPiclk, cs[1]);
 task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, in_reg, length, so, output_valid);
-display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, temp_inst);
+display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, temp_pins);
 
 endmodule

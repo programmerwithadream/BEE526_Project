@@ -1,5 +1,5 @@
 Flow report for RaspberryPi_Accelerator
-Thu May 11 12:20:18 2023
+Thu May 11 14:15:05 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu May 11 12:20:11 2023       ;
+; Flow Status                        ; Successful - Thu May 11 14:14:59 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 348 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 338 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 54 / 49,760 ( < 1 % )                       ;
-; Total registers                    ; 54                                          ;
+; Total logic elements               ; 92 / 49,760 ( < 1 % )                       ;
+;     Total combinational functions  ; 92 / 49,760 ( < 1 % )                       ;
+;     Dedicated logic registers      ; 33 / 49,760 ( < 1 % )                       ;
+; Total registers                    ; 33                                          ;
 ; Total pins                         ; 185 / 360 ( 51 % )                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+-------------------------+
 ; Option            ; Setting                 ;
 +-------------------+-------------------------+
-; Start date & time ; 05/11/2023 12:19:25     ;
+; Start date & time ; 05/11/2023 14:14:24     ;
 ; Main task         ; Compilation             ;
 ; Revision Name     ; RaspberryPi_Accelerator ;
 +-------------------+-------------------------+
@@ -78,7 +78,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 275577293810285.168383276504964        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 275577293810285.168383966408304        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,11 +94,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4816 MB             ; 00:00:38                           ;
-; Fitter               ; 00:00:18     ; 1.1                     ; 5651 MB             ; 00:00:20                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4724 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:06     ; 1.1                     ; 4859 MB             ; 00:00:06                           ;
-; Total                ; 00:00:46     ; --                      ; --                  ; 00:01:08                           ;
+; Analysis & Synthesis ; 00:00:14     ; 1.0                     ; 4816 MB             ; 00:00:30                           ;
+; Fitter               ; 00:00:15     ; 1.0                     ; 5650 MB             ; 00:00:18                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4727 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:05     ; 1.0                     ; 4840 MB             ; 00:00:05                           ;
+; Total                ; 00:00:38     ; --                      ; --                  ; 00:00:57                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

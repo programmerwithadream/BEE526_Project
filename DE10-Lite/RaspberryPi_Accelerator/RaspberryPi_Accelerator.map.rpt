@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Thu May 11 12:19:45 2023
+Thu May 11 14:14:37 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -789,15 +789,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 11 12:19:45 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 11 14:14:37 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 357                                         ;
-;     Total combinational functions  ; 337                                         ;
-;     Dedicated logic registers      ; 54                                          ;
-; Total registers                    ; 54                                          ;
+; Total logic elements               ; 91                                          ;
+;     Total combinational functions  ; 91                                          ;
+;     Dedicated logic registers      ; 33                                          ;
+; Total registers                    ; 33                                          ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -938,20 +938,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------+
 ; Resource                                    ; Usage               ;
 +---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 357                 ;
+; Estimated Total logic elements              ; 91                  ;
 ;                                             ;                     ;
-; Total combinational functions               ; 337                 ;
+; Total combinational functions               ; 91                  ;
 ; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 262                 ;
-;     -- 3 input functions                    ; 12                  ;
-;     -- <=2 input functions                  ; 63                  ;
+;     -- 4 input functions                    ; 16                  ;
+;     -- 3 input functions                    ; 43                  ;
+;     -- <=2 input functions                  ; 32                  ;
 ;                                             ;                     ;
 ; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 306                 ;
+;     -- normal mode                          ; 60                  ;
 ;     -- arithmetic mode                      ; 31                  ;
 ;                                             ;                     ;
-; Total registers                             ; 54                  ;
-;     -- Dedicated logic registers            ; 54                  ;
+; Total registers                             ; 33                  ;
+;     -- Dedicated logic registers            ; 33                  ;
 ;     -- I/O registers                        ; 0                   ;
 ;                                             ;                     ;
 ; I/O pins                                    ; 185                 ;
@@ -960,160 +960,33 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                     ;
 ; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
 ; Maximum fan-out                             ; 33                  ;
-; Total fan-out                               ; 1647                ;
-; Average fan-out                             ; 1.98                ;
+; Total fan-out                               ; 598                 ;
+; Average fan-out                             ; 1.06                ;
 +---------------------------------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                         ;
-+--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                    ; Entity Name             ; Library Name ;
-+--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |RaspberryPi_Accelerator             ; 337 (71)            ; 54 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                               ; RaspberryPi_Accelerator ; work         ;
-;    |display:DI0|                     ; 251 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0                                                                                   ; display                 ; work         ;
-;       |BCD_converter:comb_3|         ; 209 (153)           ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3                                                              ; BCD_converter           ; work         ;
-;          |n_bit_adder:comb_1006|     ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006                                        ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006|full_adder:F1[3].D1                    ; full_adder              ; work         ;
-;          |n_bit_adder:comb_1017|     ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1017                                        ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1017|full_adder:F1[3].D1                    ; full_adder              ; work         ;
-;          |n_bit_adder:comb_1028|     ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1028                                        ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1028|full_adder:F1[3].D1                    ; full_adder              ; work         ;
-;          |n_bit_adder:comb_1039|     ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1039                                        ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1039|full_adder:F1[3].D1                    ; full_adder              ; work         ;
-;          |n_bit_adder:comb_131|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_131                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_131|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_193|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_193                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_193|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_255|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_255                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_255|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_317|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_317                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_317|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_324|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_324                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_324|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_379|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_379                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_379|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_386|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_386                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_386|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_441|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_441                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_441|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_448|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_448                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_448|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_503|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_503                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_503|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_510|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_510                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_510|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_521|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_521                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_521|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_565|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_565                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_565|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_572|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_572                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_572|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_583|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_583                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_583|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_627|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_627                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_627|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_634|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_634                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_634|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_645|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_645                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_645|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_689|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_689                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_689|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_696|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_696                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_696|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_707|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_707                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_707|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_718|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_718                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_718|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_751|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_751                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_751|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_758|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_758                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_758|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_769|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_769                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_769|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_780|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_780                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_780|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_813|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_813                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_813|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_820|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_820                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_820|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_831|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_831                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_831|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_842|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_842                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_842|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_875|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_875                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_875|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_882|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_882                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_882|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_893|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_893                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_893|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_904|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_904                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_904|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_915|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_915                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_915|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_937|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_937                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_937|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_944|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_944                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_944|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_955|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_955                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_955|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_966|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_966                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_966|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_977|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_977                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_977|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_adder:comb_999|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_999                                         ; n_bit_adder             ; work         ;
-;             |full_adder:F1[3].D1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_999|full_adder:F1[3].D1                     ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_199| ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 2 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[2].D1| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_199|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_261| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[3].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_261|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_396| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[2].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_396|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_458| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[3].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_458|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_593| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[2].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_593|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_655| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[3].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_655|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_68|  ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68                                     ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68|n_bit_adder:D1                      ; n_bit_adder             ; work         ;
-;                |full_adder:F1[3].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_68|n_bit_adder:D1|full_adder:F1[3].D1  ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_6|   ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6                                      ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6|n_bit_adder:D1                       ; n_bit_adder             ; work         ;
-;                |full_adder:F1[2].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6|n_bit_adder:D1|full_adder:F1[2].D1   ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_790| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[2].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_790|n_bit_adder:D1|full_adder:F1[2].D1 ; full_adder              ; work         ;
-;          |n_bit_comparator:comb_852| ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852                                    ; n_bit_comparator        ; work         ;
-;             |n_bit_adder:D1|         ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852|n_bit_adder:D1                     ; n_bit_adder             ; work         ;
-;                |full_adder:F1[3].D1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_852|n_bit_adder:D1|full_adder:F1[3].D1 ; full_adder              ; work         ;
-;       |bcd_to_segment:comb_4|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_4                                                             ; bcd_to_segment          ; work         ;
-;       |bcd_to_segment:comb_5|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_5                                                             ; bcd_to_segment          ; work         ;
-;       |bcd_to_segment:comb_6|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_6                                                             ; bcd_to_segment          ; work         ;
-;       |bcd_to_segment:comb_7|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_7                                                             ; bcd_to_segment          ; work         ;
-;       |bcd_to_segment:comb_8|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_8                                                             ; bcd_to_segment          ; work         ;
-;       |bcd_to_segment:comb_9|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_9                                                             ; bcd_to_segment          ; work         ;
-;    |four_to_one_mux:MMISO|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|four_to_one_mux:MMISO                                                                         ; four_to_one_mux         ; work         ;
-;    |instruction_handler:I0|          ; 1 (1)               ; 21 (21)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|instruction_handler:I0                                                                        ; instruction_handler     ; work         ;
-;    |two_to_one_mux:MCE0|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE0                                                                           ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE1|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE1                                                                           ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE2|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE2                                                                           ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE3|             ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE3                                                                           ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI0|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI0                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI1|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI1                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI2                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI3|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI3                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK0|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK0                                                                         ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK1|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK1                                                                         ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK2|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK2                                                                         ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK3|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK3                                                                         ; two_to_one_mux          ; work         ;
-+--------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                      ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                        ; Entity Name             ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------+-------------------------+--------------+
+; |RaspberryPi_Accelerator      ; 91 (70)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                   ; RaspberryPi_Accelerator ; work         ;
+;    |display:DI0|              ; 7 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0                       ; display                 ; work         ;
+;       |bcd_to_segment:comb_4| ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_4 ; bcd_to_segment          ; work         ;
+;    |four_to_one_mux:MMISO|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|four_to_one_mux:MMISO             ; four_to_one_mux         ; work         ;
+;    |two_to_one_mux:MCE0|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE0               ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE1|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE1               ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE2|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE2               ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MCE3|      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE3               ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI0|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI0                ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI1|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI1                ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI2|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI2                ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MI3|       ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI3                ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK0|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK0             ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK1|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK1             ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK2|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK2             ; two_to_one_mux          ; work         ;
+;    |two_to_one_mux:MSCLK3|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK3             ; two_to_one_mux          ; work         ;
++-------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -1123,7 +996,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register name                           ; Reason for Removal                           ;
 +-----------------------------------------+----------------------------------------------+
 ; instruction_handler:I0|states[1..31]    ; Stuck at GND due to stuck port data_in       ;
-; instruction_handler:I0|RPi_inst[20..31] ; Lost fanout                                  ;
+; instruction_handler:I0|RPi_inst[0..31]  ; Lost fanout                                  ;
+; instruction_handler:I0|states[0]        ; Lost fanout                                  ;
 ; SRAM_SPI_RW:S1|cs                       ; Merged with SRAM_SPI_RW:S0|cs                ;
 ; SRAM_SPI_RW:S2|cs                       ; Merged with SRAM_SPI_RW:S0|cs                ;
 ; SRAM_SPI_RW:S3|cs                       ; Merged with SRAM_SPI_RW:S0|cs                ;
@@ -1335,7 +1209,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_SPI_RW:S0|states[0,1]              ; Stuck at GND due to stuck port data_in       ;
 ; SRAM_SPI_RW:S0|cs                       ; Stuck at VCC due to stuck port data_in       ;
 ; SRAM_SPI_RW:S0|state_counter[0..23]     ; Stuck at GND due to stuck port data_in       ;
-; Total Number of Removed Registers = 435 ;                                              ;
+; Total Number of Removed Registers = 456 ;                                              ;
 +-----------------------------------------+----------------------------------------------+
 
 
@@ -1349,7 +1223,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;                                     ;                    ; instruction_handler:I0|RPi_inst[26], instruction_handler:I0|RPi_inst[25], ;
 ;                                     ;                    ; instruction_handler:I0|RPi_inst[24], instruction_handler:I0|RPi_inst[23], ;
 ;                                     ;                    ; instruction_handler:I0|RPi_inst[22], instruction_handler:I0|RPi_inst[21], ;
-;                                     ;                    ; instruction_handler:I0|RPi_inst[20]                                       ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[20], instruction_handler:I0|RPi_inst[19], ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[18], instruction_handler:I0|RPi_inst[17], ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[16], instruction_handler:I0|RPi_inst[15], ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[14], instruction_handler:I0|RPi_inst[13], ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[12], instruction_handler:I0|RPi_inst[11], ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[10], instruction_handler:I0|RPi_inst[9],  ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[8], instruction_handler:I0|RPi_inst[7],   ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[6], instruction_handler:I0|RPi_inst[5],   ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[4], instruction_handler:I0|RPi_inst[3],   ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[2], instruction_handler:I0|RPi_inst[1],   ;
+;                                     ;                    ; instruction_handler:I0|RPi_inst[0]                                        ;
 +-------------------------------------+--------------------+---------------------------------------------------------------------------+
 
 
@@ -1358,12 +1242,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 54    ;
+; Total registers                              ; 33    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 20    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -9446,13 +9330,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------+-------+----------+---------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "display:DI0"                                                                                                                                                                       ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                             ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; num  ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (21 bits) it drives.  The 11 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "display:DI0"                                                                                                                                 ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                       ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; num  ; Input ; Warning  ; Input port expression (3 bits) is smaller than the input port (21 bits) it drives.  Extra input bit(s) "num[20..3]" will be connected to GND. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -9560,7 +9444,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; inst_valid       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; job_done         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; RPi_inst[79..32] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; execute_task     ; Input  ; Info     ; Stuck at GND                                                                        ;
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -9570,22 +9453,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 54                          ;
-;     ENA               ; 20                          ;
-;     plain             ; 34                          ;
+; cycloneiii_ff         ; 33                          ;
+;     plain             ; 33                          ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 339                         ;
+; cycloneiii_lcell_comb ; 95                          ;
 ;     arith             ; 31                          ;
 ;         2 data inputs ; 31                          ;
-;     normal            ; 308                         ;
+;     normal            ; 64                          ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 30                          ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 262                         ;
+;         1 data inputs ; 3                           ;
+;         3 data inputs ; 43                          ;
+;         4 data inputs ; 16                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 17.00                       ;
-; Average LUT depth     ; 9.92                        ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 2.36                        ;
 +-----------------------+-----------------------------+
 
 
@@ -9594,7 +9475,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -9604,7 +9485,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Thu May 11 12:19:25 2023
+    Info: Processing started: Thu May 11 14:14:23 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -9637,10 +9518,10 @@ Info (12021): Found 1 design units, including 1 entities, in source file two_to_
     Info (12023): Found entity 1: two_to_four_decoder File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/two_to_four_decoder.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file raspberrypi_accelerator.sv
     Info (12023): Found entity 1: RaspberryPi_Accelerator File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 6
-Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(193): created implicit net for "SO0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 193
-Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(204): created implicit net for "SO1" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 204
-Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(215): created implicit net for "SO2" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 215
-Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(226): created implicit net for "SO3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 226
+Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(201): created implicit net for "SO0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 201
+Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(212): created implicit net for "SO1" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 212
+Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(223): created implicit net for "SO2" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 223
+Warning (10236): Verilog HDL Implicit Net warning at RaspberryPi_Accelerator.sv(234): created implicit net for "SO3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 234
 Critical Warning (10846): Verilog HDL Instantiation warning at BCD_converter.sv(28): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 28
 Critical Warning (10846): Verilog HDL Instantiation warning at BCD_converter.sv(29): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 29
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(16): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
@@ -9651,7 +9532,6 @@ Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(22): i
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(23): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 23
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(24): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 24
 Info (12127): Elaborating entity "RaspberryPi_Accelerator" for the top level hierarchy
-Warning (10030): Net "execute_task" at RaspberryPi_Accelerator.sv(139) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 139
 Warning (10034): Output port "DRAM_ADDR" at RaspberryPi_Accelerator.sv(14) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 14
 Warning (10034): Output port "DRAM_BA" at RaspberryPi_Accelerator.sv(15) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 15
 Warning (10034): Output port "LEDR" at RaspberryPi_Accelerator.sv(38) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 38
@@ -9670,14 +9550,14 @@ Warning (10034): Output port "VGA_HS" at RaspberryPi_Accelerator.sv(46) has no d
 Warning (10034): Output port "VGA_VS" at RaspberryPi_Accelerator.sv(48) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 48
 Warning (10034): Output port "GSENSOR_CS_N" at RaspberryPi_Accelerator.sv(51) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 51
 Warning (10034): Output port "GSENSOR_SCLK" at RaspberryPi_Accelerator.sv(53) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 53
-Info (12128): Elaborating entity "SRAM_SPI_RW" for hierarchy "SRAM_SPI_RW:S0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 178
+Info (12128): Elaborating entity "SRAM_SPI_RW" for hierarchy "SRAM_SPI_RW:S0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 186
 Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(66): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 66
 Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(94): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 94
-Info (12128): Elaborating entity "two_to_four_decoder" for hierarchy "two_to_four_decoder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 184
-Info (12128): Elaborating entity "two_to_one_mux" for hierarchy "two_to_one_mux:MI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 187
-Info (12128): Elaborating entity "four_to_one_mux" for hierarchy "four_to_one_mux:MMISO" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 231
-Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 240
-Info (12128): Elaborating entity "task_manager" for hierarchy "task_manager:T0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 241
+Info (12128): Elaborating entity "two_to_four_decoder" for hierarchy "two_to_four_decoder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 192
+Info (12128): Elaborating entity "two_to_one_mux" for hierarchy "two_to_one_mux:MI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 195
+Info (12128): Elaborating entity "four_to_one_mux" for hierarchy "four_to_one_mux:MMISO" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 239
+Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 252
+Info (12128): Elaborating entity "task_manager" for hierarchy "task_manager:T0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 253
 Warning (10036): Verilog HDL or VHDL warning at task_manager.sv(39): object "threshold" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 39
 Warning (10036): Verilog HDL or VHDL warning at task_manager.sv(43): object "state_counter" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 43
 Warning (10034): Output port "sram_inst" at task_manager.sv(17) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 17
@@ -9786,7 +9666,7 @@ Info (12128): Elaborating entity "full_adder" for hierarchy "task_manager:T0|n_b
 Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "task_manager:T0|n_bit_comparator:C1" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 90
 Info (12128): Elaborating entity "n_bit_twos_comp" for hierarchy "task_manager:T0|n_bit_comparator:C1|n_bit_twos_comp:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_comparator.sv Line: 13
 Info (12128): Elaborating entity "n_bit_adder" for hierarchy "task_manager:T0|n_bit_comparator:C1|n_bit_twos_comp:D0|n_bit_adder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_twos_comp.sv Line: 21
-Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 242
+Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 254
 Info (12128): Elaborating entity "BCD_converter" for hierarchy "display:DI0|BCD_converter:comb_3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "addResult" into its bus
 Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 28
@@ -10128,12 +10008,12 @@ Warning (12020): Port "ordered port 5" on the entity instantiation of "D0" is co
 Warning (12241): 113 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[3]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[10]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[11]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[13]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[18]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[19]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[21]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[22]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[23]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[25]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[26]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[27]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[29]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -10145,8 +10025,11 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO[1]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[2]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[10]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[11]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[12]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 20
@@ -10189,24 +10072,21 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO[7]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[8]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[13]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[14]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[16]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[22]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "GPIO[3]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[10]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[11]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[13]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[18]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[19]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[21]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[22]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[23]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[25]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[26]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[27]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[29]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
@@ -10238,10 +10118,45 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 23
     Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 24
     Warning (13410): Pin "HEX0[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 27
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
     Warning (13410): Pin "HEX1[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 28
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
     Warning (13410): Pin "HEX2[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 29
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
     Warning (13410): Pin "HEX3[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 30
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
     Warning (13410): Pin "HEX4[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 31
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
     Warning (13410): Pin "HEX5[7]" is stuck at VCC File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 32
     Warning (13410): Pin "LEDR[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 38
     Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 38
@@ -10270,14 +10185,16 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "GSENSOR_CS_N" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 51
     Warning (13410): Pin "GSENSOR_SCLK" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 53
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (17049): 33 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 14 input pin(s) that do not drive logic
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 9
     Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 11
     Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 35
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 35
+    Warning (15610): No output dependent on input pin "SW[0]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
@@ -10288,15 +10205,15 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
     Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
-Info (21057): Implemented 542 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 276 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 357 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 530 warnings
+    Info (21061): Implemented 91 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 566 warnings
     Info: Peak virtual memory: 4816 megabytes
-    Info: Processing ended: Thu May 11 12:19:45 2023
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Processing ended: Thu May 11 14:14:37 2023
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:30
 
 
