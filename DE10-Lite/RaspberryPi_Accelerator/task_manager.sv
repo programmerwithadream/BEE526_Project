@@ -16,17 +16,18 @@ module task_manager #(
 	//signals to and from SRAM
 	output [7:0] sram_inst [3:0],
 	output [23:0] address [3:0],
-	output [7:0] in_reg [3:0],
+	output [3:0] write_in,
 	output [23:0] length [3:0],
 	input [3:0] so,
-	input [3:0] output_valid
+	input [3:0] output_valid,
+	input [3:0] input_valid
 );
 
 
 //instruction type most be presented in the most significant byte of inst
 //can have up to 255 tasks, 8'b00000000 for instruction is reserved for no task
 //first task implemented will start at 255
-localparam int INST_POINTER = 255;
+localparam int INST_POINTER = 253;
 
 //maximum address of the sram
 localparam int MAX_ADDRESS = 'h1ffff;
@@ -44,7 +45,10 @@ logic [32:0] state_counter;
 
 typedef enum logic [7:0] {
 	IDLE = 8'b00,
-	SET_THRESHOLD = 8'b11111111
+	SET_THRESHOLD = 8'b11111111,
+	//read and write one byte on the first sram proceeding current sram_select
+	WRITE_BYTE_FIRST = 8'b11111110,
+	READ_BYTE_FIRST = 8'b11111101
 } state_t;
 
 state_t states;

@@ -69,7 +69,7 @@ module RaspberryPi_Accelerator(
 //=======================================================
 
 //frequency the SPI operates on
-localparam desiredFrequency = 10000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
+localparam desiredFrequency = 100.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
 //pin numbers for raspberry pi, sram0,1,2,3 signals
 localparam int MOSI_PIN = 1;
@@ -78,15 +78,15 @@ localparam int RPICLK_PIN = 5;
 localparam int CS0_PIN = 0;
 localparam int CS1_PIN = 2;
 
-localparam int CE0_PIN = 22;
-localparam int SO0_PIN = 24;
-localparam int SCLK0_PIN = 23;
-localparam int SI0_PIN = 25;
+localparam int CE0_PIN = 18;
+localparam int SO0_PIN = 20;
+localparam int SCLK0_PIN = 19;
+localparam int SI0_PIN = 21;
 
-localparam int CE1_PIN = 18;
-localparam int SO1_PIN = 20;
-localparam int SCLK1_PIN = 19;
-localparam int SI1_PIN = 21;
+localparam int CE1_PIN = 22;
+localparam int SO1_PIN = 24;
+localparam int SCLK1_PIN = 23;
+localparam int SI1_PIN = 25;
 
 localparam int CE2_PIN = 26;
 localparam int SO2_PIN = 28;
@@ -136,11 +136,12 @@ logic [3:0] fi;
 logic [3:0] fs;
 
 //signals for spi read/write modules
-logic [3:0] output_valid;
 logic [7:0] inst [3:0];
 logic [23:0] address [3:0];
-logic [7:0] in_reg [3:0];
+logic [3:0] write_in;
 logic [23:0] length [3:0];
+logic [3:0] io_valid;
+logic [3:0] rw_done;
 
 //handshake signals between raspberry pi  and fpga
 logic inst_valid, job_done, execute_task;
@@ -170,23 +171,25 @@ assign RPiclk = GPIO[RPICLK_PIN];
 assign cs[0] = GPIO[CS0_PIN];
 assign cs[1] = GPIO[CS1_PIN];
 
-//assigning so signals to their corresponding SRAMs
+//assigning system out signals to their corresponding SRAMs
 assign so[0] = GPIO[SO0_PIN];
 assign so[1] = GPIO[SO1_PIN];
 assign so[2] = GPIO[SO2_PIN];
 assign so[3] = GPIO[SO3_PIN];
 
 //signals between RPi and FPGA task_manager
-assign sram_select[0] = GPIO[SRAM_SELECT0_PIN];
-assign sram_select[1] = GPIO[SRAM_SELECT1_PIN];
+assign sram_select[0] = SW[1];//GPIO[SRAM_SELECT0_PIN];
+assign sram_select[1] = SW[2];//GPIO[SRAM_SELECT1_PIN];
+assign GPIO[INST_VALID_PIN] = inst_valid;
+assign GPIO[JOB_DONE_PIN] = job_done;
 assign execute_task = GPIO[EXECUTE_TASK_PIN];
 
 
 //FPGA read/write modules
-SRAM_SPI_RW S0(fs[0], fi[0], clk, inst[0], address[0], in_reg[0], length[0], output_valid[0]);
-SRAM_SPI_RW S1(fs[1], fi[1], clk, inst[1], address[1], in_reg[1], length[1], output_valid[1]);
-SRAM_SPI_RW S2(fs[2], fi[2], clk, inst[2], address[2], in_reg[2], length[2], output_valid[2]);
-SRAM_SPI_RW S3(fs[3], fi[3], clk, inst[3], address[3], in_reg[3], length[3], output_valid[3]);
+SRAM_SPI_RW S0(fs[0], so[0], clk, fi[0], inst[0], address[0], write_in[0], length[0], io_valid[0], rw_done[0]);
+SRAM_SPI_RW S1(fs[1], so[1], clk, fi[1], inst[1], address[1], write_in[1], length[1], io_valid[1], rw_done[1]);
+SRAM_SPI_RW S2(fs[2], so[2], clk, fi[2], inst[2], address[2], write_in[2], length[2], io_valid[2], rw_done[2]);
+SRAM_SPI_RW S3(fs[3], so[3], clk, fi[3], inst[3], address[3], write_in[3], length[3], io_valid[3], rw_done[3]);
 
 //two-to-four decoder used for select signals for muxes
 two_to_four_decoder D0(d[0], d[1], d[2], d[3], sram_select[0], sram_select[1]);
@@ -198,7 +201,6 @@ two_to_one_mux MCE0(ce[0], fs[0], cs[0], d[0]);
 
 //assign signals for sram0
 assign GPIO[CE0_PIN] = ce[0];
-assign SO0 = GPIO[SO0_PIN];
 assign GPIO[SCLK0_PIN] = sclk[0];
 assign GPIO[SI0_PIN] = si[0];
 
@@ -209,7 +211,6 @@ two_to_one_mux MCE1(ce[1], fs[1], cs[0], d[1]);
 
 //assign signals for sram1
 assign GPIO[CE1_PIN] = ce[1];
-assign SO1 = GPIO[SO1_PIN];
 assign GPIO[SCLK1_PIN] = sclk[1];
 assign GPIO[SI1_PIN] = si[1];
 
@@ -220,7 +221,6 @@ two_to_one_mux MCE2(ce[2], fs[2], cs[0], d[2]);
 
 //assign signals for sram2
 assign GPIO[CE2_PIN] = ce[2];
-assign SO2 = GPIO[SO2_PIN];
 assign GPIO[SCLK2_PIN] = sclk[2];
 assign GPIO[SI2_PIN] = si[2];
 
@@ -231,12 +231,11 @@ two_to_one_mux MCE3(ce[3], fs[3], cs[0], d[3]);
 
 //assign signals for sram3
 assign GPIO[CE3_PIN] = ce[3];
-assign SO3 = GPIO[SO3_PIN];
 assign GPIO[SCLK3_PIN] = sclk[3];
 assign GPIO[SI3_PIN] = si[3];
 
 //mux for MISO signal back to raspberry pi
-four_to_one_mux MMISO(MISO, SO0, SO1, SO2, SO3, sram_select[0], sram_select[1]);
+four_to_one_mux MMISO(MISO, so[0], so[1], so[2], so[3], sram_select[0], sram_select[1]);
 
 
 
@@ -250,7 +249,105 @@ assign temp_pins[0] = execute_task;
 assign temp_pins[1] = sram_select[0];
 assign temp_pins[2] = sram_select[1];
 instruction_handler #32 I0(temp_inst, MOSI, RPiclk, cs[1]);
-task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, in_reg, length, so, output_valid);
-display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, temp_pins);
+//task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, write_in, length, so, io_valid, rw_done);
+
+
+
+
+//test finite state machine to see if updated sram_SPI_RW works
+enum {IDLE, WRITE, HOLD1, READ, HOLD2} states = IDLE;
+
+//add state_counter
+logic [12:0] state_counter;
+//add address_counter test only
+logic [23:0] address_counter;
+
+assign length[0] = 2;
+
+logic [15:0] in_reg;
+logic [15:0] out_reg;
+
+assign write_in[0] = in_reg[15];
+
+//write and read 2 bytes at a time to sram0
+always_ff @(posedge clk)
+begin
+	case (states)
+		IDLE:
+		begin
+			if(SW[0])
+				begin
+				if (state_counter == 0)
+				begin
+					states <= WRITE;
+					inst[0] <= 2;
+					address[0] <= 0;
+					
+					in_reg <= 65280;//65280;//43690;//21845;
+					
+					state_counter <= state_counter + 1;
+				end
+				else
+				begin
+					state_counter <= state_counter + 1;
+				end
+			end
+			else
+			begin
+				inst[0] <= 0;
+			end
+		end
+		WRITE:
+		begin
+			if (io_valid[0])
+			begin
+				in_reg <= in_reg << 1;
+			end
+			else if (rw_done[0])
+			begin
+				inst[0] <= 0;
+				states <= HOLD1;
+			end
+			else
+			begin
+				inst[0] <= 0;
+			end
+		end
+		HOLD1:
+		begin
+			states <= READ;
+			inst[0] <= 3;
+		end
+		READ:
+		begin
+			if (io_valid[0]) 
+			begin
+				out_reg <= {out_reg[14:0], so[0]};
+			end
+			else if (rw_done[0])
+			begin
+				inst[0] <= 0;
+				states <= HOLD2;
+			end
+			else
+			begin
+				inst[0] <= 0;
+			end
+		end
+		HOLD2:
+		begin
+			states <= IDLE;
+			inst[0] <= 0;
+			address[0] <= 0;
+			
+			
+			address_counter <= address_counter + 2;
+		end
+	endcase
+end
+
+
+
+display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, out_reg);
 
 endmodule
