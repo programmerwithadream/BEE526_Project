@@ -6,13 +6,13 @@ module SRAM_SPI_RW(
 	output MOSI,
 	
 	//inputs into the module specifying instruction,
-	//address, and inputs for write
+	//address, and input stream for write, number of bytes
 	input [7:0] inst,
 	input [23:0] address,
 	input write_in,
 	input [23:0] byte_length,
 	
-	//signal showing module is ready to take write inputs or sram is outputting reads
+	//signal showing read/write in progress
 	output io_valid,
 	//signal showing instruction is done
 	output rw_done
@@ -55,21 +55,20 @@ begin
 			endcase
 		end
 		
-		//TODO: bug, last bit is always 1
 		READ:
 		begin
 			if (state_counter == 33 + bit_length)
 			begin
 				states <= IDLE;
 				state_counter <= 0;
-				cs <= 0;
+				cs <= 1;
 				io_valid <= 0;
 				rw_done <= 1;
 			end
 			if (state_counter == 32 + bit_length)
 			begin
 				state_counter <= state_counter + 1;
-				cs <= 0;
+				cs <= 1;
 				io_valid <= 0;
 			end
 			else if (state_counter < 32)

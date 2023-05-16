@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Mon May 15 22:17:56 2023
+Tue May 16 04:04:10 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -736,13 +736,14 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 728. Port Connectivity Checks: "display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6"
 729. Port Connectivity Checks: "display:DI0"
 730. Port Connectivity Checks: "instruction_handler:I0"
-731. Port Connectivity Checks: "SRAM_SPI_RW:S3"
-732. Port Connectivity Checks: "SRAM_SPI_RW:S2"
-733. Port Connectivity Checks: "SRAM_SPI_RW:S1"
-734. Port Connectivity Checks: "SRAM_SPI_RW:S0"
-735. Post-Synthesis Netlist Statistics for Top Partition
-736. Elapsed Time Per Partition
-737. Analysis & Synthesis Messages
+731. Port Connectivity Checks: "mem_connector:MC0"
+732. Port Connectivity Checks: "sram_spi_read_write:S3"
+733. Port Connectivity Checks: "sram_spi_read_write:S2"
+734. Port Connectivity Checks: "sram_spi_read_write:S1"
+735. Port Connectivity Checks: "sram_spi_read_write:S0"
+736. Post-Synthesis Netlist Statistics for Top Partition
+737. Elapsed Time Per Partition
+738. Analysis & Synthesis Messages
 
 
 
@@ -769,15 +770,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 15 22:17:56 2023       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 16 04:04:10 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 490                                         ;
-;     Total combinational functions  ; 467                                         ;
-;     Dedicated logic registers      ; 194                                         ;
-; Total registers                    ; 194                                         ;
+; Total logic elements               ; 492                                         ;
+;     Total combinational functions  ; 469                                         ;
+;     Dedicated logic registers      ; 195                                         ;
+; Total registers                    ; 195                                         ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -896,6 +897,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                   ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
+; mem_connector.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/mem_connector.sv           ;         ;
+; sram_spi_read_write.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv     ;         ;
 ; instruction_handler.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/instruction_handler.sv     ;         ;
 ; n_bit_twos_comp.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_twos_comp.sv         ;         ;
 ; n_bit_comparator.sv              ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_comparator.sv        ;         ;
@@ -904,7 +907,6 @@ https://fpgasoftware.intel.com/eula.
 ; display.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv                 ;         ;
 ; bcd_to_segment.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/bcd_to_segment.sv          ;         ;
 ; BCD_converter.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv           ;         ;
-; SRAM_SPI_RW.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv             ;         ;
 ; four_to_one_mux.sv               ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/four_to_one_mux.sv         ;         ;
 ; two_to_one_mux.sv                ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/two_to_one_mux.sv          ;         ;
 ; two_to_four_decoder.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/two_to_four_decoder.sv     ;         ;
@@ -917,20 +919,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 490   ;
+; Estimated Total logic elements              ; 492   ;
 ;                                             ;       ;
-; Total combinational functions               ; 467   ;
+; Total combinational functions               ; 469   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 267   ;
-;     -- 3 input functions                    ; 48    ;
-;     -- <=2 input functions                  ; 152   ;
+;     -- 4 input functions                    ; 284   ;
+;     -- 3 input functions                    ; 47    ;
+;     -- <=2 input functions                  ; 138   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 364   ;
-;     -- arithmetic mode                      ; 103   ;
+;     -- normal mode                          ; 379   ;
+;     -- arithmetic mode                      ; 90    ;
 ;                                             ;       ;
-; Total registers                             ; 194   ;
-;     -- Dedicated logic registers            ; 194   ;
+; Total registers                             ; 195   ;
+;     -- Dedicated logic registers            ; 195   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 185   ;
@@ -938,9 +940,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 166   ;
-; Total fan-out                               ; 2361  ;
-; Average fan-out                             ; 2.14  ;
+; Maximum fan-out                             ; 167   ;
+; Total fan-out                               ; 2374  ;
+; Average fan-out                             ; 2.15  ;
 +---------------------------------------------+-------+
 
 
@@ -949,8 +951,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name             ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |RaspberryPi_Accelerator              ; 467 (174)           ; 194 (131)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                                ; RaspberryPi_Accelerator ; work         ;
-;    |SRAM_SPI_RW:S0|                   ; 118 (118)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0                                                                                 ; SRAM_SPI_RW             ; work         ;
+; |RaspberryPi_Accelerator              ; 469 (175)           ; 195 (132)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                                ; RaspberryPi_Accelerator ; work         ;
 ;    |display:DI0|                      ; 161 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0                                                                                    ; display                 ; work         ;
 ;       |BCD_converter:comb_3|          ; 126 (90)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3                                                               ; BCD_converter           ; work         ;
 ;          |n_bit_adder:comb_1006|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006                                         ; n_bit_adder             ; work         ;
@@ -1037,181 +1038,182 @@ https://fpgasoftware.intel.com/eula.
 ;       |bcd_to_segment:comb_6|         ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_6                                                              ; bcd_to_segment          ; work         ;
 ;       |bcd_to_segment:comb_7|         ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_7                                                              ; bcd_to_segment          ; work         ;
 ;       |bcd_to_segment:comb_8|         ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_8                                                              ; bcd_to_segment          ; work         ;
-;    |four_to_one_mux:MMISO|            ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|four_to_one_mux:MMISO                                                                          ; four_to_one_mux         ; work         ;
-;    |two_to_one_mux:MCE0|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE0                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE1|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE1                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE2|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE2                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MCE3|              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MCE3                                                                            ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI0|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI0                                                                             ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI1                                                                             ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI2|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI2                                                                             ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MI3|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MI3                                                                             ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK0|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK0                                                                          ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK1                                                                          ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK2|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK2                                                                          ; two_to_one_mux          ; work         ;
-;    |two_to_one_mux:MSCLK3|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|two_to_one_mux:MSCLK3                                                                          ; two_to_one_mux          ; work         ;
+;    |mem_connector:MC0|                ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                              ; mem_connector           ; work         ;
+;       |four_to_one_mux:MMISO|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|four_to_one_mux:MMISO                                                        ; four_to_one_mux         ; work         ;
+;       |two_to_one_mux:MCE0|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE0                                                          ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE1|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE1                                                          ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE2|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE2                                                          ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE3|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE3                                                          ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI0|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI0                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI1                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI2|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI2                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI3|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI3                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK0|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK0                                                        ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK1|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK1                                                        ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK2|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK2                                                        ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK3|         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK3                                                        ; two_to_one_mux          ; work         ;
+;    |sram_spi_read_write:S0|           ; 119 (119)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|sram_spi_read_write:S0                                                                         ; sram_spi_read_write     ; work         ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                     ;
-+-----------------------------------------+----------------------------------------------+
-; Register name                           ; Reason for Removal                           ;
-+-----------------------------------------+----------------------------------------------+
-; address[0][0]                           ; Stuck at GND due to stuck port data_in       ;
-; states[3..9,11..31]                     ; Merged with states[10]                       ;
-; inst[0][3]                              ; Merged with inst[0][2]                       ;
-; inst[0][4]                              ; Merged with inst[0][2]                       ;
-; inst[0][5]                              ; Merged with inst[0][2]                       ;
-; inst[0][6]                              ; Merged with inst[0][2]                       ;
-; inst[0][7]                              ; Merged with inst[0][2]                       ;
-; SRAM_SPI_RW:S0|states[2..9,11..31]      ; Merged with SRAM_SPI_RW:S0|states[10]        ;
-; SRAM_SPI_RW:S2|cs                       ; Merged with SRAM_SPI_RW:S1|cs                ;
-; SRAM_SPI_RW:S3|cs                       ; Merged with SRAM_SPI_RW:S1|cs                ;
-; SRAM_SPI_RW:S2|MOSI                     ; Merged with SRAM_SPI_RW:S1|MOSI              ;
-; SRAM_SPI_RW:S3|MOSI                     ; Merged with SRAM_SPI_RW:S1|MOSI              ;
-; SRAM_SPI_RW:S2|state_counter[23]        ; Merged with SRAM_SPI_RW:S1|state_counter[23] ;
-; SRAM_SPI_RW:S3|state_counter[23]        ; Merged with SRAM_SPI_RW:S1|state_counter[23] ;
-; SRAM_SPI_RW:S2|state_counter[22]        ; Merged with SRAM_SPI_RW:S1|state_counter[22] ;
-; SRAM_SPI_RW:S3|state_counter[22]        ; Merged with SRAM_SPI_RW:S1|state_counter[22] ;
-; SRAM_SPI_RW:S2|state_counter[21]        ; Merged with SRAM_SPI_RW:S1|state_counter[21] ;
-; SRAM_SPI_RW:S3|state_counter[21]        ; Merged with SRAM_SPI_RW:S1|state_counter[21] ;
-; SRAM_SPI_RW:S2|state_counter[20]        ; Merged with SRAM_SPI_RW:S1|state_counter[20] ;
-; SRAM_SPI_RW:S3|state_counter[20]        ; Merged with SRAM_SPI_RW:S1|state_counter[20] ;
-; SRAM_SPI_RW:S2|state_counter[19]        ; Merged with SRAM_SPI_RW:S1|state_counter[19] ;
-; SRAM_SPI_RW:S3|state_counter[19]        ; Merged with SRAM_SPI_RW:S1|state_counter[19] ;
-; SRAM_SPI_RW:S2|state_counter[18]        ; Merged with SRAM_SPI_RW:S1|state_counter[18] ;
-; SRAM_SPI_RW:S3|state_counter[18]        ; Merged with SRAM_SPI_RW:S1|state_counter[18] ;
-; SRAM_SPI_RW:S2|state_counter[17]        ; Merged with SRAM_SPI_RW:S1|state_counter[17] ;
-; SRAM_SPI_RW:S3|state_counter[17]        ; Merged with SRAM_SPI_RW:S1|state_counter[17] ;
-; SRAM_SPI_RW:S2|state_counter[16]        ; Merged with SRAM_SPI_RW:S1|state_counter[16] ;
-; SRAM_SPI_RW:S3|state_counter[16]        ; Merged with SRAM_SPI_RW:S1|state_counter[16] ;
-; SRAM_SPI_RW:S2|state_counter[15]        ; Merged with SRAM_SPI_RW:S1|state_counter[15] ;
-; SRAM_SPI_RW:S3|state_counter[15]        ; Merged with SRAM_SPI_RW:S1|state_counter[15] ;
-; SRAM_SPI_RW:S2|state_counter[14]        ; Merged with SRAM_SPI_RW:S1|state_counter[14] ;
-; SRAM_SPI_RW:S3|state_counter[14]        ; Merged with SRAM_SPI_RW:S1|state_counter[14] ;
-; SRAM_SPI_RW:S2|state_counter[13]        ; Merged with SRAM_SPI_RW:S1|state_counter[13] ;
-; SRAM_SPI_RW:S3|state_counter[13]        ; Merged with SRAM_SPI_RW:S1|state_counter[13] ;
-; SRAM_SPI_RW:S2|state_counter[12]        ; Merged with SRAM_SPI_RW:S1|state_counter[12] ;
-; SRAM_SPI_RW:S3|state_counter[12]        ; Merged with SRAM_SPI_RW:S1|state_counter[12] ;
-; SRAM_SPI_RW:S2|state_counter[11]        ; Merged with SRAM_SPI_RW:S1|state_counter[11] ;
-; SRAM_SPI_RW:S3|state_counter[11]        ; Merged with SRAM_SPI_RW:S1|state_counter[11] ;
-; SRAM_SPI_RW:S2|state_counter[10]        ; Merged with SRAM_SPI_RW:S1|state_counter[10] ;
-; SRAM_SPI_RW:S3|state_counter[10]        ; Merged with SRAM_SPI_RW:S1|state_counter[10] ;
-; SRAM_SPI_RW:S2|state_counter[9]         ; Merged with SRAM_SPI_RW:S1|state_counter[9]  ;
-; SRAM_SPI_RW:S3|state_counter[9]         ; Merged with SRAM_SPI_RW:S1|state_counter[9]  ;
-; SRAM_SPI_RW:S2|state_counter[8]         ; Merged with SRAM_SPI_RW:S1|state_counter[8]  ;
-; SRAM_SPI_RW:S3|state_counter[8]         ; Merged with SRAM_SPI_RW:S1|state_counter[8]  ;
-; SRAM_SPI_RW:S2|state_counter[7]         ; Merged with SRAM_SPI_RW:S1|state_counter[7]  ;
-; SRAM_SPI_RW:S3|state_counter[7]         ; Merged with SRAM_SPI_RW:S1|state_counter[7]  ;
-; SRAM_SPI_RW:S2|state_counter[6]         ; Merged with SRAM_SPI_RW:S1|state_counter[6]  ;
-; SRAM_SPI_RW:S3|state_counter[6]         ; Merged with SRAM_SPI_RW:S1|state_counter[6]  ;
-; SRAM_SPI_RW:S2|state_counter[5]         ; Merged with SRAM_SPI_RW:S1|state_counter[5]  ;
-; SRAM_SPI_RW:S3|state_counter[5]         ; Merged with SRAM_SPI_RW:S1|state_counter[5]  ;
-; SRAM_SPI_RW:S2|state_counter[4]         ; Merged with SRAM_SPI_RW:S1|state_counter[4]  ;
-; SRAM_SPI_RW:S3|state_counter[4]         ; Merged with SRAM_SPI_RW:S1|state_counter[4]  ;
-; SRAM_SPI_RW:S2|state_counter[3]         ; Merged with SRAM_SPI_RW:S1|state_counter[3]  ;
-; SRAM_SPI_RW:S3|state_counter[3]         ; Merged with SRAM_SPI_RW:S1|state_counter[3]  ;
-; SRAM_SPI_RW:S2|state_counter[2]         ; Merged with SRAM_SPI_RW:S1|state_counter[2]  ;
-; SRAM_SPI_RW:S3|state_counter[2]         ; Merged with SRAM_SPI_RW:S1|state_counter[2]  ;
-; SRAM_SPI_RW:S2|state_counter[1]         ; Merged with SRAM_SPI_RW:S1|state_counter[1]  ;
-; SRAM_SPI_RW:S3|state_counter[1]         ; Merged with SRAM_SPI_RW:S1|state_counter[1]  ;
-; SRAM_SPI_RW:S2|state_counter[0]         ; Merged with SRAM_SPI_RW:S1|state_counter[0]  ;
-; SRAM_SPI_RW:S3|state_counter[0]         ; Merged with SRAM_SPI_RW:S1|state_counter[0]  ;
-; SRAM_SPI_RW:S1|states[1..31]            ; Merged with SRAM_SPI_RW:S1|states[0]         ;
-; SRAM_SPI_RW:S2|states[0..31]            ; Merged with SRAM_SPI_RW:S1|states[0]         ;
-; SRAM_SPI_RW:S3|states[0..31]            ; Merged with SRAM_SPI_RW:S1|states[0]         ;
-; SRAM_SPI_RW:S2|shift_reg[31]            ; Merged with SRAM_SPI_RW:S1|shift_reg[31]     ;
-; SRAM_SPI_RW:S3|shift_reg[31]            ; Merged with SRAM_SPI_RW:S1|shift_reg[31]     ;
-; SRAM_SPI_RW:S2|shift_reg[3]             ; Merged with SRAM_SPI_RW:S1|shift_reg[3]      ;
-; SRAM_SPI_RW:S3|shift_reg[3]             ; Merged with SRAM_SPI_RW:S1|shift_reg[3]      ;
-; SRAM_SPI_RW:S2|shift_reg[2]             ; Merged with SRAM_SPI_RW:S1|shift_reg[2]      ;
-; SRAM_SPI_RW:S3|shift_reg[2]             ; Merged with SRAM_SPI_RW:S1|shift_reg[2]      ;
-; SRAM_SPI_RW:S2|shift_reg[1]             ; Merged with SRAM_SPI_RW:S1|shift_reg[1]      ;
-; SRAM_SPI_RW:S3|shift_reg[1]             ; Merged with SRAM_SPI_RW:S1|shift_reg[1]      ;
-; SRAM_SPI_RW:S2|shift_reg[0]             ; Merged with SRAM_SPI_RW:S1|shift_reg[0]      ;
-; SRAM_SPI_RW:S3|shift_reg[0]             ; Merged with SRAM_SPI_RW:S1|shift_reg[0]      ;
-; SRAM_SPI_RW:S2|write_buff               ; Merged with SRAM_SPI_RW:S1|write_buff        ;
-; SRAM_SPI_RW:S3|write_buff               ; Merged with SRAM_SPI_RW:S1|write_buff        ;
-; SRAM_SPI_RW:S2|shift_reg[4]             ; Merged with SRAM_SPI_RW:S1|shift_reg[4]      ;
-; SRAM_SPI_RW:S3|shift_reg[4]             ; Merged with SRAM_SPI_RW:S1|shift_reg[4]      ;
-; SRAM_SPI_RW:S2|shift_reg[5]             ; Merged with SRAM_SPI_RW:S1|shift_reg[5]      ;
-; SRAM_SPI_RW:S3|shift_reg[5]             ; Merged with SRAM_SPI_RW:S1|shift_reg[5]      ;
-; SRAM_SPI_RW:S2|shift_reg[6]             ; Merged with SRAM_SPI_RW:S1|shift_reg[6]      ;
-; SRAM_SPI_RW:S3|shift_reg[6]             ; Merged with SRAM_SPI_RW:S1|shift_reg[6]      ;
-; SRAM_SPI_RW:S2|shift_reg[7]             ; Merged with SRAM_SPI_RW:S1|shift_reg[7]      ;
-; SRAM_SPI_RW:S3|shift_reg[7]             ; Merged with SRAM_SPI_RW:S1|shift_reg[7]      ;
-; SRAM_SPI_RW:S2|shift_reg[8]             ; Merged with SRAM_SPI_RW:S1|shift_reg[8]      ;
-; SRAM_SPI_RW:S3|shift_reg[8]             ; Merged with SRAM_SPI_RW:S1|shift_reg[8]      ;
-; SRAM_SPI_RW:S2|shift_reg[9]             ; Merged with SRAM_SPI_RW:S1|shift_reg[9]      ;
-; SRAM_SPI_RW:S3|shift_reg[9]             ; Merged with SRAM_SPI_RW:S1|shift_reg[9]      ;
-; SRAM_SPI_RW:S2|shift_reg[10]            ; Merged with SRAM_SPI_RW:S1|shift_reg[10]     ;
-; SRAM_SPI_RW:S3|shift_reg[10]            ; Merged with SRAM_SPI_RW:S1|shift_reg[10]     ;
-; SRAM_SPI_RW:S2|shift_reg[11]            ; Merged with SRAM_SPI_RW:S1|shift_reg[11]     ;
-; SRAM_SPI_RW:S3|shift_reg[11]            ; Merged with SRAM_SPI_RW:S1|shift_reg[11]     ;
-; SRAM_SPI_RW:S2|shift_reg[12]            ; Merged with SRAM_SPI_RW:S1|shift_reg[12]     ;
-; SRAM_SPI_RW:S3|shift_reg[12]            ; Merged with SRAM_SPI_RW:S1|shift_reg[12]     ;
-; SRAM_SPI_RW:S2|shift_reg[13]            ; Merged with SRAM_SPI_RW:S1|shift_reg[13]     ;
-; SRAM_SPI_RW:S3|shift_reg[13]            ; Merged with SRAM_SPI_RW:S1|shift_reg[13]     ;
-; SRAM_SPI_RW:S2|shift_reg[14]            ; Merged with SRAM_SPI_RW:S1|shift_reg[14]     ;
-; SRAM_SPI_RW:S3|shift_reg[14]            ; Merged with SRAM_SPI_RW:S1|shift_reg[14]     ;
-; SRAM_SPI_RW:S2|shift_reg[15]            ; Merged with SRAM_SPI_RW:S1|shift_reg[15]     ;
-; SRAM_SPI_RW:S3|shift_reg[15]            ; Merged with SRAM_SPI_RW:S1|shift_reg[15]     ;
-; SRAM_SPI_RW:S2|shift_reg[16]            ; Merged with SRAM_SPI_RW:S1|shift_reg[16]     ;
-; SRAM_SPI_RW:S3|shift_reg[16]            ; Merged with SRAM_SPI_RW:S1|shift_reg[16]     ;
-; SRAM_SPI_RW:S2|shift_reg[17]            ; Merged with SRAM_SPI_RW:S1|shift_reg[17]     ;
-; SRAM_SPI_RW:S3|shift_reg[17]            ; Merged with SRAM_SPI_RW:S1|shift_reg[17]     ;
-; SRAM_SPI_RW:S2|shift_reg[18]            ; Merged with SRAM_SPI_RW:S1|shift_reg[18]     ;
-; SRAM_SPI_RW:S3|shift_reg[18]            ; Merged with SRAM_SPI_RW:S1|shift_reg[18]     ;
-; SRAM_SPI_RW:S2|shift_reg[19]            ; Merged with SRAM_SPI_RW:S1|shift_reg[19]     ;
-; SRAM_SPI_RW:S3|shift_reg[19]            ; Merged with SRAM_SPI_RW:S1|shift_reg[19]     ;
-; SRAM_SPI_RW:S2|shift_reg[20]            ; Merged with SRAM_SPI_RW:S1|shift_reg[20]     ;
-; SRAM_SPI_RW:S3|shift_reg[20]            ; Merged with SRAM_SPI_RW:S1|shift_reg[20]     ;
-; SRAM_SPI_RW:S2|shift_reg[21]            ; Merged with SRAM_SPI_RW:S1|shift_reg[21]     ;
-; SRAM_SPI_RW:S3|shift_reg[21]            ; Merged with SRAM_SPI_RW:S1|shift_reg[21]     ;
-; SRAM_SPI_RW:S2|shift_reg[22]            ; Merged with SRAM_SPI_RW:S1|shift_reg[22]     ;
-; SRAM_SPI_RW:S3|shift_reg[22]            ; Merged with SRAM_SPI_RW:S1|shift_reg[22]     ;
-; SRAM_SPI_RW:S2|shift_reg[23]            ; Merged with SRAM_SPI_RW:S1|shift_reg[23]     ;
-; SRAM_SPI_RW:S3|shift_reg[23]            ; Merged with SRAM_SPI_RW:S1|shift_reg[23]     ;
-; SRAM_SPI_RW:S2|shift_reg[24]            ; Merged with SRAM_SPI_RW:S1|shift_reg[24]     ;
-; SRAM_SPI_RW:S3|shift_reg[24]            ; Merged with SRAM_SPI_RW:S1|shift_reg[24]     ;
-; SRAM_SPI_RW:S2|shift_reg[25]            ; Merged with SRAM_SPI_RW:S1|shift_reg[25]     ;
-; SRAM_SPI_RW:S3|shift_reg[25]            ; Merged with SRAM_SPI_RW:S1|shift_reg[25]     ;
-; SRAM_SPI_RW:S2|shift_reg[26]            ; Merged with SRAM_SPI_RW:S1|shift_reg[26]     ;
-; SRAM_SPI_RW:S3|shift_reg[26]            ; Merged with SRAM_SPI_RW:S1|shift_reg[26]     ;
-; SRAM_SPI_RW:S2|shift_reg[27]            ; Merged with SRAM_SPI_RW:S1|shift_reg[27]     ;
-; SRAM_SPI_RW:S3|shift_reg[27]            ; Merged with SRAM_SPI_RW:S1|shift_reg[27]     ;
-; SRAM_SPI_RW:S2|shift_reg[28]            ; Merged with SRAM_SPI_RW:S1|shift_reg[28]     ;
-; SRAM_SPI_RW:S3|shift_reg[28]            ; Merged with SRAM_SPI_RW:S1|shift_reg[28]     ;
-; SRAM_SPI_RW:S2|shift_reg[29]            ; Merged with SRAM_SPI_RW:S1|shift_reg[29]     ;
-; SRAM_SPI_RW:S3|shift_reg[29]            ; Merged with SRAM_SPI_RW:S1|shift_reg[29]     ;
-; SRAM_SPI_RW:S2|shift_reg[30]            ; Merged with SRAM_SPI_RW:S1|shift_reg[30]     ;
-; SRAM_SPI_RW:S3|shift_reg[30]            ; Merged with SRAM_SPI_RW:S1|shift_reg[30]     ;
-; SRAM_SPI_RW:S1|write_buff               ; Stuck at GND due to stuck port data_in       ;
-; SRAM_SPI_RW:S1|cs                       ; Stuck at VCC due to stuck port data_in       ;
-; SRAM_SPI_RW:S1|state_counter[0..23]     ; Stuck at GND due to stuck port data_in       ;
-; SRAM_SPI_RW:S1|shift_reg[0..31]         ; Stuck at GND due to stuck port data_in       ;
-; SRAM_SPI_RW:S1|MOSI                     ; Stuck at GND due to stuck port data_in       ;
-; SRAM_SPI_RW:S1|states[0]                ; Stuck at GND due to stuck port data_in       ;
-; SRAM_SPI_RW:S0|states[10]               ; Stuck at GND due to stuck port data_in       ;
-; in_reg[0]                               ; Stuck at GND due to stuck port data_in       ;
-; states[10]                              ; Stuck at GND due to stuck port data_in       ;
-; inst[0][2]                              ; Stuck at GND due to stuck port data_in       ;
-; Total Number of Removed Registers = 340 ;                                              ;
-+-----------------------------------------+----------------------------------------------+
++----------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                 ;
++---------------------------------------------+------------------------------------------------------+
+; Register name                               ; Reason for Removal                                   ;
++---------------------------------------------+------------------------------------------------------+
+; address[0][0]                               ; Stuck at GND due to stuck port data_in               ;
+; states[3..9,11..31]                         ; Merged with states[10]                               ;
+; inst[0][3]                                  ; Merged with inst[0][2]                               ;
+; inst[0][4]                                  ; Merged with inst[0][2]                               ;
+; inst[0][5]                                  ; Merged with inst[0][2]                               ;
+; inst[0][6]                                  ; Merged with inst[0][2]                               ;
+; inst[0][7]                                  ; Merged with inst[0][2]                               ;
+; sram_spi_read_write:S0|states[2..9,11..31]  ; Merged with sram_spi_read_write:S0|states[10]        ;
+; sram_spi_read_write:S2|cs                   ; Merged with sram_spi_read_write:S1|cs                ;
+; sram_spi_read_write:S3|cs                   ; Merged with sram_spi_read_write:S1|cs                ;
+; sram_spi_read_write:S2|MOSI                 ; Merged with sram_spi_read_write:S1|MOSI              ;
+; sram_spi_read_write:S3|MOSI                 ; Merged with sram_spi_read_write:S1|MOSI              ;
+; sram_spi_read_write:S2|state_counter[2]     ; Merged with sram_spi_read_write:S1|state_counter[2]  ;
+; sram_spi_read_write:S3|state_counter[2]     ; Merged with sram_spi_read_write:S1|state_counter[2]  ;
+; sram_spi_read_write:S2|state_counter[1]     ; Merged with sram_spi_read_write:S1|state_counter[1]  ;
+; sram_spi_read_write:S3|state_counter[1]     ; Merged with sram_spi_read_write:S1|state_counter[1]  ;
+; sram_spi_read_write:S2|state_counter[0]     ; Merged with sram_spi_read_write:S1|state_counter[0]  ;
+; sram_spi_read_write:S3|state_counter[0]     ; Merged with sram_spi_read_write:S1|state_counter[0]  ;
+; sram_spi_read_write:S2|state_counter[23]    ; Merged with sram_spi_read_write:S1|state_counter[23] ;
+; sram_spi_read_write:S3|state_counter[23]    ; Merged with sram_spi_read_write:S1|state_counter[23] ;
+; sram_spi_read_write:S2|state_counter[22]    ; Merged with sram_spi_read_write:S1|state_counter[22] ;
+; sram_spi_read_write:S3|state_counter[22]    ; Merged with sram_spi_read_write:S1|state_counter[22] ;
+; sram_spi_read_write:S2|state_counter[21]    ; Merged with sram_spi_read_write:S1|state_counter[21] ;
+; sram_spi_read_write:S3|state_counter[21]    ; Merged with sram_spi_read_write:S1|state_counter[21] ;
+; sram_spi_read_write:S2|state_counter[20]    ; Merged with sram_spi_read_write:S1|state_counter[20] ;
+; sram_spi_read_write:S3|state_counter[20]    ; Merged with sram_spi_read_write:S1|state_counter[20] ;
+; sram_spi_read_write:S2|state_counter[19]    ; Merged with sram_spi_read_write:S1|state_counter[19] ;
+; sram_spi_read_write:S3|state_counter[19]    ; Merged with sram_spi_read_write:S1|state_counter[19] ;
+; sram_spi_read_write:S2|state_counter[18]    ; Merged with sram_spi_read_write:S1|state_counter[18] ;
+; sram_spi_read_write:S3|state_counter[18]    ; Merged with sram_spi_read_write:S1|state_counter[18] ;
+; sram_spi_read_write:S2|state_counter[17]    ; Merged with sram_spi_read_write:S1|state_counter[17] ;
+; sram_spi_read_write:S3|state_counter[17]    ; Merged with sram_spi_read_write:S1|state_counter[17] ;
+; sram_spi_read_write:S2|state_counter[16]    ; Merged with sram_spi_read_write:S1|state_counter[16] ;
+; sram_spi_read_write:S3|state_counter[16]    ; Merged with sram_spi_read_write:S1|state_counter[16] ;
+; sram_spi_read_write:S2|state_counter[15]    ; Merged with sram_spi_read_write:S1|state_counter[15] ;
+; sram_spi_read_write:S3|state_counter[15]    ; Merged with sram_spi_read_write:S1|state_counter[15] ;
+; sram_spi_read_write:S2|state_counter[14]    ; Merged with sram_spi_read_write:S1|state_counter[14] ;
+; sram_spi_read_write:S3|state_counter[14]    ; Merged with sram_spi_read_write:S1|state_counter[14] ;
+; sram_spi_read_write:S2|state_counter[13]    ; Merged with sram_spi_read_write:S1|state_counter[13] ;
+; sram_spi_read_write:S3|state_counter[13]    ; Merged with sram_spi_read_write:S1|state_counter[13] ;
+; sram_spi_read_write:S2|state_counter[12]    ; Merged with sram_spi_read_write:S1|state_counter[12] ;
+; sram_spi_read_write:S3|state_counter[12]    ; Merged with sram_spi_read_write:S1|state_counter[12] ;
+; sram_spi_read_write:S2|state_counter[11]    ; Merged with sram_spi_read_write:S1|state_counter[11] ;
+; sram_spi_read_write:S3|state_counter[11]    ; Merged with sram_spi_read_write:S1|state_counter[11] ;
+; sram_spi_read_write:S2|state_counter[10]    ; Merged with sram_spi_read_write:S1|state_counter[10] ;
+; sram_spi_read_write:S3|state_counter[10]    ; Merged with sram_spi_read_write:S1|state_counter[10] ;
+; sram_spi_read_write:S2|state_counter[9]     ; Merged with sram_spi_read_write:S1|state_counter[9]  ;
+; sram_spi_read_write:S3|state_counter[9]     ; Merged with sram_spi_read_write:S1|state_counter[9]  ;
+; sram_spi_read_write:S2|state_counter[8]     ; Merged with sram_spi_read_write:S1|state_counter[8]  ;
+; sram_spi_read_write:S3|state_counter[8]     ; Merged with sram_spi_read_write:S1|state_counter[8]  ;
+; sram_spi_read_write:S2|state_counter[7]     ; Merged with sram_spi_read_write:S1|state_counter[7]  ;
+; sram_spi_read_write:S3|state_counter[7]     ; Merged with sram_spi_read_write:S1|state_counter[7]  ;
+; sram_spi_read_write:S2|state_counter[6]     ; Merged with sram_spi_read_write:S1|state_counter[6]  ;
+; sram_spi_read_write:S3|state_counter[6]     ; Merged with sram_spi_read_write:S1|state_counter[6]  ;
+; sram_spi_read_write:S2|state_counter[5]     ; Merged with sram_spi_read_write:S1|state_counter[5]  ;
+; sram_spi_read_write:S3|state_counter[5]     ; Merged with sram_spi_read_write:S1|state_counter[5]  ;
+; sram_spi_read_write:S2|state_counter[4]     ; Merged with sram_spi_read_write:S1|state_counter[4]  ;
+; sram_spi_read_write:S3|state_counter[4]     ; Merged with sram_spi_read_write:S1|state_counter[4]  ;
+; sram_spi_read_write:S2|state_counter[3]     ; Merged with sram_spi_read_write:S1|state_counter[3]  ;
+; sram_spi_read_write:S3|state_counter[3]     ; Merged with sram_spi_read_write:S1|state_counter[3]  ;
+; sram_spi_read_write:S1|states[1..31]        ; Merged with sram_spi_read_write:S1|states[0]         ;
+; sram_spi_read_write:S2|states[0..31]        ; Merged with sram_spi_read_write:S1|states[0]         ;
+; sram_spi_read_write:S3|states[0..31]        ; Merged with sram_spi_read_write:S1|states[0]         ;
+; sram_spi_read_write:S2|shift_reg[31]        ; Merged with sram_spi_read_write:S1|shift_reg[31]     ;
+; sram_spi_read_write:S3|shift_reg[31]        ; Merged with sram_spi_read_write:S1|shift_reg[31]     ;
+; sram_spi_read_write:S2|shift_reg[3]         ; Merged with sram_spi_read_write:S1|shift_reg[3]      ;
+; sram_spi_read_write:S3|shift_reg[3]         ; Merged with sram_spi_read_write:S1|shift_reg[3]      ;
+; sram_spi_read_write:S2|shift_reg[2]         ; Merged with sram_spi_read_write:S1|shift_reg[2]      ;
+; sram_spi_read_write:S3|shift_reg[2]         ; Merged with sram_spi_read_write:S1|shift_reg[2]      ;
+; sram_spi_read_write:S2|shift_reg[1]         ; Merged with sram_spi_read_write:S1|shift_reg[1]      ;
+; sram_spi_read_write:S3|shift_reg[1]         ; Merged with sram_spi_read_write:S1|shift_reg[1]      ;
+; sram_spi_read_write:S2|shift_reg[0]         ; Merged with sram_spi_read_write:S1|shift_reg[0]      ;
+; sram_spi_read_write:S3|shift_reg[0]         ; Merged with sram_spi_read_write:S1|shift_reg[0]      ;
+; sram_spi_read_write:S2|write_buff           ; Merged with sram_spi_read_write:S1|write_buff        ;
+; sram_spi_read_write:S3|write_buff           ; Merged with sram_spi_read_write:S1|write_buff        ;
+; sram_spi_read_write:S2|shift_reg[4]         ; Merged with sram_spi_read_write:S1|shift_reg[4]      ;
+; sram_spi_read_write:S3|shift_reg[4]         ; Merged with sram_spi_read_write:S1|shift_reg[4]      ;
+; sram_spi_read_write:S2|shift_reg[5]         ; Merged with sram_spi_read_write:S1|shift_reg[5]      ;
+; sram_spi_read_write:S3|shift_reg[5]         ; Merged with sram_spi_read_write:S1|shift_reg[5]      ;
+; sram_spi_read_write:S2|shift_reg[6]         ; Merged with sram_spi_read_write:S1|shift_reg[6]      ;
+; sram_spi_read_write:S3|shift_reg[6]         ; Merged with sram_spi_read_write:S1|shift_reg[6]      ;
+; sram_spi_read_write:S2|shift_reg[7]         ; Merged with sram_spi_read_write:S1|shift_reg[7]      ;
+; sram_spi_read_write:S3|shift_reg[7]         ; Merged with sram_spi_read_write:S1|shift_reg[7]      ;
+; sram_spi_read_write:S2|shift_reg[8]         ; Merged with sram_spi_read_write:S1|shift_reg[8]      ;
+; sram_spi_read_write:S3|shift_reg[8]         ; Merged with sram_spi_read_write:S1|shift_reg[8]      ;
+; sram_spi_read_write:S2|shift_reg[9]         ; Merged with sram_spi_read_write:S1|shift_reg[9]      ;
+; sram_spi_read_write:S3|shift_reg[9]         ; Merged with sram_spi_read_write:S1|shift_reg[9]      ;
+; sram_spi_read_write:S2|shift_reg[10]        ; Merged with sram_spi_read_write:S1|shift_reg[10]     ;
+; sram_spi_read_write:S3|shift_reg[10]        ; Merged with sram_spi_read_write:S1|shift_reg[10]     ;
+; sram_spi_read_write:S2|shift_reg[11]        ; Merged with sram_spi_read_write:S1|shift_reg[11]     ;
+; sram_spi_read_write:S3|shift_reg[11]        ; Merged with sram_spi_read_write:S1|shift_reg[11]     ;
+; sram_spi_read_write:S2|shift_reg[12]        ; Merged with sram_spi_read_write:S1|shift_reg[12]     ;
+; sram_spi_read_write:S3|shift_reg[12]        ; Merged with sram_spi_read_write:S1|shift_reg[12]     ;
+; sram_spi_read_write:S2|shift_reg[13]        ; Merged with sram_spi_read_write:S1|shift_reg[13]     ;
+; sram_spi_read_write:S3|shift_reg[13]        ; Merged with sram_spi_read_write:S1|shift_reg[13]     ;
+; sram_spi_read_write:S2|shift_reg[14]        ; Merged with sram_spi_read_write:S1|shift_reg[14]     ;
+; sram_spi_read_write:S3|shift_reg[14]        ; Merged with sram_spi_read_write:S1|shift_reg[14]     ;
+; sram_spi_read_write:S2|shift_reg[15]        ; Merged with sram_spi_read_write:S1|shift_reg[15]     ;
+; sram_spi_read_write:S3|shift_reg[15]        ; Merged with sram_spi_read_write:S1|shift_reg[15]     ;
+; sram_spi_read_write:S2|shift_reg[16]        ; Merged with sram_spi_read_write:S1|shift_reg[16]     ;
+; sram_spi_read_write:S3|shift_reg[16]        ; Merged with sram_spi_read_write:S1|shift_reg[16]     ;
+; sram_spi_read_write:S2|shift_reg[17]        ; Merged with sram_spi_read_write:S1|shift_reg[17]     ;
+; sram_spi_read_write:S3|shift_reg[17]        ; Merged with sram_spi_read_write:S1|shift_reg[17]     ;
+; sram_spi_read_write:S2|shift_reg[18]        ; Merged with sram_spi_read_write:S1|shift_reg[18]     ;
+; sram_spi_read_write:S3|shift_reg[18]        ; Merged with sram_spi_read_write:S1|shift_reg[18]     ;
+; sram_spi_read_write:S2|shift_reg[19]        ; Merged with sram_spi_read_write:S1|shift_reg[19]     ;
+; sram_spi_read_write:S3|shift_reg[19]        ; Merged with sram_spi_read_write:S1|shift_reg[19]     ;
+; sram_spi_read_write:S2|shift_reg[20]        ; Merged with sram_spi_read_write:S1|shift_reg[20]     ;
+; sram_spi_read_write:S3|shift_reg[20]        ; Merged with sram_spi_read_write:S1|shift_reg[20]     ;
+; sram_spi_read_write:S2|shift_reg[21]        ; Merged with sram_spi_read_write:S1|shift_reg[21]     ;
+; sram_spi_read_write:S3|shift_reg[21]        ; Merged with sram_spi_read_write:S1|shift_reg[21]     ;
+; sram_spi_read_write:S2|shift_reg[22]        ; Merged with sram_spi_read_write:S1|shift_reg[22]     ;
+; sram_spi_read_write:S3|shift_reg[22]        ; Merged with sram_spi_read_write:S1|shift_reg[22]     ;
+; sram_spi_read_write:S2|shift_reg[23]        ; Merged with sram_spi_read_write:S1|shift_reg[23]     ;
+; sram_spi_read_write:S3|shift_reg[23]        ; Merged with sram_spi_read_write:S1|shift_reg[23]     ;
+; sram_spi_read_write:S2|shift_reg[24]        ; Merged with sram_spi_read_write:S1|shift_reg[24]     ;
+; sram_spi_read_write:S3|shift_reg[24]        ; Merged with sram_spi_read_write:S1|shift_reg[24]     ;
+; sram_spi_read_write:S2|shift_reg[25]        ; Merged with sram_spi_read_write:S1|shift_reg[25]     ;
+; sram_spi_read_write:S3|shift_reg[25]        ; Merged with sram_spi_read_write:S1|shift_reg[25]     ;
+; sram_spi_read_write:S2|shift_reg[26]        ; Merged with sram_spi_read_write:S1|shift_reg[26]     ;
+; sram_spi_read_write:S3|shift_reg[26]        ; Merged with sram_spi_read_write:S1|shift_reg[26]     ;
+; sram_spi_read_write:S2|shift_reg[27]        ; Merged with sram_spi_read_write:S1|shift_reg[27]     ;
+; sram_spi_read_write:S3|shift_reg[27]        ; Merged with sram_spi_read_write:S1|shift_reg[27]     ;
+; sram_spi_read_write:S2|shift_reg[28]        ; Merged with sram_spi_read_write:S1|shift_reg[28]     ;
+; sram_spi_read_write:S3|shift_reg[28]        ; Merged with sram_spi_read_write:S1|shift_reg[28]     ;
+; sram_spi_read_write:S2|shift_reg[29]        ; Merged with sram_spi_read_write:S1|shift_reg[29]     ;
+; sram_spi_read_write:S3|shift_reg[29]        ; Merged with sram_spi_read_write:S1|shift_reg[29]     ;
+; sram_spi_read_write:S2|shift_reg[30]        ; Merged with sram_spi_read_write:S1|shift_reg[30]     ;
+; sram_spi_read_write:S3|shift_reg[30]        ; Merged with sram_spi_read_write:S1|shift_reg[30]     ;
+; sram_spi_read_write:S1|write_buff           ; Stuck at GND due to stuck port data_in               ;
+; sram_spi_read_write:S1|cs                   ; Stuck at VCC due to stuck port data_in               ;
+; sram_spi_read_write:S1|state_counter[0..23] ; Stuck at GND due to stuck port data_in               ;
+; sram_spi_read_write:S1|shift_reg[0..31]     ; Stuck at GND due to stuck port data_in               ;
+; sram_spi_read_write:S1|MOSI                 ; Stuck at GND due to stuck port data_in               ;
+; sram_spi_read_write:S1|states[0]            ; Stuck at GND due to stuck port data_in               ;
+; sram_spi_read_write:S0|states[10]           ; Stuck at GND due to stuck port data_in               ;
+; states[10]                                  ; Stuck at GND due to stuck port data_in               ;
+; inst[0][2]                                  ; Stuck at GND due to stuck port data_in               ;
+; Total Number of Removed Registers = 339     ;                                                      ;
++---------------------------------------------+------------------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                    ;
-+---------------------------+---------------------------+----------------------------------------+
-; Register name             ; Reason for Removal        ; Registers Removed due to This Register ;
-+---------------------------+---------------------------+----------------------------------------+
-; SRAM_SPI_RW:S1|write_buff ; Stuck at GND              ; SRAM_SPI_RW:S1|shift_reg[0]            ;
-;                           ; due to stuck port data_in ;                                        ;
-; states[10]                ; Stuck at GND              ; inst[0][2]                             ;
-;                           ; due to stuck port data_in ;                                        ;
-+---------------------------+---------------------------+----------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                            ;
++-----------------------------------+---------------------------+----------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------------------------+---------------------------+----------------------------------------+
+; sram_spi_read_write:S1|write_buff ; Stuck at GND              ; sram_spi_read_write:S1|shift_reg[0]    ;
+;                                   ; due to stuck port data_in ;                                        ;
+; states[10]                        ; Stuck at GND              ; inst[0][2]                             ;
+;                                   ; due to stuck port data_in ;                                        ;
++-----------------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1219,27 +1221,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 194   ;
+; Total registers                              ; 195   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 15    ;
+; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 124   ;
+; Number of registers using Clock Enable       ; 125   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |RaspberryPi_Accelerator|in_reg[10]                   ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|out_reg[2]                   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|states[0]     ;
-; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|shift_reg[30] ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[0][0]                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |RaspberryPi_Accelerator|in_reg[12]                           ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|out_reg[11]                          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|sram_spi_read_write:S0|states[0]     ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|sram_spi_read_write:S0|shift_reg[28] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[0][0]                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -9168,8 +9170,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mem_connector:MC0"                                                                         ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; decoder_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SRAM_SPI_RW:S3"                                                                         ;
+; Port Connectivity Checks: "sram_spi_read_write:S3"                                                                 ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -9179,7 +9190,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SRAM_SPI_RW:S2"                                                                         ;
+; Port Connectivity Checks: "sram_spi_read_write:S2"                                                                 ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -9189,7 +9200,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "SRAM_SPI_RW:S1"                                                                         ;
+; Port Connectivity Checks: "sram_spi_read_write:S1"                                                                 ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -9199,7 +9210,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +------------------------------------------------------+
-; Port Connectivity Checks: "SRAM_SPI_RW:S0"           ;
+; Port Connectivity Checks: "sram_spi_read_write:S0"   ;
 +--------------------+-------+----------+--------------+
 ; Port               ; Type  ; Severity ; Details      ;
 +--------------------+-------+----------+--------------+
@@ -9215,25 +9226,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 194                         ;
-;     ENA               ; 110                         ;
-;     ENA SLD           ; 14                          ;
+; cycloneiii_ff         ; 195                         ;
+;     ENA               ; 125                         ;
 ;     SLD               ; 1                           ;
 ;     plain             ; 69                          ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 469                         ;
-;     arith             ; 103                         ;
-;         2 data inputs ; 102                         ;
+; cycloneiii_lcell_comb ; 471                         ;
+;     arith             ; 90                          ;
+;         2 data inputs ; 89                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 366                         ;
+;     normal            ; 381                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 5                           ;
+;         1 data inputs ; 4                           ;
 ;         2 data inputs ; 45                          ;
-;         3 data inputs ; 47                          ;
-;         4 data inputs ; 267                         ;
+;         3 data inputs ; 46                          ;
+;         4 data inputs ; 284                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 4.80                        ;
+; Average LUT depth     ; 4.89                        ;
 +-----------------------+-----------------------------+
 
 
@@ -9252,10 +9262,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Mon May 15 22:17:36 2023
+    Info: Processing started: Tue May 16 04:03:49 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file mem_connector.sv
+    Info (12023): Found entity 1: mem_connector File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/mem_connector.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sram_spi_read_write.sv
+    Info (12023): Found entity 1: sram_spi_read_write File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file task_manager.sv
     Info (12023): Found entity 1: task_manager File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file instruction_handler.sv
@@ -9275,8 +9289,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file bcd_to_
 Info (12021): Found 1 design units, including 1 entities, in source file bcd_converter.sv
     Info (12023): Found entity 1: BCD_converter File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 2
 Info (12021): Found 0 design units, including 0 entities, in source file n_bit_register.sv
-Info (12021): Found 1 design units, including 1 entities, in source file sram_spi_rw.sv
-    Info (12023): Found entity 1: SRAM_SPI_RW File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file four_to_one_mux.sv
     Info (12023): Found entity 1: four_to_one_mux File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/four_to_one_mux.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file two_to_one_mux.sv
@@ -9295,15 +9307,15 @@ Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(22): i
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(23): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 23
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(24): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 24
 Info (12127): Elaborating entity "RaspberryPi_Accelerator" for the top level hierarchy
-Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(147): object inst_valid used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
-Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(147): object job_done used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
-Warning (10036): Verilog HDL or VHDL warning at RaspberryPi_Accelerator.sv(247): object "temp_pins" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 247
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(286): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 286
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(293): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 293
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(343): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 343
-Warning (10030): Net "address_counter[0]" at RaspberryPi_Accelerator.sv(263) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 263
-Warning (10030): Net "inst_valid" at RaspberryPi_Accelerator.sv(147) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
-Warning (10030): Net "job_done" at RaspberryPi_Accelerator.sv(147) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
+Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(121): object inst_valid used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
+Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(121): object job_done used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
+Warning (10036): Verilog HDL or VHDL warning at RaspberryPi_Accelerator.sv(214): object "temp_pins" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 214
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(253): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 253
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(260): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 260
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(314): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 314
+Warning (10030): Net "address_counter[0]" at RaspberryPi_Accelerator.sv(230) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 230
+Warning (10030): Net "inst_valid" at RaspberryPi_Accelerator.sv(121) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
+Warning (10030): Net "job_done" at RaspberryPi_Accelerator.sv(121) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
 Warning (10034): Output port "DRAM_ADDR" at RaspberryPi_Accelerator.sv(14) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 14
 Warning (10034): Output port "DRAM_BA" at RaspberryPi_Accelerator.sv(15) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 15
 Warning (10034): Output port "LEDR" at RaspberryPi_Accelerator.sv(38) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 38
@@ -9322,20 +9334,21 @@ Warning (10034): Output port "VGA_HS" at RaspberryPi_Accelerator.sv(46) has no d
 Warning (10034): Output port "VGA_VS" at RaspberryPi_Accelerator.sv(48) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 48
 Warning (10034): Output port "GSENSOR_CS_N" at RaspberryPi_Accelerator.sv(51) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 51
 Warning (10034): Output port "GSENSOR_SCLK" at RaspberryPi_Accelerator.sv(53) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 53
-Info (12128): Elaborating entity "SRAM_SPI_RW" for hierarchy "SRAM_SPI_RW:S0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 189
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(27): truncated value with size 32 to match size of target (27) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 27
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(71): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 71
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(77): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 77
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(85): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 85
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(94): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 94
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(113): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 113
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(120): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 120
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(129): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 129
-Info (12128): Elaborating entity "two_to_four_decoder" for hierarchy "two_to_four_decoder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 195
-Info (12128): Elaborating entity "two_to_one_mux" for hierarchy "two_to_one_mux:MI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 198
-Info (12128): Elaborating entity "four_to_one_mux" for hierarchy "four_to_one_mux:MMISO" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 238
-Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 251
-Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 350
+Info (12128): Elaborating entity "sram_spi_read_write" for hierarchy "sram_spi_read_write:S0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 202
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(27): truncated value with size 32 to match size of target (27) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 27
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(70): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 70
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(76): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 76
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(84): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 84
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(93): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 93
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(112): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 112
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(119): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 119
+Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(128): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 128
+Info (12128): Elaborating entity "mem_connector" for hierarchy "mem_connector:MC0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 207
+Info (12128): Elaborating entity "two_to_four_decoder" for hierarchy "mem_connector:MC0|two_to_four_decoder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/mem_connector.sv Line: 22
+Info (12128): Elaborating entity "two_to_one_mux" for hierarchy "mem_connector:MC0|two_to_one_mux:MI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/mem_connector.sv Line: 25
+Info (12128): Elaborating entity "four_to_one_mux" for hierarchy "mem_connector:MC0|four_to_one_mux:MMISO" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/mem_connector.sv Line: 45
+Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 218
+Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 321
 Info (12128): Elaborating entity "BCD_converter" for hierarchy "display:DI0|BCD_converter:comb_3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "addResult" into its bus
 Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 28
@@ -9834,15 +9847,15 @@ Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
     Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
-Info (21057): Implemented 676 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 678 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 491 logic cells
+    Info (21061): Implemented 493 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 532 warnings
-    Info: Peak virtual memory: 4804 megabytes
-    Info: Processing ended: Mon May 15 22:17:56 2023
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:41
+    Info: Peak virtual memory: 4805 megabytes
+    Info: Processing ended: Tue May 16 04:04:10 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:42
 
 
