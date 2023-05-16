@@ -258,7 +258,7 @@ instruction_handler #32 I0(temp_inst, MOSI, RPiclk, cs[1]);
 enum {IDLE, WRITE, HOLD1, READ, HOLD2} states = IDLE;
 
 //add state_counter
-logic [12:0] state_counter;
+logic [15:0] state_counter;
 //add address_counter test only
 logic [23:0] address_counter;
 
@@ -281,15 +281,16 @@ begin
 				begin
 					states <= WRITE;
 					inst[0] <= 2;
-					address[0] <= 0;
+					address[0] <= address_counter;
 					
-					in_reg <= 65280;//65280;//43690;//21845;
+					in_reg <= address_counter + 100;//65280;//43690;//21845;
+					out_reg <= 0;
 					
-					state_counter <= state_counter + 1;
+					state_counter <= 25;
 				end
 				else
 				begin
-					state_counter <= state_counter + 1;
+					state_counter <= state_counter - 1;
 				end
 			end
 			else
@@ -320,14 +321,14 @@ begin
 		end
 		READ:
 		begin
-			if (io_valid[0]) 
-			begin
-				out_reg <= {out_reg[14:0], so[0]};
-			end
-			else if (rw_done[0])
+			if (rw_done[0])
 			begin
 				inst[0] <= 0;
 				states <= HOLD2;
+			end
+			else if (io_valid[0]) 
+			begin
+				out_reg <= {out_reg[14:0], so[0]};
 			end
 			else
 			begin
@@ -337,9 +338,7 @@ begin
 		HOLD2:
 		begin
 			states <= IDLE;
-			inst[0] <= 0;
-			address[0] <= 0;
-			
+			inst[0] <= 0;			
 			
 			address_counter <= address_counter + 2;
 		end

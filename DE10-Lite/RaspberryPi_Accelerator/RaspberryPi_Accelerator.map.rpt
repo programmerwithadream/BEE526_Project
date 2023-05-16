@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Mon May 15 18:36:56 2023
+Mon May 15 22:17:56 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -769,15 +769,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 15 18:36:56 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon May 15 22:17:56 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 417                                         ;
-;     Total combinational functions  ; 401                                         ;
-;     Dedicated logic registers      ; 138                                         ;
-; Total registers                    ; 138                                         ;
+; Total logic elements               ; 490                                         ;
+;     Total combinational functions  ; 467                                         ;
+;     Dedicated logic registers      ; 194                                         ;
+; Total registers                    ; 194                                         ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -917,20 +917,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 417   ;
+; Estimated Total logic elements              ; 490   ;
 ;                                             ;       ;
-; Total combinational functions               ; 401   ;
+; Total combinational functions               ; 467   ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 230   ;
-;     -- 3 input functions                    ; 73    ;
-;     -- <=2 input functions                  ; 98    ;
+;     -- 4 input functions                    ; 267   ;
+;     -- 3 input functions                    ; 48    ;
+;     -- <=2 input functions                  ; 152   ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 336   ;
-;     -- arithmetic mode                      ; 65    ;
+;     -- normal mode                          ; 364   ;
+;     -- arithmetic mode                      ; 103   ;
 ;                                             ;       ;
-; Total registers                             ; 138   ;
-;     -- Dedicated logic registers            ; 138   ;
+; Total registers                             ; 194   ;
+;     -- Dedicated logic registers            ; 194   ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
 ; I/O pins                                    ; 185   ;
@@ -938,9 +938,9 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 110   ;
-; Total fan-out                               ; 1987  ;
-; Average fan-out                             ; 2.03  ;
+; Maximum fan-out                             ; 166   ;
+; Total fan-out                               ; 2361  ;
+; Average fan-out                             ; 2.14  ;
 +---------------------------------------------+-------+
 
 
@@ -949,8 +949,8 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name             ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |RaspberryPi_Accelerator              ; 401 (107)           ; 138 (75)                  ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                                ; RaspberryPi_Accelerator ; work         ;
-;    |SRAM_SPI_RW:S0|                   ; 119 (119)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0                                                                                 ; SRAM_SPI_RW             ; work         ;
+; |RaspberryPi_Accelerator              ; 467 (174)           ; 194 (131)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                                ; RaspberryPi_Accelerator ; work         ;
+;    |SRAM_SPI_RW:S0|                   ; 118 (118)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0                                                                                 ; SRAM_SPI_RW             ; work         ;
 ;    |display:DI0|                      ; 161 (0)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0                                                                                    ; display                 ; work         ;
 ;       |BCD_converter:comb_3|          ; 126 (90)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3                                                               ; BCD_converter           ; work         ;
 ;          |n_bit_adder:comb_1006|      ; 1 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|BCD_converter:comb_3|n_bit_adder:comb_1006                                         ; n_bit_adder             ; work         ;
@@ -1059,6 +1059,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------------------+----------------------------------------------+
 ; Register name                           ; Reason for Removal                           ;
 +-----------------------------------------+----------------------------------------------+
+; address[0][0]                           ; Stuck at GND due to stuck port data_in       ;
 ; states[3..9,11..31]                     ; Merged with states[10]                       ;
 ; inst[0][3]                              ; Merged with inst[0][2]                       ;
 ; inst[0][4]                              ; Merged with inst[0][2]                       ;
@@ -1123,29 +1124,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_SPI_RW:S3|states[0..31]            ; Merged with SRAM_SPI_RW:S1|states[0]         ;
 ; SRAM_SPI_RW:S2|shift_reg[31]            ; Merged with SRAM_SPI_RW:S1|shift_reg[31]     ;
 ; SRAM_SPI_RW:S3|shift_reg[31]            ; Merged with SRAM_SPI_RW:S1|shift_reg[31]     ;
-; address[0][10]                          ; Merged with address[0][0]                    ;
-; address[0][11]                          ; Merged with address[0][0]                    ;
-; address[0][12]                          ; Merged with address[0][0]                    ;
-; address[0][13]                          ; Merged with address[0][0]                    ;
-; address[0][14]                          ; Merged with address[0][0]                    ;
-; address[0][15]                          ; Merged with address[0][0]                    ;
-; address[0][16]                          ; Merged with address[0][0]                    ;
-; address[0][17]                          ; Merged with address[0][0]                    ;
-; address[0][18]                          ; Merged with address[0][0]                    ;
-; address[0][19]                          ; Merged with address[0][0]                    ;
-; address[0][1]                           ; Merged with address[0][0]                    ;
-; address[0][20]                          ; Merged with address[0][0]                    ;
-; address[0][21]                          ; Merged with address[0][0]                    ;
-; address[0][22]                          ; Merged with address[0][0]                    ;
-; address[0][23]                          ; Merged with address[0][0]                    ;
-; address[0][2]                           ; Merged with address[0][0]                    ;
-; address[0][3]                           ; Merged with address[0][0]                    ;
-; address[0][4]                           ; Merged with address[0][0]                    ;
-; address[0][5]                           ; Merged with address[0][0]                    ;
-; address[0][6]                           ; Merged with address[0][0]                    ;
-; address[0][7]                           ; Merged with address[0][0]                    ;
-; address[0][8]                           ; Merged with address[0][0]                    ;
-; address[0][9]                           ; Merged with address[0][0]                    ;
 ; SRAM_SPI_RW:S2|shift_reg[3]             ; Merged with SRAM_SPI_RW:S1|shift_reg[3]      ;
 ; SRAM_SPI_RW:S3|shift_reg[3]             ; Merged with SRAM_SPI_RW:S1|shift_reg[3]      ;
 ; SRAM_SPI_RW:S2|shift_reg[2]             ; Merged with SRAM_SPI_RW:S1|shift_reg[2]      ;
@@ -1217,26 +1195,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; SRAM_SPI_RW:S1|MOSI                     ; Stuck at GND due to stuck port data_in       ;
 ; SRAM_SPI_RW:S1|states[0]                ; Stuck at GND due to stuck port data_in       ;
 ; SRAM_SPI_RW:S0|states[10]               ; Stuck at GND due to stuck port data_in       ;
-; in_reg[0..7]                            ; Stuck at GND due to stuck port data_in       ;
-; address[0][0]                           ; Stuck at GND due to stuck port data_in       ;
+; in_reg[0]                               ; Stuck at GND due to stuck port data_in       ;
 ; states[10]                              ; Stuck at GND due to stuck port data_in       ;
 ; inst[0][2]                              ; Stuck at GND due to stuck port data_in       ;
-; Total Number of Removed Registers = 370 ;                                              ;
+; Total Number of Removed Registers = 340 ;                                              ;
 +-----------------------------------------+----------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                         ;
-+---------------------------+---------------------------+-----------------------------------------------------------------------------+
-; Register name             ; Reason for Removal        ; Registers Removed due to This Register                                      ;
-+---------------------------+---------------------------+-----------------------------------------------------------------------------+
-; in_reg[0]                 ; Stuck at GND              ; in_reg[1], in_reg[2], in_reg[3], in_reg[4], in_reg[5], in_reg[6], in_reg[7] ;
-;                           ; due to stuck port data_in ;                                                                             ;
-; SRAM_SPI_RW:S1|write_buff ; Stuck at GND              ; SRAM_SPI_RW:S1|shift_reg[0]                                                 ;
-;                           ; due to stuck port data_in ;                                                                             ;
-; states[10]                ; Stuck at GND              ; inst[0][2]                                                                  ;
-;                           ; due to stuck port data_in ;                                                                             ;
-+---------------------------+---------------------------+-----------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                    ;
++---------------------------+---------------------------+----------------------------------------+
+; Register name             ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------------------+---------------------------+----------------------------------------+
+; SRAM_SPI_RW:S1|write_buff ; Stuck at GND              ; SRAM_SPI_RW:S1|shift_reg[0]            ;
+;                           ; due to stuck port data_in ;                                        ;
+; states[10]                ; Stuck at GND              ; inst[0][2]                             ;
+;                           ; due to stuck port data_in ;                                        ;
++---------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -1244,26 +1219,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 138   ;
+; Total registers                              ; 194   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 1     ;
+; Number of registers using Synchronous Load   ; 15    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 69    ;
+; Number of registers using Clock Enable       ; 124   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
-; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |RaspberryPi_Accelerator|in_reg[1]                   ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|states[0]    ;
-; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|shift_reg[2] ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[0][1]                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
+; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |RaspberryPi_Accelerator|in_reg[10]                   ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|out_reg[2]                   ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|states[0]     ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|SRAM_SPI_RW:S0|shift_reg[30] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[0][0]                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
 +---------------------------------------------------------------------+
@@ -9239,24 +9215,25 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 138                         ;
-;     ENA               ; 69                          ;
+; cycloneiii_ff         ; 194                         ;
+;     ENA               ; 110                         ;
+;     ENA SLD           ; 14                          ;
 ;     SLD               ; 1                           ;
-;     plain             ; 68                          ;
+;     plain             ; 69                          ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 403                         ;
-;     arith             ; 65                          ;
-;         2 data inputs ; 64                          ;
+; cycloneiii_lcell_comb ; 469                         ;
+;     arith             ; 103                         ;
+;         2 data inputs ; 102                         ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 338                         ;
+;     normal            ; 366                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 31                          ;
-;         3 data inputs ; 72                          ;
-;         4 data inputs ; 230                         ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 47                          ;
+;         4 data inputs ; 267                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 13.00                       ;
-; Average LUT depth     ; 5.29                        ;
+; Average LUT depth     ; 4.80                        ;
 +-----------------------+-----------------------------+
 
 
@@ -9275,7 +9252,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Mon May 15 18:36:34 2023
+    Info: Processing started: Mon May 15 22:17:36 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -9299,7 +9276,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file bcd_con
     Info (12023): Found entity 1: BCD_converter File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 2
 Info (12021): Found 0 design units, including 0 entities, in source file n_bit_register.sv
 Info (12021): Found 1 design units, including 1 entities, in source file sram_spi_rw.sv
-    Info (12023): Found entity 1: SRAM_SPI_RW File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 3
+    Info (12023): Found entity 1: SRAM_SPI_RW File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file four_to_one_mux.sv
     Info (12023): Found entity 1: four_to_one_mux File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/four_to_one_mux.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file two_to_one_mux.sv
@@ -9321,9 +9298,10 @@ Info (12127): Elaborating entity "RaspberryPi_Accelerator" for the top level hie
 Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(147): object inst_valid used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
 Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(147): object job_done used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
 Warning (10036): Verilog HDL or VHDL warning at RaspberryPi_Accelerator.sv(247): object "temp_pins" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 247
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(288): truncated value with size 32 to match size of target (13) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 288
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(292): truncated value with size 32 to match size of target (13) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 292
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(344): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 344
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(286): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 286
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(293): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 293
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(343): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 343
+Warning (10030): Net "address_counter[0]" at RaspberryPi_Accelerator.sv(263) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 263
 Warning (10030): Net "inst_valid" at RaspberryPi_Accelerator.sv(147) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
 Warning (10030): Net "job_done" at RaspberryPi_Accelerator.sv(147) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 147
 Warning (10034): Output port "DRAM_ADDR" at RaspberryPi_Accelerator.sv(14) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 14
@@ -9345,7 +9323,7 @@ Warning (10034): Output port "VGA_VS" at RaspberryPi_Accelerator.sv(48) has no d
 Warning (10034): Output port "GSENSOR_CS_N" at RaspberryPi_Accelerator.sv(51) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 51
 Warning (10034): Output port "GSENSOR_SCLK" at RaspberryPi_Accelerator.sv(53) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 53
 Info (12128): Elaborating entity "SRAM_SPI_RW" for hierarchy "SRAM_SPI_RW:S0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 189
-Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(28): truncated value with size 32 to match size of target (27) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 28
+Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(27): truncated value with size 32 to match size of target (27) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 27
 Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(71): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 71
 Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(77): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 77
 Warning (10230): Verilog HDL assignment warning at SRAM_SPI_RW.sv(85): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/SRAM_SPI_RW.sv Line: 85
@@ -9357,7 +9335,7 @@ Info (12128): Elaborating entity "two_to_four_decoder" for hierarchy "two_to_fou
 Info (12128): Elaborating entity "two_to_one_mux" for hierarchy "two_to_one_mux:MI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 198
 Info (12128): Elaborating entity "four_to_one_mux" for hierarchy "four_to_one_mux:MMISO" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 238
 Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 251
-Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 351
+Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 350
 Info (12128): Elaborating entity "BCD_converter" for hierarchy "display:DI0|BCD_converter:comb_3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "addResult" into its bus
 Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 28
@@ -9856,15 +9834,15 @@ Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
     Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
-Info (21057): Implemented 604 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 676 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 419 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 531 warnings
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Mon May 15 18:36:56 2023
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:43
+    Info (21061): Implemented 491 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 532 warnings
+    Info: Peak virtual memory: 4804 megabytes
+    Info: Processing ended: Mon May 15 22:17:56 2023
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:41
 
 

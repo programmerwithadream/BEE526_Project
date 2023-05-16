@@ -240,11 +240,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "MAX10_CLK1_50",
+					"name" : "SW[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW[0]",
+					"name" : "MAX10_CLK1_50",
 					"strict" : false
 				},
 				{

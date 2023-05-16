@@ -58,7 +58,7 @@ begin
 		//TODO: bug, last bit is always 1
 		READ:
 		begin
-			if (state_counter == 32 + bit_length)
+			if (state_counter == 33 + bit_length)
 			begin
 				states <= IDLE;
 				state_counter <= 0;
@@ -66,13 +66,13 @@ begin
 				io_valid <= 0;
 				rw_done <= 1;
 			end
-			if (state_counter == 31 + bit_length)
+			if (state_counter == 32 + bit_length)
 			begin
 				state_counter <= state_counter + 1;
 				cs <= 0;
 				io_valid <= 0;
 			end
-			else if (state_counter < 31)
+			else if (state_counter < 32)
 			begin
 				state_counter <= state_counter + 1;
 				cs <= 0;
@@ -80,7 +80,7 @@ begin
 				shift_reg <= shift_reg << 1;
 				io_valid <= 0;
 			end
-			else if (state_counter == 31)
+			else if (state_counter == 32)
 			begin
 				state_counter <= state_counter + 1;
 				cs <= 0;
