@@ -3,7 +3,6 @@ module mem_connector(
 	input [1:0] sram_select,
 	
 	output [3:0] mem_in,
-	input [3:0] fpga_in,
 	input mosi,
 	
 	output [3:0] mem_clk,
@@ -11,12 +10,23 @@ module mem_connector(
 	input RPiclk,
 	
 	output [3:0] chip_enable,
-	input [3:0] fpga_select,
 	input chip_select,
 	
 	output miso,
-	input [3:0] mem_out	
+	input [3:0] mem_out,
+	
+	input [7:0] inst [0:3],
+	input [23:0] address [0:3],
+	input [3:0] write_in,
+	input [23:0] byte_length [0:3],
+	output [3:0] io_valid,
+	output [3:0] rw_done
+	
 );
+
+//signals from fpga
+logic [3:0] fpga_select;
+logic [3:0] fpga_in;
 
 //two-to-four decoder used for select signals for muxes
 two_to_four_decoder D0(decoder_out[0], decoder_out[1], decoder_out[2], decoder_out[3], sram_select[0], sram_select[1]);
@@ -43,5 +53,11 @@ two_to_one_mux MCE3(chip_enable[3], fpga_select[3], chip_select, decoder_out[3])
 
 //mux for MISO signal back to raspberry pi
 four_to_one_mux MMISO(miso, mem_out[0], mem_out[1], mem_out[2], mem_out[3], sram_select[0], sram_select[1]);
+
+//FPGA read/write modules
+sram_spi_read_write S0(fpga_select[0], clk, fpga_in[0], inst[0], address[0], write_in[0], byte_length[0], io_valid[0], rw_done[0]);
+sram_spi_read_write S1(fpga_select[1], clk, fpga_in[1], inst[1], address[1], write_in[1], byte_length[1], io_valid[1], rw_done[1]);
+sram_spi_read_write S2(fpga_select[2], clk, fpga_in[2], inst[2], address[2], write_in[2], byte_length[2], io_valid[2], rw_done[2]);
+sram_spi_read_write S3(fpga_select[3], clk, fpga_in[3], inst[3], address[3], write_in[3], byte_length[3], io_valid[3], rw_done[3]);
 
 endmodule

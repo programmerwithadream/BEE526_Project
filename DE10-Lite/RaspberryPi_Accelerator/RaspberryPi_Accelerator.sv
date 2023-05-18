@@ -68,10 +68,10 @@ module RaspberryPi_Accelerator(
 //  parameter declarations
 //=======================================================
 
-//frequency the SPI operates on
+//frequency the fpga operates on
 localparam desiredFrequency = 100.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
-//pin numbers for raspberry pi, sram0,1,2,3 signals
+//pin numbers for raspberry pi, sram 0,1,2,3 signals
 localparam int MOSI_PIN = 1;
 localparam int MISO_PIN = 3;
 localparam int RPICLK_PIN = 5;
@@ -113,7 +113,7 @@ logic clk;
 
 //signals for raspberry pi
 logic mosi, miso, RPiclk;
-logic [1:0] chip_select;
+logic [1:0] RPi_select;
 //signals for two-to-four decoder
 logic [3:0] decoder_out;
 logic [1:0] sram_select;
@@ -121,6 +121,7 @@ logic [1:0] sram_select;
 logic inst_valid, job_done, execute_task;
 
 //signals going into srams
+//should only be controlled by muxes
 //sram chip enables
 logic [3:0] chip_enable;
 //signals from sram to device
@@ -130,17 +131,15 @@ logic [3:0] mem_clk;
 //signals from device into sram
 logic [3:0] mem_in;
 
-//signals from fpga
-logic [3:0] fpga_select;
-logic [3:0] fpga_in;
-
 //signals for spi read/write modules
-logic [7:0] inst [3:0];
-logic [23:0] address [3:0];
+logic [7:0] inst [0:3];
+logic [23:0] address [0:3];
 logic [3:0] write_in;
-logic [23:0] length [3:0];
+logic [23:0] byte_length [0:3];
 logic [3:0] io_valid;
+logic [3:0] mem_io_valid;
 logic [3:0] rw_done;
+logic [3:0] mem_rw_done;
 
 //=======================================================
 //  Structural coding
@@ -164,8 +163,8 @@ end
 assign mosi = GPIO[MOSI_PIN];
 assign GPIO[MISO_PIN] = miso;
 assign RPiclk = GPIO[RPICLK_PIN];
-assign chip_select[0] = GPIO[CS0_PIN];
-assign chip_select[1] = GPIO[CS1_PIN];
+assign RPi_select[0] = GPIO[CS0_PIN];
+assign RPi_select[1] = GPIO[CS1_PIN];
 assign sram_select[0] = SW[1];//GPIO[SRAM_SELECT0_PIN];
 assign sram_select[1] = SW[2];//GPIO[SRAM_SELECT1_PIN];
 
@@ -198,14 +197,10 @@ assign GPIO[SI1_PIN] = mem_in[1];
 assign GPIO[SI2_PIN] = mem_in[2];
 assign GPIO[SI3_PIN] = mem_in[3];
 
-//FPGA read/write modules
-sram_spi_read_write S0(fpga_select[0], mem_out[0], clk, fpga_in[0], inst[0], address[0], write_in[0], length[0], io_valid[0], rw_done[0]);
-sram_spi_read_write S1(fpga_select[1], mem_out[1], clk, fpga_in[1], inst[1], address[1], write_in[1], length[1], io_valid[1], rw_done[1]);
-sram_spi_read_write S2(fpga_select[2], mem_out[2], clk, fpga_in[2], inst[2], address[2], write_in[2], length[2], io_valid[2], rw_done[2]);
-sram_spi_read_write S3(fpga_select[3], mem_out[3], clk, fpga_in[3], inst[3], address[3], write_in[3], length[3], io_valid[3], rw_done[3]);
-
-mem_connector MC0(decoder_out, sram_select, mem_in, fpga_in, mosi, mem_clk, clk, RPiclk, chip_enable, fpga_select, chip_select[0], miso, mem_out);
-
+mem_connector MC0(decoder_out, sram_select, mem_in, mosi, mem_clk, clk, RPiclk, chip_enable, RPi_select[0], miso, mem_out, inst, address, write_in, byte_length, mem_io_valid, mem_rw_done);
+//for some reason directly connecting io_valid and rw_done to mem_connector causes i/o error
+assign io_valid = mem_io_valid;
+assign rw_done = mem_rw_done;
 
 //***************
 //temporary test
@@ -215,8 +210,8 @@ logic [2:0] temp_pins;
 assign temp_pins[0] = execute_task;
 assign temp_pins[1] = sram_select[0];
 assign temp_pins[2] = sram_select[1];
-instruction_handler #32 I0(temp_inst, mosi, RPiclk, chip_select[1]);
-//task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, write_in, length, so, io_valid, rw_done);
+instruction_handler #32 I0(temp_inst, mosi, RPiclk, RPi_select[1]);
+//task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, so, io_valid, rw_done);
 
 
 
@@ -229,7 +224,7 @@ logic [15:0] state_counter;
 //add address_counter test only
 logic [23:0] address_counter;
 
-assign length[0] = 2;
+assign byte_length[0] = 2;
 
 logic [15:0] in_reg;
 logic [15:0] out_reg;

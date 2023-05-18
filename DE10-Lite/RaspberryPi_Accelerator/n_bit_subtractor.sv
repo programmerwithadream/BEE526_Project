@@ -1,18 +1,18 @@
-//outputs 1 if a >= b, 0 if a < b
-module n_bit_comparator #(
+module n_bit_subtractor #(
 	parameter N = 32
 )
 (
-	output c,
+	output [N-1:0] difference,
+	output sign,
 	input [N-1:0] a, b
 );
 
-logic [N-1:0] b_comp, difference;
+logic [N-1:0] b_comp;
 logic cout;
 
 n_bit_twos_comp #(N) D0(b_comp, b);
 n_bit_adder #(N) D1(difference, cout, a, b_comp, 0);
 
-assign c = ~difference[N-1];
+assign sign = difference[N-1];
 
 endmodule

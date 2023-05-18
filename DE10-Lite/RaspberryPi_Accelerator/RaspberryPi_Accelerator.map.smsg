@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at RaspberryPi_Accelerator.sv(271): always construct contains both blocking and non-blocking assignments File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 271
+Info (10281): Verilog HDL Declaration information at background_subtraction.sv(24): object "execute" differs only in case from object "EXECUTE" in the same scope File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 24

@@ -18,6 +18,6 @@ end
 
 logic cout, ov;
 
-n_bit_adder #(N) D0(comp, cout, temp, 0, 1);
+n_bit_adder #(N) D0(comp, cout, ov, temp, 0, 1);
 
 endmodule

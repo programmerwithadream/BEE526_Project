@@ -10,6 +10,7 @@ logic [3:0] addResult [16:0][5:0];
 
 //placeholder wires
 logic [5:0] tempCout [16:0] ;
+logic [5:0] tempOv [16:0];
 
 assign temp[0][2] = bNum[19];
 assign temp[0][1] = bNum[18];
@@ -25,7 +26,7 @@ generate
 		for (j = 0; j < 6; j = j + 1)
 		begin: FJ 
 			n_bit_comparator #5 (compResult[i][j], {1'b0, temp[i][4*(j+1)-1:4*j]}, 5'b00101);
-			n_bit_adder #4 (addResult[i][j], tempCout[i][j], temp[i][4*(j+1)-1:4*j], 4'b0011, 0);
+			n_bit_adder #4 (addResult[i][j], tempCout[i][j], tempOv[i][j], temp[i][4*(j+1)-1:4*j], 4'b0011, 0);
 
 			always_comb
 			begin

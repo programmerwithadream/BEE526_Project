@@ -1,7 +1,6 @@
 //currently only supports read/write, not RDSR, WRSR
 module sram_spi_read_write(
 	output cs,
-	input MISO,
 	input sclk,
 	output MOSI,
 	
@@ -24,7 +23,6 @@ logic [23:0] state_counter;
 logic [31:0] shift_reg;
 
 logic [26:0] bit_length;
-assign bit_length = byte_length * 8;
 
 logic write_buff;
 
@@ -38,6 +36,7 @@ begin
 			cs <= 1;
 			io_valid <= 0;
 			rw_done <= 0;
+			bit_length <= byte_length * 8;
 			case (inst)
 				3:
 				begin

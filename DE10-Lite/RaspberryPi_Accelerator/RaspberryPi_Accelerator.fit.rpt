@@ -1,5 +1,5 @@
 Fitter report for RaspberryPi_Accelerator
-Tue May 16 04:04:28 2023
+Thu May 18 15:55:37 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -67,7 +67,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue May 16 04:04:28 2023       ;
+; Fitter Status                      ; Successful - Thu May 18 15:55:37 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
@@ -158,7 +158,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   2.0%      ;
+;     Processors 2-4         ;   1.9%      ;
 +----------------------------+-------------+
 
 
@@ -1333,8 +1333,9 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |bcd_to_segment:comb_6|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_6                                                              ; bcd_to_segment          ; work         ;
 ;       |bcd_to_segment:comb_7|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_7                                                              ; bcd_to_segment          ; work         ;
 ;       |bcd_to_segment:comb_8|         ; 7 (7)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 7 (7)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_8                                                              ; bcd_to_segment          ; work         ;
-;    |mem_connector:MC0|                ; 14 (0)      ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 14 (0)       ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                              ; mem_connector           ; work         ;
+;    |mem_connector:MC0|                ; 133 (0)     ; 63 (0)                    ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 68 (0)       ; 0 (0)             ; 65 (0)           ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                              ; mem_connector           ; work         ;
 ;       |four_to_one_mux:MMISO|         ; 2 (2)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 2 (2)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|four_to_one_mux:MMISO                                                        ; four_to_one_mux         ; work         ;
+;       |sram_spi_read_write:S0|        ; 119 (119)   ; 63 (63)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 0 (0)             ; 65 (65)          ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0                                                       ; sram_spi_read_write     ; work         ;
 ;       |two_to_one_mux:MCE0|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE0                                                          ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MCE1|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE1                                                          ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MCE2|           ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE2                                                          ; two_to_one_mux          ; work         ;
@@ -1347,7 +1348,6 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |two_to_one_mux:MSCLK1|         ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK1                                                        ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MSCLK2|         ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK2                                                        ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MSCLK3|         ; 1 (1)       ; 0 (0)                     ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 1 (1)        ; 0 (0)             ; 0 (0)            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK3                                                        ; two_to_one_mux          ; work         ;
-;    |sram_spi_read_write:S0|           ; 119 (119)   ; 63 (63)                   ; 0 (0)         ; 0           ; 0    ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 54 (54)      ; 0 (0)             ; 65 (65)          ; 0          ; |RaspberryPi_Accelerator|sram_spi_read_write:S0                                                                         ; sram_spi_read_write     ; work         ;
 +---------------------------------------+-------------+---------------------------+---------------+-------------+------+------------+--------------+---------+-----------+------+--------------+--------------+-------------------+------------------+------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1687,23 +1687,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------------------+-------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                  ;
-+-------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Equal6~0                            ; LCCOMB_X40_Y34_N30 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; MAX10_CLK1_50                       ; PIN_P11            ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; MAX10_CLK1_50                       ; PIN_P11            ; 32      ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
-; Selector31~0                        ; LCCOMB_X40_Y34_N18 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; clk                                 ; FF_X43_Y4_N9       ; 162     ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
-; inst[0][0]~1                        ; LCCOMB_X40_Y30_N28 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; out_reg[11]~0                       ; LCCOMB_X40_Y30_N8  ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; out_reg[11]~1                       ; LCCOMB_X40_Y30_N14 ; 25      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; sram_spi_read_write:S0|Equal7~1     ; LCCOMB_X41_Y32_N18 ; 3       ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; sram_spi_read_write:S0|Selector33~2 ; LCCOMB_X41_Y31_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; state_counter[0]~0                  ; LCCOMB_X40_Y30_N12 ; 19      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-+-------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                    ;
++-------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Name                                                  ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++-------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
+; Equal6~0                                              ; LCCOMB_X40_Y34_N30 ; 22      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; MAX10_CLK1_50                                         ; PIN_P11            ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
+; MAX10_CLK1_50                                         ; PIN_P11            ; 32      ; Clock        ; yes    ; Global Clock         ; GCLK19           ; --                        ;
+; Selector31~0                                          ; LCCOMB_X40_Y34_N18 ; 17      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; clk                                                   ; FF_X43_Y4_N9       ; 162     ; Clock        ; yes    ; Global Clock         ; GCLK18           ; --                        ;
+; inst[0][0]~1                                          ; LCCOMB_X40_Y30_N28 ; 2       ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; mem_connector:MC0|sram_spi_read_write:S0|Equal7~1     ; LCCOMB_X41_Y32_N18 ; 3       ; Sync. load   ; no     ; --                   ; --               ; --                        ;
+; mem_connector:MC0|sram_spi_read_write:S0|Selector33~2 ; LCCOMB_X41_Y31_N20 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; out_reg[11]~0                                         ; LCCOMB_X40_Y30_N8  ; 16      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; out_reg[11]~1                                         ; LCCOMB_X40_Y30_N14 ; 25      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; state_counter[0]~0                                    ; LCCOMB_X40_Y30_N12 ; 19      ; Clock enable ; no     ; --                   ; --               ; --                        ;
++-------------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2202,7 +2202,7 @@ Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Ass
 Info (332104): Reading SDC File: 'RaspberryPi_Accelerator.SDC'
 Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
 Warning (332060): Node: clk was determined to be a clock but was found without an associated clock assignment.
-    Info (13166): Register sram_spi_read_write:S0|io_valid is being clocked by clk
+    Info (13166): Register mem_connector:MC0|sram_spi_read_write:S0|io_valid is being clocked by clk
 Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
 Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
 Info (332111): Found 3 clocks
@@ -2232,15 +2232,15 @@ Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:00
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:01
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 0% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 1% of the available device resources in the region that extends from location X33_Y22 to location X44_Y32
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:01
-Info (11888): Total time spent on timing analysis during the Fitter is 0.25 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
+Info (11888): Total time spent on timing analysis during the Fitter is 0.13 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2409,10 +2409,10 @@ Warning (169064): Following 71 pins have no output enable or a GND or VCC output
     Info (169065): Pin GPIO[35] has a permanently enabled output enable File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Info (144001): Generated suppressed messages file C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 5657 megabytes
-    Info: Processing ended: Tue May 16 04:04:29 2023
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Peak virtual memory: 5650 megabytes
+    Info: Processing ended: Thu May 18 15:55:38 2023
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +----------------------------+
