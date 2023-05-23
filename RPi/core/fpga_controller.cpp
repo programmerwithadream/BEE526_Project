@@ -1,6 +1,9 @@
 #include <iostream>
 #include <pigpio.h>
 
+#include <opencv2/opencv.hpp>
+#include <vector>
+
 // g++ -o fpga_controller fpga_controller.cpp -lpigpio -lrt -lpthread
 // sudo ./fpga_controller
 
@@ -13,13 +16,14 @@ const int fpga_idle = 27;
 const int fpga_execute= 22;
 
 //instruction
-const int fpga_inst = 0;
+const uint8_t fpga_write_inst = 2;
+const uint8_t fpga_read_inst = 3;
 
 // sram addresses for current image, background image, and result image
 // TODO: change the addresses
-const int result_img_address = 1;
-const int current_img_address = 2;
-const int background_img_address = 3;
+const uint24_t result_img_address = 1;
+const uint24_t current_img_address = 2;
+const uint24_t background_img_address = 3;
 
 // This function will be called every time fpga stops being idle
 // to ensure fpga_execute pins returns low
@@ -102,3 +106,56 @@ int main()
 
     return 0;
 }
+
+/*
+#include <opencv2/opencv.hpp>
+
+int main() {
+    // Load the image
+    cv::Mat img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+
+    // Check if the image is loaded successfully
+    if(img.empty())
+    {
+        std::cout << "Could not read the image." << std::endl;
+        return 1;
+    }
+
+    // Resize the image to 128x128
+    cv::Mat resized_img;
+    cv::resize(img, resized_img, cv::Size(128, 128));
+
+    // Save the resized image
+    cv::imwrite("resized_image.jpg", resized_img);
+
+    return 0;
+}
+
+
+#include <opencv2/opencv.hpp>
+#include <vector>
+
+int main() {
+    // Load the image
+    cv::Mat img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+
+    // Check if the image is loaded successfully
+    if(img.empty())
+    {
+        std::cout << "Could not read the image." << std::endl;
+        return 1;
+    }
+
+    // Resize the image to 128x128
+    cv::Mat resized_img;
+    cv::resize(img, resized_img, cv::Size(128, 128));
+
+    // Convert the resized image to a single vector
+    std::vector<uchar> img_vector;
+    img_vector.assign(resized_img.datastart, resized_img.dataend);
+
+    // img_vector now contains the flattened image
+
+    return 0;
+}
+*/
