@@ -10,8 +10,8 @@ extern "C" {
 #define READ 0x03
 #define WRITE 0x02
 
-// sudo apt-get update
-// sudo apt-get install pigpio
+// g++ pigpio_read_write.cpp -o pigpio_read_write -lpigpio -lrt
+// sudo ./pigpio_read_write
 
 // Function to write data to the SRAM chip.
 void writeData(int handle, int address, std::vector<char> data) {
