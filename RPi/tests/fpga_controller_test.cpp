@@ -92,7 +92,7 @@ int main()
     gpioWrite(sram_select_1, 0);
 
     // Load the image
-    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000000.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000000.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -116,7 +116,7 @@ int main()
     gpioWrite(sram_select_1, 0);
 
     // Load the image
-    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000001.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000001.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -140,7 +140,7 @@ int main()
     gpioWrite(sram_select_1, 1);
     
     // Load the image
-    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000002.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000002.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -169,9 +169,9 @@ int main()
     std::vector<uchar> result_vector;
 
     int index = 0;
-    std::string directory = "home/pi/Desktop/test_images/PETS2006/input/";
+    std::string directory = "/home/pi/Desktop/test_images/PETS2006/input/";
     std::string img_name = "in000003.jpg";
-    std::string result_img_directory = "home/pi/Desktop/test_images/test_results/";
+    std::string result_img_directory = "/home/pi/Desktop/test_images/test_results/";
     std::string result_img_name = "out000000.jpg";
     // main loop
     while (1)
