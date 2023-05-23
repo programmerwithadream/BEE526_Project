@@ -74,8 +74,8 @@ int main() {
     std::vector<uint8_t> readBack = readData(handle, 0x000000, dataToWrite.size());
 
     // Print the read data
-    for (uint8_t c : readBack) {
-        std::cout << c;
+    for (int i = 0; i < length; i++) {
+        std::cout << "Address " << i << " contains: " << unsigned(readBack[i]) << std::endl;
     }
     std::cout << std::endl;
 
