@@ -86,34 +86,13 @@ int main()
     cv::Mat resized_img;
     std::vector<uchar> img_vector;
 
-    // Load the image
-    img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
-
-    // Check if the image is loaded successfully
-    if(img.empty())
-    {
-        std::cout << "Could not read the image." << std::endl;
-        return 1;
-    }
-    
-    // Resize the image to 128x128
-    resized_img;
-    cv::resize(img, resized_img, cv::Size(128, 128));
-
-    // Convert the resized image to a single vector
-    img_vector.assign(resized_img.datastart, resized_img.dataend);
-
-    // Writing data onto sram
-    writeData(handle, result_img_address, img_vector);
-
     // initial setup
     // setup 00 case
     gpioWrite(sram_select_0, 0);
     gpioWrite(sram_select_1, 0);
 
     // Load the image
-    // TODO: change the image path
-    img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000000.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -137,8 +116,7 @@ int main()
     gpioWrite(sram_select_1, 0);
 
     // Load the image
-    // TODO: change the image path
-    img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000001.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -162,8 +140,7 @@ int main()
     gpioWrite(sram_select_1, 1);
     
     // Load the image
-    // TODO: change the image path
-    img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("home/pi/Desktop/test_images/PETS2006/input/in000002.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -192,9 +169,10 @@ int main()
     std::vector<uchar> result_vector;
 
     int index = 0;
-    std::string directory_path = "/home/pi/Desktop/";
-    std::string img_path = directory_path + "";
-    std::string result_img_path = directory_path + "";
+    std::string directory = "home/pi/Desktop/test_images/PETS2006/input/";
+    std::string img_name = "in000003.jpg";
+    std::string result_img_directory = "home/pi/Desktop/test_images/test_results/";
+    std::string result_img_name = "out000000.jpg";
     // main loop
     while (1)
     {
@@ -202,8 +180,8 @@ int main()
 
         //setup current case
         // Load the image
-        // TODO: change the image path
-        img = cv::imread("path_to_your_image.jpg", cv::IMREAD_COLOR);
+        std::string img_full_path = directory + img_name;
+        img = cv::imread(img_full_path, cv::IMREAD_COLOR);
 
         // Check if the image is loaded successfully
         if(img.empty())
@@ -242,8 +220,33 @@ int main()
         result_vector = readData(handle, result_img_address, img_vector.size());
         cv::Mat restored_img(128, 128, CV_8UC3, result_vector.data());
 
+        std::string result_full_path = result_img_directory + result_img_name;
         // Save the restored image
-        cv::imwrite("/home/your_username/images/restored_image.jpg", restored_img);
+        cv::imwrite(result_full_path, restored_img);
+
+        index++;
+
+        if (index < 10){
+            result_img_name = "out00000" + index + ".jpg";
+        } else if (index < 100) {
+            result_img_name = "out0000" + index + ".jpg";
+        } else if (index < 1000) {
+            result_img_name = "out000" + index + ".jpg";
+        } else {
+            result_img_name = "out00" + index + ".jpg";
+        }
+
+        if (index + 3 < 10){
+            img_name = "in00000" + index + ".jpg";
+        } else if (index + 3< 100) {
+            img_name = "in0000" + index + ".jpg";
+        } else if (index + 3< 1000) {
+            img_name = "in000" + index + ".jpg";
+        } else {
+            img_name = "in00" + index + ".jpg";
+        }
+
+
     }
 
     // Terminate pigpio library
