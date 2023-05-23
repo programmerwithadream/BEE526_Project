@@ -5,7 +5,12 @@
 #include <vector>
 #include <string>
 
-// g++ -o fpga_controller_test fpga_controller_test.cpp -lpigpio -lrt -lpthread
+#define CHANNEL 0
+#define SPEED 5000000
+#define READ 0x03
+#define WRITE 0x02
+
+// g++ -o fpga_controller_test fpga_controller_test.cpp `pkg-config --cflags --libs opencv4` -lpigpio -lrt -lpthread
 // sudo ./fpga_controller_test
 
 // GPIO pin number
@@ -15,31 +20,27 @@ const int inst_valid = 17;
 const int fpga_idle = 27;
 const int fpga_execute= 22;
 
-//instruction
-const uint8_t fpga_write_inst = 2;
-const uint8_t fpga_read_inst = 3;
-
 // sram addresses for current image, background image, and result image
-const uint24_t result_img_address = 0;
-const uint24_t current_img_address = 16385;
-const uint24_t background_img_address = 65538;
+const int result_img_address = 0;
+const int current_img_address = 16385;
+const int background_img_address = 65538;
 
-// Function to write char to the SRAM chip.
-void writeData(int handle, int address, std::vector<char> data) {
+// Function to write uchar to the SRAM chip.
+void writeData(int handle, int address, std::vector<uchar> data) {
     std::vector<char> buffer = {WRITE, (char)((address>>16)&0xFF), (char)((address>>8)&0xFF), (char)(address&0xFF)};
     buffer.insert(buffer.end(), data.begin(), data.end());
     
     spiWrite(handle, &buffer[0], buffer.size());
 }
 
-// Function to read char from the SRAM chip.
-std::vector<char> readData(int handle, int address, int length) {
+// Function to read uchar from the SRAM chip.
+std::vector<uchar> readData(int handle, int address, int length) {
     std::vector<char> buffer = {READ, (char)((address>>16)&0xFF), (char)((address>>8)&0xFF), (char)(address&0xFF)};
     buffer.resize(4 + length);
 
     spiXfer(handle, &buffer[0], &buffer[0], buffer.size());
 
-    return std::vector<char>(buffer.begin() + 4, buffer.end());
+    return std::vector<uchar>(buffer.begin() + 4, buffer.end());
 }
 
 // This function will be called every time fpga stops being idle
@@ -103,7 +104,7 @@ int main()
     img_vector.assign(resized_img.datastart, resized_img.dataend);
 
     // Writing data onto sram
-    writeChar(handle, result_img_address, img_vector);
+    writeData(handle, result_img_address, img_vector);
 
     // initial setup
     // setup 00 case
@@ -189,7 +190,6 @@ int main()
 
     // Variables for results
     std::vector<uchar> result_vector;
-    cv::Mat restored_img;
 
     int index = 0;
     std::string directory_path = "/home/pi/Desktop/";
@@ -240,7 +240,7 @@ int main()
         
         //read results
         result_vector = readData(handle, result_img_address, img_vector.size());
-        restored_img(128, 128, CV_8UC3, result_vector.data());
+        cv::Mat restored_img(128, 128, CV_8UC3, result_vector.data());
 
         // Save the restored image
         cv::imwrite("/home/your_username/images/restored_image.jpg", restored_img);
