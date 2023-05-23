@@ -227,23 +227,23 @@ int main()
         index++;
 
         if (index < 10){
-            result_img_name = "out00000" + index + ".jpg";
+            result_img_name = "out00000" + std::to_string(index) + ".jpg";
         } else if (index < 100) {
-            result_img_name = "out0000" + index + ".jpg";
+            result_img_name = "out0000" + std::to_string(index) + ".jpg";
         } else if (index < 1000) {
-            result_img_name = "out000" + index + ".jpg";
+            result_img_name = "out000" + std::to_string(index) + ".jpg";
         } else {
-            result_img_name = "out00" + index + ".jpg";
+            result_img_name = "out00" + std::to_string(index) + ".jpg";
         }
 
         if (index + 3 < 10){
-            img_name = "in00000" + index + ".jpg";
+            img_name = "in00000" + std::to_string(index + 3) + ".jpg";
         } else if (index + 3< 100) {
-            img_name = "in0000" + index + ".jpg";
+            img_name = "in0000" + std::to_string(index + 3) + ".jpg";
         } else if (index + 3< 1000) {
-            img_name = "in000" + index + ".jpg";
+            img_name = "in000" + std::to_string(index + 3) + ".jpg";
         } else {
-            img_name = "in00" + index + ".jpg";
+            img_name = "in00" + std::to_string(index + 3) + ".jpg";
         }
 
 
