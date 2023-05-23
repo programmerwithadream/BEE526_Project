@@ -1,8 +1,8 @@
 #include <iostream>
 #include <pigpio.h>
 
-// g++ -o fpga_controller fpga_controller.cpp -lpigpio -lrt -lpthread
-// sudo ./fpga_controller
+// g++ -o fpga_controller_test fpga_controller_test.cpp -lpigpio -lrt -lpthread
+// sudo ./fpga_controller_test
 
 // GPIO pin number
 // TODO: ENTER THE RIGHT GPIO PIN NUMBERS
@@ -69,6 +69,8 @@ int main()
     gpioWrite(sram_select_0, 1);
     gpioWrite(sram_select_1, 1);
     // setup 11 case <-- no need for the last case?
+
+    bool test_switch = 0;
 
     // main loop
     while (1)
