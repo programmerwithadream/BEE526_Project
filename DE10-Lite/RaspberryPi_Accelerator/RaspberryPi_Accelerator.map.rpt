@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Thu May 18 15:55:18 2023
+Mon May 22 16:50:40 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -767,7 +767,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu May 18 15:55:17 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon May 22 16:50:40 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
@@ -1037,7 +1037,7 @@ https://fpgasoftware.intel.com/eula.
 ;       |bcd_to_segment:comb_8|         ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|display:DI0|bcd_to_segment:comb_8                                                              ; bcd_to_segment          ; work         ;
 ;    |mem_connector:MC0|                ; 133 (0)             ; 63 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                              ; mem_connector           ; work         ;
 ;       |four_to_one_mux:MMISO|         ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|four_to_one_mux:MMISO                                                        ; four_to_one_mux         ; work         ;
-;       |sram_spi_read_write:S0|        ; 119 (119)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0                                                       ; sram_spi_read_write     ; work         ;
+;       |sram_spi_read_write:S1|        ; 119 (119)           ; 63 (63)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1                                                       ; sram_spi_read_write     ; work         ;
 ;       |two_to_one_mux:MCE0|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE0                                                          ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MCE1|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE1                                                          ; two_to_one_mux          ; work         ;
 ;       |two_to_one_mux:MCE2|           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE2                                                          ; two_to_one_mux          ; work         ;
@@ -1061,148 +1061,148 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------+------------------------------------------------------------------------+
 ; mem_connector:MC0|sram_spi_read_write:S3|bit_length[0..26]    ; Stuck at GND due to stuck port data_in                                 ;
 ; mem_connector:MC0|sram_spi_read_write:S2|bit_length[0..26]    ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0..26]    ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0..3]     ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[4]        ; Stuck at VCC due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[5..26]    ; Stuck at GND due to stuck port data_in                                 ;
-; address[0][0]                                                 ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0..3]     ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[4]        ; Stuck at VCC due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[5..26]    ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0..26]    ; Stuck at GND due to stuck port data_in                                 ;
+; address[1][0]                                                 ; Stuck at GND due to stuck port data_in                                 ;
 ; states[3..9,11..31]                                           ; Merged with states[10]                                                 ;
-; inst[0][3]                                                    ; Merged with inst[0][2]                                                 ;
-; inst[0][4]                                                    ; Merged with inst[0][2]                                                 ;
-; inst[0][5]                                                    ; Merged with inst[0][2]                                                 ;
-; inst[0][6]                                                    ; Merged with inst[0][2]                                                 ;
-; inst[0][7]                                                    ; Merged with inst[0][2]                                                 ;
-; mem_connector:MC0|sram_spi_read_write:S0|states[2..9,11..31]  ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[10]        ;
-; mem_connector:MC0|sram_spi_read_write:S2|cs                   ; Merged with mem_connector:MC0|sram_spi_read_write:S1|cs                ;
-; mem_connector:MC0|sram_spi_read_write:S3|cs                   ; Merged with mem_connector:MC0|sram_spi_read_write:S1|cs                ;
-; mem_connector:MC0|sram_spi_read_write:S2|MOSI                 ; Merged with mem_connector:MC0|sram_spi_read_write:S1|MOSI              ;
-; mem_connector:MC0|sram_spi_read_write:S3|MOSI                 ; Merged with mem_connector:MC0|sram_spi_read_write:S1|MOSI              ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[23]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[23] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[23]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[23] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[22]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[22] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[22]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[22] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[21]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[21] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[21]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[21] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[20]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[20] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[20]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[20] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[19]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[19] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[19]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[19] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[18]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[18] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[18]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[18] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[17]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[17] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[17]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[17] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[16]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[16] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[16]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[16] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[15]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[15] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[15]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[15] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[14]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[14] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[14]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[14] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[13]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[13] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[13]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[13] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[12]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[12] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[12]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[12] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[11]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[11] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[11]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[11] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[10]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[10] ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[10]    ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[10] ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[9]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[9]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[9]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[9]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[8]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[8]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[8]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[8]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[7]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[7]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[7]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[7]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[6]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[6]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[6]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[6]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[5]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[5]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[5]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[5]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[4]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[4]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[4]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[4]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[3]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[3]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[3]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[3]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[2]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[2]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[2]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[2]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[1]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[1]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[1]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[1]  ;
-; mem_connector:MC0|sram_spi_read_write:S2|state_counter[0]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[0]  ;
-; mem_connector:MC0|sram_spi_read_write:S3|state_counter[0]     ; Merged with mem_connector:MC0|sram_spi_read_write:S1|state_counter[0]  ;
-; mem_connector:MC0|sram_spi_read_write:S1|states[1..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[0]         ;
-; mem_connector:MC0|sram_spi_read_write:S2|states[0..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[0]         ;
-; mem_connector:MC0|sram_spi_read_write:S3|states[0..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[0]         ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[31]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[31]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[3]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[3]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[3]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[3]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[2]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[2]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[2]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[2]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[1]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[1]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[1]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[1]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[0]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[0]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[0]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[0]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|write_buff           ; Merged with mem_connector:MC0|sram_spi_read_write:S1|write_buff        ;
-; mem_connector:MC0|sram_spi_read_write:S3|write_buff           ; Merged with mem_connector:MC0|sram_spi_read_write:S1|write_buff        ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[4]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[4]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[4]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[4]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[5]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[5]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[5]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[5]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[6]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[6]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[6]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[6]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[7]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[7]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[7]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[7]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[8]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[8]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[8]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[8]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[9]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[9]      ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[9]         ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[9]      ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[10]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[10]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[10]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[10]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[11]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[11]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[11]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[11]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[12]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[12]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[12]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[12]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[13]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[13]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[13]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[13]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[14]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[14]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[14]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[14]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[15]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[15]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[15]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[15]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[16]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[16]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[16]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[16]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[17]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[17]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[17]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[17]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[18]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[18]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[18]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[18]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[19]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[19]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[19]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[19]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[20]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[20]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[20]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[20]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[21]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[21]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[21]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[21]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[22]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[22]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[22]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[22]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[23]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[23]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[23]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[23]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[24]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[24]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[24]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[24]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[25]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[25]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[25]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[25]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[26]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[26]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[26]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[26]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[27]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[27]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[27]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[27]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[28]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[28]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[28]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[28]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[29]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[29]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[29]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[29]     ;
-; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[30]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[30]     ;
-; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[30]        ; Merged with mem_connector:MC0|sram_spi_read_write:S1|shift_reg[30]     ;
-; mem_connector:MC0|sram_spi_read_write:S1|write_buff           ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|cs                   ; Stuck at VCC due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|state_counter[0..23] ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|shift_reg[0..31]     ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|MOSI                 ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S1|states[0]            ; Stuck at GND due to stuck port data_in                                 ;
-; mem_connector:MC0|sram_spi_read_write:S0|states[10]           ; Stuck at GND due to stuck port data_in                                 ;
+; inst[1][3]                                                    ; Merged with inst[1][2]                                                 ;
+; inst[1][4]                                                    ; Merged with inst[1][2]                                                 ;
+; inst[1][5]                                                    ; Merged with inst[1][2]                                                 ;
+; inst[1][6]                                                    ; Merged with inst[1][2]                                                 ;
+; inst[1][7]                                                    ; Merged with inst[1][2]                                                 ;
+; mem_connector:MC0|sram_spi_read_write:S1|states[2..9,11..31]  ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[10]        ;
+; mem_connector:MC0|sram_spi_read_write:S2|cs                   ; Merged with mem_connector:MC0|sram_spi_read_write:S0|cs                ;
+; mem_connector:MC0|sram_spi_read_write:S3|cs                   ; Merged with mem_connector:MC0|sram_spi_read_write:S0|cs                ;
+; mem_connector:MC0|sram_spi_read_write:S2|MOSI                 ; Merged with mem_connector:MC0|sram_spi_read_write:S0|MOSI              ;
+; mem_connector:MC0|sram_spi_read_write:S3|MOSI                 ; Merged with mem_connector:MC0|sram_spi_read_write:S0|MOSI              ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[23]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[23] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[23]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[23] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[22]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[22] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[22]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[22] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[21]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[21] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[21]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[21] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[20]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[20] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[20]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[20] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[19]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[19] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[19]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[19] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[18]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[18] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[18]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[18] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[17]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[17] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[17]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[17] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[16]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[16] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[16]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[16] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[15]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[15] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[15]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[15] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[14]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[14] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[14]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[14] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[13]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[13] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[13]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[13] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[12]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[12] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[12]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[12] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[11]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[11] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[11]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[11] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[10]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[10] ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[10]    ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[10] ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[9]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[9]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[9]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[9]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[8]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[8]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[8]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[8]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[7]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[7]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[7]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[7]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[6]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[6]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[6]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[6]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[5]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[5]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[5]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[5]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[4]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[4]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[4]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[4]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[3]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[3]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[3]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[3]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[2]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[2]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[2]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[2]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[1]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[1]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[1]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[1]  ;
+; mem_connector:MC0|sram_spi_read_write:S2|state_counter[0]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[0]  ;
+; mem_connector:MC0|sram_spi_read_write:S3|state_counter[0]     ; Merged with mem_connector:MC0|sram_spi_read_write:S0|state_counter[0]  ;
+; mem_connector:MC0|sram_spi_read_write:S0|states[1..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[0]         ;
+; mem_connector:MC0|sram_spi_read_write:S2|states[0..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[0]         ;
+; mem_connector:MC0|sram_spi_read_write:S3|states[0..31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[0]         ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[31]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[31]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[31]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[3]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[3]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[3]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[3]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[2]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[2]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[2]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[2]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[1]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[1]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[1]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[1]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[0]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[0]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[0]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[0]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|write_buff           ; Merged with mem_connector:MC0|sram_spi_read_write:S0|write_buff        ;
+; mem_connector:MC0|sram_spi_read_write:S3|write_buff           ; Merged with mem_connector:MC0|sram_spi_read_write:S0|write_buff        ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[4]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[4]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[4]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[4]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[5]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[5]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[5]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[5]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[6]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[6]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[6]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[6]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[7]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[7]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[7]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[7]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[8]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[8]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[8]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[8]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[9]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[9]      ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[9]         ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[9]      ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[10]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[10]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[10]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[10]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[11]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[11]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[11]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[11]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[12]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[12]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[12]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[12]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[13]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[13]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[13]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[13]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[14]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[14]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[14]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[14]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[15]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[15]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[15]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[15]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[16]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[16]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[16]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[16]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[17]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[17]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[17]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[17]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[18]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[18]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[18]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[18]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[19]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[19]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[19]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[19]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[20]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[20]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[20]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[20]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[21]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[21]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[21]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[21]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[22]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[22]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[22]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[22]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[23]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[23]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[23]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[23]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[24]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[24]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[24]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[24]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[25]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[25]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[25]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[25]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[26]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[26]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[26]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[26]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[27]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[27]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[27]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[27]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[28]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[28]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[28]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[28]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[29]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[29]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[29]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[29]     ;
+; mem_connector:MC0|sram_spi_read_write:S2|shift_reg[30]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[30]     ;
+; mem_connector:MC0|sram_spi_read_write:S3|shift_reg[30]        ; Merged with mem_connector:MC0|sram_spi_read_write:S0|shift_reg[30]     ;
+; mem_connector:MC0|sram_spi_read_write:S0|write_buff           ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|cs                   ; Stuck at VCC due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|state_counter[0..23] ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|shift_reg[0..31]     ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|MOSI                 ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S0|states[0]            ; Stuck at GND due to stuck port data_in                                 ;
+; mem_connector:MC0|sram_spi_read_write:S1|states[10]           ; Stuck at GND due to stuck port data_in                                 ;
 ; states[10]                                                    ; Stuck at GND due to stuck port data_in                                 ;
-; inst[0][2]                                                    ; Stuck at GND due to stuck port data_in                                 ;
+; inst[1][2]                                                    ; Stuck at GND due to stuck port data_in                                 ;
 ; Total Number of Removed Registers = 447                       ;                                                                        ;
 +---------------------------------------------------------------+------------------------------------------------------------------------+
 
@@ -1212,14 +1212,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------------------------------------------+---------------------------+-------------------------------------------------------+
 ; Register name                                          ; Reason for Removal        ; Registers Removed due to This Register                ;
 +--------------------------------------------------------+---------------------------+-------------------------------------------------------+
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S1|cs,          ;
-;                                                        ; due to stuck port data_in ; mem_connector:MC0|sram_spi_read_write:S1|MOSI,        ;
-;                                                        ;                           ; mem_connector:MC0|sram_spi_read_write:S1|states[0]    ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[5] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S1|shift_reg[0] ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S0|cs,          ;
+;                                                        ; due to stuck port data_in ; mem_connector:MC0|sram_spi_read_write:S0|MOSI,        ;
+;                                                        ;                           ; mem_connector:MC0|sram_spi_read_write:S0|states[0]    ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S1|states[10]   ;
 ;                                                        ; due to stuck port data_in ;                                                       ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S0|states[10]   ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[5] ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S0|shift_reg[0] ;
 ;                                                        ; due to stuck port data_in ;                                                       ;
-; states[10]                                             ; Stuck at GND              ; inst[0][2]                                            ;
+; states[10]                                             ; Stuck at GND              ; inst[1][2]                                            ;
 ;                                                        ; due to stuck port data_in ;                                                       ;
 +--------------------------------------------------------+---------------------------+-------------------------------------------------------+
 
@@ -1246,9 +1246,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 ; 5:1                ; 15 bits   ; 45 LEs        ; 15 LEs               ; 30 LEs                 ; Yes        ; |RaspberryPi_Accelerator|in_reg[12]                                             ;
 ; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|out_reg[11]                                            ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|states[0]     ;
-; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|shift_reg[28] ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[0][0]                                             ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|states[0]     ;
+; 5:1                ; 31 bits   ; 93 LEs        ; 31 LEs               ; 62 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|shift_reg[28] ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; Yes        ; |RaspberryPi_Accelerator|inst[1][0]                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------+
 
 
@@ -9080,15 +9080,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port                  ; Type   ; Severity ; Details                                                                             ;
 +-----------------------+--------+----------+-------------------------------------------------------------------------------------+
 ; decoder_out           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; inst[1..3]            ; Input  ; Info     ; Stuck at GND                                                                        ;
-; address[1..3]         ; Input  ; Info     ; Stuck at GND                                                                        ;
-; write_in[3..1]        ; Input  ; Info     ; Stuck at GND                                                                        ;
-; byte_length[1..3]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; byte_length[0][23..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; byte_length[0][1]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; byte_length[0][0]     ; Input  ; Info     ; Stuck at GND                                                                        ;
-; io_valid[3..1]        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; rw_done[3..1]         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; inst[2..3]            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; inst[0]               ; Input  ; Info     ; Stuck at GND                                                                        ;
+; address[2..3]         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; address[0]            ; Input  ; Info     ; Stuck at GND                                                                        ;
+; write_in[3..2]        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; write_in[0]           ; Input  ; Info     ; Stuck at GND                                                                        ;
+; byte_length[2..3]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; byte_length[0]        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; byte_length[1][23..2] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; byte_length[1][1]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; byte_length[1][0]     ; Input  ; Info     ; Stuck at GND                                                                        ;
+; io_valid[3..2]        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; io_valid[0]           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rw_done[3..2]         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; rw_done[0]            ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +-----------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -9134,7 +9140,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Thu May 18 15:54:58 2023
+    Info: Processing started: Mon May 22 16:50:18 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -9186,15 +9192,19 @@ Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(24): i
 Info (12127): Elaborating entity "RaspberryPi_Accelerator" for the top level hierarchy
 Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(121): object inst_valid used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
 Warning (10858): Verilog HDL warning at RaspberryPi_Accelerator.sv(121): object job_done used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
-Warning (10036): Verilog HDL or VHDL warning at RaspberryPi_Accelerator.sv(208): object "temp_pins" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 208
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(247): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 247
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(254): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 254
-Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(308): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 308
-Warning (10030): Net "inst[1..3]" at RaspberryPi_Accelerator.sv(135) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 135
-Warning (10030): Net "address[1..3]" at RaspberryPi_Accelerator.sv(136) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 136
-Warning (10030): Net "write_in[3..1]" at RaspberryPi_Accelerator.sv(137) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 137
-Warning (10030): Net "byte_length[1..3]" at RaspberryPi_Accelerator.sv(138) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 138
-Warning (10030): Net "address_counter[0]" at RaspberryPi_Accelerator.sv(224) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 224
+Warning (10036): Verilog HDL or VHDL warning at RaspberryPi_Accelerator.sv(209): object "temp_pins" assigned a value but never read File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 209
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(252): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 252
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(259): truncated value with size 32 to match size of target (16) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 259
+Warning (10230): Verilog HDL assignment warning at RaspberryPi_Accelerator.sv(325): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 325
+Warning (10030): Net "inst[0]" at RaspberryPi_Accelerator.sv(135) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 135
+Warning (10030): Net "inst[2..3]" at RaspberryPi_Accelerator.sv(135) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 135
+Warning (10030): Net "address[0]" at RaspberryPi_Accelerator.sv(136) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 136
+Warning (10030): Net "address[2..3]" at RaspberryPi_Accelerator.sv(136) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 136
+Warning (10030): Net "write_in[3..2]" at RaspberryPi_Accelerator.sv(137) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 137
+Warning (10030): Net "write_in[0]" at RaspberryPi_Accelerator.sv(137) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 137
+Warning (10030): Net "byte_length[0]" at RaspberryPi_Accelerator.sv(138) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 138
+Warning (10030): Net "byte_length[2..3]" at RaspberryPi_Accelerator.sv(138) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 138
+Warning (10030): Net "address_counter[0]" at RaspberryPi_Accelerator.sv(225) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 225
 Warning (10030): Net "inst_valid" at RaspberryPi_Accelerator.sv(121) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
 Warning (10030): Net "job_done" at RaspberryPi_Accelerator.sv(121) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 121
 Warning (10034): Output port "DRAM_ADDR" at RaspberryPi_Accelerator.sv(14) has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 14
@@ -9228,8 +9238,8 @@ Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(92): t
 Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(111): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 111
 Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(118): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 118
 Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(127): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/sram_spi_read_write.sv Line: 127
-Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 212
-Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 315
+Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 213
+Info (12128): Elaborating entity "display" for hierarchy "display:DI0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 332
 Info (12128): Elaborating entity "BCD_converter" for hierarchy "display:DI0|BCD_converter:comb_3" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "addResult" into its bus
 Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "display:DI0|BCD_converter:comb_3|n_bit_comparator:comb_6" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 27
@@ -9565,28 +9575,28 @@ Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "display:DI0|BCD_converter:comb_3|temp[0][3]" is missing source, defaulting to GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 7
 Warning (12241): 105 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[3]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[8]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[18]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[19]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[21]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[20]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[22]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[23]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[25]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[26]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[27]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[24]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[28]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[29]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[30]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[31]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[32]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[33]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[34]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[35]" and its non-tri-state driver. File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Warning (13039): The following bidirectional pins have no drivers
-    Warning (13040): bidirectional pin "GPIO[0]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[1]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[2]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[5]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[20]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[24]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[28]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[6]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[7]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[19]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[21]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[23]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[25]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 20
     Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 20
     Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 20
@@ -9622,35 +9632,35 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "ARDUINO_IO[14]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Warning (13040): bidirectional pin "ARDUINO_IO[15]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 58
     Warning (13040): bidirectional pin "ARDUINO_RESET_N" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 59
+    Warning (13040): bidirectional pin "GPIO[0]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[1]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[2]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[3]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[4]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[6]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[7]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[8]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[9]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[10]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[11]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[12]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[15]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[16]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13040): bidirectional pin "GPIO[17]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[30]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13040): bidirectional pin "GPIO[31]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[26]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13040): bidirectional pin "GPIO[27]" has no driver File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Warning (13032): The following tri-state nodes are fed by constants
     Warning (13033): The pin "GPIO[13]" is fed by GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13033): The pin "GPIO[14]" is fed by GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Warning (13009): TRI or OPNDRN buffers permanently enabled
-    Warning (13010): Node "GPIO[3]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[8]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[18]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[19]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[21]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[20]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[22]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[23]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[25]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[26]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
-    Warning (13010): Node "GPIO[27]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[24]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[28]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[29]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[30]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[31]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[32]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[33]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
+    Warning (13010): Node "GPIO[34]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
     Warning (13010): Node "GPIO[35]~synth" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 63
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 14
@@ -9734,11 +9744,11 @@ Info (21057): Implemented 678 device resources after synthesis - the final resou
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
     Info (21061): Implemented 493 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 537 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 541 warnings
     Info: Peak virtual memory: 4805 megabytes
-    Info: Processing ended: Thu May 18 15:55:18 2023
-    Info: Elapsed time: 00:00:20
-    Info: Total CPU time (on all processors): 00:00:39
+    Info: Processing ended: Mon May 22 16:50:40 2023
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:43
 
 
 +------------------------------------------+

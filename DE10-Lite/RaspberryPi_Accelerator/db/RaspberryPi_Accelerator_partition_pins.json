@@ -160,19 +160,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO[0]",
+					"name" : "GPIO[6]",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO[1]",
+					"name" : "GPIO[7]",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO[3]",
+					"name" : "GPIO[8]",
 					"strict" : false
 				},
 				{
-					"name" : "GPIO[5]",
+					"name" : "GPIO[9]",
 					"strict" : false
 				},
 				{
@@ -208,19 +208,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "GPIO[26]",
-					"strict" : false
-				},
-				{
-					"name" : "GPIO[27]",
-					"strict" : false
-				},
-				{
 					"name" : "GPIO[28]",
 					"strict" : false
 				},
 				{
 					"name" : "GPIO[29]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO[30]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO[31]",
 					"strict" : false
 				},
 				{

@@ -72,35 +72,35 @@ module RaspberryPi_Accelerator(
 localparam desiredFrequency = 100.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
 //pin numbers for raspberry pi, sram 0,1,2,3 signals
-localparam int MOSI_PIN = 1;
-localparam int MISO_PIN = 3;
-localparam int RPICLK_PIN = 5;
-localparam int CS0_PIN = 0;
-localparam int CS1_PIN = 2;
+localparam int MOSI_PIN = 9; //raspberry pi pinout 19 GPIO 10
+localparam int MISO_PIN = 8; //raspberry pi pinout 21 GPIO 9
+localparam int RPICLK_PIN = 6; //raspberry pi pinout 23 GPIO 11
+localparam int CS0_PIN = 7; //raspberry pi pinout 24 GPIO 8
+localparam int CS1_PIN = 5; //raspberry pi pinout 26 GPIO 7
 localparam int SRAM_SELECT0_PIN = 10; //connect to RPI GPIO 24
 localparam int SRAM_SELECT1_PIN = 12; //connect to RPI GPIO 23
 localparam int INST_VALID_PIN = 14; //connect to RPI GPIO pin 17
 localparam int JOB_DONE_PIN = 13; //connect to RPI GPIO pin  27
 localparam int EXECUTE_TASK_PIN = 11; //connect to RPI GPIO pin 22
 
-localparam int CE0_PIN = 18;
+localparam int CE0_PIN = 24;
 localparam int CE1_PIN = 22;
-localparam int CE2_PIN = 26;
-localparam int CE3_PIN = 32;
+localparam int CE2_PIN = 20;
+localparam int CE3_PIN = 18;
 
-localparam int SO0_PIN = 20;
-localparam int SO1_PIN = 24;
-localparam int SO2_PIN = 28;
-localparam int SO3_PIN = 34;
+localparam int SO0_PIN = 25;
+localparam int SO1_PIN = 23;
+localparam int SO2_PIN = 21;
+localparam int SO3_PIN = 19;
 
-localparam int SCLK0_PIN = 19;
-localparam int SCLK1_PIN = 23;
-localparam int SCLK2_PIN = 27;
-localparam int SCLK3_PIN = 33;
+localparam int SCLK0_PIN = 28;
+localparam int SCLK1_PIN = 30;
+localparam int SCLK2_PIN = 32;
+localparam int SCLK3_PIN = 34;
 
-localparam int SI0_PIN = 21;
-localparam int SI1_PIN = 25;
-localparam int SI2_PIN = 29;
+localparam int SI0_PIN = 29;
+localparam int SI1_PIN = 31;
+localparam int SI2_PIN = 33;
 localparam int SI3_PIN = 35;
 
 //=======================================================
@@ -224,14 +224,16 @@ logic [15:0] state_counter;
 //add address_counter test only
 logic [23:0] address_counter;
 
-assign byte_length[0] = 2;
+//sram index
+assign byte_length[1] = 2;
 
 logic [15:0] in_reg;
 logic [15:0] out_reg;
 
-assign write_in[0] = in_reg[15];
+//sram index
+assign write_in[1] = in_reg[15];
 
-//write and read 2 bytes at a time to sram0
+//write and read 2 bytes at a time to sram
 always_ff @(posedge clk)
 begin
 	case (states)
@@ -242,8 +244,10 @@ begin
 				if (state_counter == 0)
 				begin
 					states <= WRITE;
-					inst[0] <= 2;
-					address[0] <= address_counter;
+					//sram index
+					inst[1] <= 2;
+					//sram index
+					address[1] <= address_counter;
 					
 					in_reg <= address_counter + 1;//65280;//43690;//21845;
 					out_reg <= 0;
@@ -257,54 +261,66 @@ begin
 			end
 			else
 			begin
-				inst[0] <= 0;
+				//sram index
+				inst[1] <= 0;
 			end
 		end
 		
 		WRITE:
 		begin
-			if (io_valid[0])
+			//sram index
+			if (io_valid[1])
 			begin
 				in_reg <= in_reg << 1;
 			end
-			else if (rw_done[0])
+			//sram index
+			else if (rw_done[1])
 			begin
-				inst[0] <= 0;
+				//sram index
+				inst[1] <= 0;
 				states <= HOLD1;
 			end
 			else
 			begin
-				inst[0] <= 0;
+				//sram index
+				inst[1] <= 0;
 			end
 		end
 		
 		HOLD1:
 		begin
 			states <= READ;
-			inst[0] <= 3;
+			//sram index
+			inst[1] <= 3;
 		end
 		
 		READ:
 		begin
-			if (rw_done[0])
+			//sram index
+			if (rw_done[1])
 			begin
-				inst[0] <= 0;
+				//sram index
+				inst[1] <= 0;
 				states <= HOLD2;
 			end
-			else if (io_valid[0]) 
+			//sram index
+			else if (io_valid[1]) 
 			begin
-				out_reg <= {out_reg[14:0], mem_out[0]};
+				//sram index
+				out_reg <= {out_reg[14:0], mem_out[1]};
 			end
 			else
 			begin
-				inst[0] <= 0;
+				//sram index
+				inst[1] <= 0;
 			end
 		end
 		
 		HOLD2:
 		begin
 			states <= IDLE;
-			inst[0] <= 0;			
+			//sram index
+			inst[1] <= 0;			
 			
 			address_counter <= address_counter + 2;
 		end
