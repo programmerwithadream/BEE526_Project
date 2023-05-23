@@ -245,8 +245,8 @@ SW[0] => state_counter.OUTPUTSELECT
 SW[0] => state_counter.OUTPUTSELECT
 SW[0] => state_counter.OUTPUTSELECT
 SW[0] => state_counter.OUTPUTSELECT
-SW[1] => mem_connector:MC0.sram_select[0]
-SW[2] => mem_connector:MC0.sram_select[1]
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
 SW[4] => ~NO_FANOUT~
 SW[5] => ~NO_FANOUT~
@@ -297,9 +297,7 @@ GPIO[2] <> <UNC>
 GPIO[3] <> <UNC>
 GPIO[4] <> <UNC>
 GPIO[8] <> GPIO[8]
-GPIO[10] <> <UNC>
 GPIO[11] <> <UNC>
-GPIO[12] <> <UNC>
 GPIO[13] <> <GND>
 GPIO[14] <> <GND>
 GPIO[15] <> <UNC>

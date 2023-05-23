@@ -176,6 +176,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO[10]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO[12]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO[18]",
 					"strict" : false
 				},
@@ -245,14 +253,6 @@
 				},
 				{
 					"name" : "MAX10_CLK1_50",
-					"strict" : false
-				},
-				{
-					"name" : "SW[1]",
-					"strict" : false
-				},
-				{
-					"name" : "SW[2]",
 					"strict" : false
 				}
 			]

@@ -165,8 +165,8 @@ assign GPIO[MISO_PIN] = miso;
 assign RPiclk = GPIO[RPICLK_PIN];
 assign RPi_select[0] = GPIO[CS0_PIN];
 assign RPi_select[1] = GPIO[CS1_PIN];
-assign sram_select[0] = SW[1];//GPIO[SRAM_SELECT0_PIN];
-assign sram_select[1] = SW[2];//GPIO[SRAM_SELECT1_PIN];
+assign sram_select[0] = GPIO[SRAM_SELECT0_PIN];
+assign sram_select[1] = GPIO[SRAM_SELECT1_PIN];
 
 //signals between RPi and FPGA task_manager
 assign GPIO[INST_VALID_PIN] = inst_valid;
