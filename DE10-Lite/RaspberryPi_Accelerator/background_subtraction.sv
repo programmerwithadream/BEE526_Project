@@ -32,26 +32,36 @@ integer j;
 localparam int RGB_IMG_BYTE_LENGTH = 49152;
 localparam int GS_IMG_BYTE_LENGTH = 16384;
 
-localparam int WAIT_TO_WRITE = 306064;//306096;//38262;//test
+localparam int WAIT_TO_WRITE = 262152;//<=(49152 - 16384 + 1) * 8//306064;//306096;//38262;
+
+localparam int WRITE_BUFFER_SIZE = 32769;
+
+logic [31:0] state_counter;
+logic [7:0] write_counter;
 
 integer SRAM_SELECT_INT;
+integer STATE_COUNTER_INT;
+integer BUFFER_POINTER_INT;
 
+/*
 integer STATE_COUNTER_MOD_24;
 integer STATE_COUNTER_MOD_24_DIVIDE_8;
 
 
+assign STATE_COUNTER_MOD_24 = state_counter % 24;
+assign STATE_COUNTER_MOD_24_DIVIDE_8 = STATE_COUNTER_MOD_24 / 8;
+*/
+
 
 logic [1:0] sram_select;
 assign SRAM_SELECT_INT = sram_select;
+assign STATE_COUNTER_INT = state_counter;
 
 //logic needed for background subtraction
 logic [7:0] threshold;
-logic [10922:0] write_buffer;
+logic [WRITE_BUFFER_SIZE - 1:0] write_buffer;
 logic [13:0] buffer_pointer;
-
-logic [31:0] state_counter;
-assign STATE_COUNTER_MOD_24 = state_counter % 24;
-assign STATE_COUNTER_MOD_24_DIVIDE_8 = STATE_COUNTER_MOD_24 / 8;
+assign BUFFER_POINTER_INT = buffer_pointer;
 
 //rgb_byte[0] red, rgb_byte[1] green, rgb_byte[2] blue
 logic [7:0] current_rgb_bytes [0:2];
@@ -64,6 +74,7 @@ logic [2:0] background_minus_current_signs;
 logic [2:0] comparator_results;
 logic is_foreground;
 
+//threshold for background subtraction
 assign threshold = 25;
 
 always_ff @(posedge execute)
@@ -86,17 +97,15 @@ begin
 			begin
 				states <= PREP;
 				
-				address[SRAM_SELECT_INT + 1] <= inst_address[0];
-				byte_length[SRAM_SELECT_INT + 1] <= GS_IMG_BYTE_LENGTH;
+				address[(SRAM_SELECT_INT + 1) % 4] <= inst_address[0];
+				byte_length[(SRAM_SELECT_INT + 1) % 4] <= GS_IMG_BYTE_LENGTH;
 				
-				inst[SRAM_SELECT_INT + 2] <= 3;
-				address[SRAM_SELECT_INT + 2] <= inst_address[1];
-				byte_length[SRAM_SELECT_INT + 2] <= RGB_IMG_BYTE_LENGTH;
-				inst[SRAM_SELECT_INT + 3] <= 3;
-				address[SRAM_SELECT_INT + 3] <= inst_address[2];
-				byte_length[SRAM_SELECT_INT + 3] <= RGB_IMG_BYTE_LENGTH;
-				
-				state_counter <= 0;
+				inst[(SRAM_SELECT_INT + 2) % 4] <= 3;
+				address[(SRAM_SELECT_INT + 2) % 4] <= inst_address[1];
+				byte_length[(SRAM_SELECT_INT + 2) % 4] <= RGB_IMG_BYTE_LENGTH;
+				inst[(SRAM_SELECT_INT + 3) % 4] <= 3;
+				address[(SRAM_SELECT_INT + 3) % 4] <= inst_address[2];
+				byte_length[(SRAM_SELECT_INT + 3) % 4] <= RGB_IMG_BYTE_LENGTH;
 			end
 			else
 			begin
@@ -107,37 +116,26 @@ begin
 					address[i] <= 0;
 					byte_length[i] <= 0;
 				end
-				write_in <= 4'b0000;
-				
-				state_counter <= 0;
 			end
 		end
 		
 		PREP:
 		begin
-			inst[SRAM_SELECT_INT + 2] <= 0;
-			address[SRAM_SELECT_INT + 2] <= 0;
-			byte_length[SRAM_SELECT_INT + 2] <= 0;
-			inst[SRAM_SELECT_INT + 3] <= 0;
-			address[SRAM_SELECT_INT + 3] <= 0;
-			byte_length[SRAM_SELECT_INT + 3] <= 0;
-			
-			if (state_counter == 32)
-			begin
-				states <= EXECUTE;
-				state_counter <= 0;
-			end
-			else
-			begin				
-				state_counter <= state_counter + 1;
-			end
+			inst[(SRAM_SELECT_INT + 2) % 4] <= 0;
+			address[(SRAM_SELECT_INT + 2) % 4] <= 0;
+			byte_length[(SRAM_SELECT_INT + 2) % 4] <= 0;
+			inst[(SRAM_SELECT_INT + 3) % 4] <= 0;
+			address[(SRAM_SELECT_INT + 3) % 4] <= 0;
+			byte_length[(SRAM_SELECT_INT + 3) % 4] <= 0;
+						
+			states <= EXECUTE;
 		end
 		
 		EXECUTE:
 		begin
 			job_done <= 0;
 						
-			if (rw_done[SRAM_SELECT_INT + 1])
+			if (rw_done[(SRAM_SELECT_INT + 1) % 4])
 			begin
 				states <= IDLE;
 				job_done <= 1;
@@ -150,27 +148,16 @@ begin
 					address[j] <= 0;
 					byte_length[j] <= 0;
 				end
-				write_in <= 4'b0000;
-				
-				state_counter <= 0;
 			end
 			else if (state_counter == WAIT_TO_WRITE)
 			begin
 				inst[SRAM_SELECT_INT + 1] <= 2;
-				
-				state_counter <= state_counter + 1;
 			end
-			else if(state_counter < WAIT_TO_WRITE)
-			begin
-				state_counter <= state_counter + 1;
-			end
-			else
+			else if(state_counter > WAIT_TO_WRITE)
 			begin
 				inst[SRAM_SELECT_INT + 1] <= 0;
 				address[SRAM_SELECT_INT + 1] <= 0;
 				byte_length[SRAM_SELECT_INT + 1] <= 0;
-				
-				state_counter <= state_counter + 1;
 			end
 		end
 	endcase
@@ -179,6 +166,45 @@ end
 
 always_ff @(posedge clk)
 begin
+	if (state_counter % 24 == 0 && state_counter != 0 && state_counter < WAIT_TO_WRITE)
+	begin
+		buffer_pointer <= buffer_pointer + 1;
+	end
+	else if (io_valid[(SRAM_SELECT_INT + 1) % 4] && state_counter % 24 != 0 && write_counter == 0)
+	begin
+		buffer_pointer <= buffer_pointer - 1;
+	end
+	
+	if (io_valid[(SRAM_SELECT_INT + 2) % 4])
+	begin
+		current_rgb_bytes[(STATE_COUNTER_INT / 8) % 3][(STATE_COUNTER_INT / 8)] <= mem_out[(SRAM_SELECT_INT + 2) % 4];
+	end
+	if (io_valid[(SRAM_SELECT_INT + 3) % 4])
+	begin
+		background_rgb_bytes[(STATE_COUNTER_INT / 8) % 3][(STATE_COUNTER_INT / 8)] <= mem_out[(SRAM_SELECT_INT + 3) % 4];
+		
+		// should find a better spot for state_counter increment
+		state_counter <= state_counter + 1;
+	end
+
+	if (state_counter % 24 == 0 && state_counter != 0)
+	begin
+		write_buffer <= {write_buffer[WRITE_BUFFER_SIZE - 2:0], is_foreground};
+	end
+	
+	if (io_valid[(SRAM_SELECT_INT + 1) % 4])
+	begin
+		write_in[(SRAM_SELECT_INT + 1) % 4] <= write_buffer[BUFFER_POINTER_INT];
+		write_counter <= write_counter + 1;
+	end
+	
+	if (rw_done[(SRAM_SELECT_INT + 1) % 4])
+	begin
+		state_counter <= 0;
+	end
+
+
+	/*
 	if (states == EXECUTE)
 	begin
 		if (STATE_COUNTER_MOD_24 == 0 && state_counter != 0 && state_counter < WAIT_TO_WRITE + 32)
@@ -207,6 +233,7 @@ begin
 			background_rgb_bytes[STATE_COUNTER_MOD_24][STATE_COUNTER_MOD_24_DIVIDE_8] <= mem_out[SRAM_SELECT_INT + 3];
 		end
 	end
+	*/
 end
 
 genvar k;

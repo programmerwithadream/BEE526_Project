@@ -141,6 +141,9 @@ logic [3:0] mem_io_valid;
 logic [3:0] rw_done;
 logic [3:0] mem_rw_done;
 
+//logic for instruction handler
+logic [79:0] RPi_inst;
+
 //=======================================================
 //  Structural coding
 //=======================================================
@@ -202,133 +205,134 @@ mem_connector MC0(decoder_out, sram_select, mem_in, mosi, mem_clk, clk, RPiclk, 
 assign io_valid = mem_io_valid;
 assign rw_done = mem_rw_done;
 
+instruction_handler #32 I0(RPi_inst, mosi, RPiclk, RPi_select[1]);
+task_manager T0(inst_valid, job_done, RPi_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, mem_out, io_valid, rw_done);
+
+
 //***************
 //temporary test
 //***************
-logic [31:0] temp_inst;
-logic [2:0] temp_pins;
-assign temp_pins[0] = execute_task;
-assign temp_pins[1] = sram_select[0];
-assign temp_pins[2] = sram_select[1];
-instruction_handler #32 I0(temp_inst, mosi, RPiclk, RPi_select[1]);
+//logic [31:0] temp_inst;
+//logic [2:0] temp_pins;
+//assign temp_pins[0] = execute_task;
+//assign temp_pins[1] = sram_select[0];
+//assign temp_pins[2] = sram_select[1];
+//instruction_handler #32 I0(temp_inst, mosi, RPiclk, RPi_select[1]);
 //task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, so, io_valid, rw_done);
 
 
 
 
 //test finite state machine to see if updated sram_SPI_RW works
-enum {IDLE, WRITE, HOLD1, READ, HOLD2} states = IDLE;
+//enum {IDLE, WRITE, HOLD1, READ, HOLD2} states = IDLE;
 
 //add state_counter
-logic [15:0] state_counter;
+//logic [15:0] state_counter;
 //add address_counter test only
-logic [23:0] address_counter;
+//logic [23:0] address_counter;
 
 //sram index
-assign byte_length[1] = 2;
+//assign byte_length[1] = 2;
 
-logic [15:0] in_reg;
-logic [15:0] out_reg;
+//logic [15:0] in_reg;
+//logic [15:0] out_reg;
 
 //sram index
-assign write_in[1] = in_reg[15];
+//assign write_in[1] = in_reg[15];
 
 //write and read 2 bytes at a time to sram
-always_ff @(posedge clk)
-begin
-	case (states)
-		IDLE:
-		begin
-			if(SW[0])
-				begin
-				if (state_counter == 0)
-				begin
-					states <= WRITE;
-					//sram index
-					inst[1] <= 2;
-					//sram index
-					address[1] <= address_counter;
-					
-					in_reg <= address_counter + 1;//65280;//43690;//21845;
-					out_reg <= 0;
-					
-					state_counter <= 25;
-				end
-				else
-				begin
-					state_counter <= state_counter - 1;
-				end
-			end
-			else
-			begin
-				//sram index
-				inst[1] <= 0;
-			end
-		end
-		
-		WRITE:
-		begin
-			//sram index
-			if (io_valid[1])
-			begin
-				in_reg <= in_reg << 1;
-			end
-			//sram index
-			else if (rw_done[1])
-			begin
-				//sram index
-				inst[1] <= 0;
-				states <= HOLD1;
-			end
-			else
-			begin
-				//sram index
-				inst[1] <= 0;
-			end
-		end
-		
-		HOLD1:
-		begin
-			states <= READ;
-			//sram index
-			inst[1] <= 3;
-		end
-		
-		READ:
-		begin
-			//sram index
-			if (rw_done[1])
-			begin
-				//sram index
-				inst[1] <= 0;
-				states <= HOLD2;
-			end
-			//sram index
-			else if (io_valid[1]) 
-			begin
-				//sram index
-				out_reg <= {out_reg[14:0], mem_out[1]};
-			end
-			else
-			begin
-				//sram index
-				inst[1] <= 0;
-			end
-		end
-		
-		HOLD2:
-		begin
-			states <= IDLE;
-			//sram index
-			inst[1] <= 0;			
-			
-			address_counter <= address_counter + 2;
-		end
-	endcase
-end
-
-
-
-display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, out_reg);
+//always_ff @(posedge clk)
+//begin
+//	case (states)
+//		IDLE:
+//		begin
+//			if(SW[0])
+//				begin
+//				if (state_counter == 0)
+//				begin
+//					states <= WRITE;
+//					//sram index
+//					inst[1] <= 2;
+//					//sram index
+//					address[1] <= address_counter;
+//					
+//					in_reg <= address_counter + 1;//65280;//43690;//21845;
+//					out_reg <= 0;
+//					
+//					state_counter <= 25;
+//				end
+//				else
+//				begin
+//					state_counter <= state_counter - 1;
+//				end
+//			end
+//			else
+//			begin
+//				//sram index
+//				inst[1] <= 0;
+//			end
+//		end
+//		
+//		WRITE:
+//		begin
+//			//sram index
+//			if (io_valid[1])
+//			begin
+//				in_reg <= in_reg << 1;
+//			end
+//			//sram index
+//			else if (rw_done[1])
+//			begin
+//				//sram index
+//				inst[1] <= 0;
+//				states <= HOLD1;
+//			end
+//			else
+//			begin
+//				//sram index
+//				inst[1] <= 0;
+//			end
+//		end
+//		
+//		HOLD1:
+//		begin
+//			states <= READ;
+//			//sram index
+//			inst[1] <= 3;
+//		end
+//		
+//		READ:
+//		begin
+//			//sram index
+//			if (rw_done[1])
+//			begin
+//				//sram index
+//				inst[1] <= 0;
+//				states <= HOLD2;
+//			end
+//			//sram index
+//			else if (io_valid[1]) 
+//			begin
+//				//sram index
+//				out_reg <= {out_reg[14:0], mem_out[1]};
+//			end
+//			else
+//			begin
+//				//sram index
+//				inst[1] <= 0;
+//			end
+//		end
+//		
+//		HOLD2:
+//		begin
+//			states <= IDLE;
+//			//sram index
+//			inst[1] <= 0;			
+//			
+//			address_counter <= address_counter + 2;
+//		end
+//	endcase
+//end
+//display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, out_reg);
 
 endmodule
