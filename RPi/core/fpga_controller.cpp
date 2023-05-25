@@ -97,7 +97,7 @@ int main()
     int inst_valid_counter = 0;
     while (!gpioRead(inst_valid)) {
         load_background_subtraction_inst(handle_1);
-        delay(50);
+        
         if(inst_valid_counter > 10) {
             std::cout << "unable to load instruction onto FPGA." << std::endl;
             return 1;
@@ -260,7 +260,7 @@ int main()
             idle_counter ++;
 
             if (idle_counter > 1000000000) {
-                std::cout << "FPGA is unable to complete execution." << std::cout;
+                std::cout << "FPGA is unable to complete execution." << std::endl;
                 return 1;
             }
         }
