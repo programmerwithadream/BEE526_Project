@@ -3,22 +3,12 @@ extern "C" {
 }
 
 #include <iostream>
-#include <pigpio.h>
-
-#include <opencv2/opencv.hpp>
 #include <vector>
-#include <string>
-#include <chrono>
-#include <thread>
 
-#define CHANNEL_0 0
-#define CHANNEL_1 1
+#define CHANNEL 0
 #define SPEED 5000000
 #define READ 0x03
 #define WRITE 0x02
-
-const int sram_select_0 = 24; //GPIO 0 is physical pin 11
-const int sram_select_1 = 23;
 
 // g++ pigpio_read_write.cpp -o pigpio_read_write -lpigpio -lrt
 // sudo ./pigpio_read_write
@@ -69,14 +59,19 @@ int main() {
     // Open SPI channel
     int handle = spiOpen(CHANNEL, SPEED, 0);
 
-    
-    gpioWrite(sram_select_0, 0);
-    gpioWrite(sram_select_1, 0);
+    int length = 49152;
 
-    int length = 16384;
+    // Write some data
+    std::vector<uint8_t> dataToWrite;
+
+    for (int i = 0; i < length; i++) {
+        dataToWrite.push_back(i);
+    }
+
+    writeData(handle, 0x000000, dataToWrite);
 
     // Read the data back
-    std::vector<uint8_t> readBack = readData(handle, 0x000000, length);
+    std::vector<uint8_t> readBack = readData(handle, 0x000000, dataToWrite.size());
 
     // Print the read data
     for (int i = 0; i < length; i++) {
