@@ -327,9 +327,9 @@ int main()
 
     }
 
+    spiClose(handle_0);
     spiClose(handle_1);
-    spiClose(handle_2);
-    
+
     // Terminate pigpio library
     gpioTerminate();
 
