@@ -226,13 +226,18 @@ int main()
     // main loop
     while (1)
     {
-        while (execute_counter < 1000) {
+        while (1) {
             if (gpioRead(inst_valid && fpga_idle)) {
                 gpioWrite(fpga_execute, 1);
                 break;
             }
 
             execute_counter++;
+
+            if (execute_counter > 1000) {
+                std::cout << "Unable to execute tasks." << std::endl;
+                return 1;
+            }
         }
         //gpioWrite(fpga_execute, 1);
 
