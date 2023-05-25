@@ -263,7 +263,7 @@ int main()
         writeData(handle_0, current_img_address, img_vector);
 
         // Wait till fpga is done
-        while (!fpga_idle) {
+        while (!gpioRead(fpga_idle)) {
             idle_counter ++;
 
             if (idle_counter > 1000000000) {
