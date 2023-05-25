@@ -51,6 +51,8 @@ void notIdle(int gpio, int level, uint32_t tick)
     if (level == 0) {
         gpioWrite(fpga_execute, 0);
     }
+    
+    std::cout "FPGA executing..." << std::endl;
 }
 
 void load_background_subtraction_inst(int handle) {
