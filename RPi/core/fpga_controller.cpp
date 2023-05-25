@@ -271,7 +271,7 @@ int main()
         while (!fpga_working) {
             idle_counter ++;
 
-            if (idle_counter > 10000) {
+            if (idle_counter > 1000000000) {
                 std::cout << "FPGA is unable to complete execution." << std::endl;
                 return 1;
             }
