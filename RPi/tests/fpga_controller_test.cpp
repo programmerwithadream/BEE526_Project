@@ -10,7 +10,7 @@
 #define READ 0x03
 #define WRITE 0x02
 
-// g++ -o fpga_controller_test fpga_controller_test.cpp `pkg-config --cflags --libs opencv4` -lpigpio -lrt -lpthread
+// g++ -o fpga_controller_test fpga_controller_test.cpp `pkg-config --cflags --libs opencv` -lpigpio -lrt -lpthread
 // sudo ./fpga_controller_test
 
 // GPIO pin number
@@ -173,6 +173,7 @@ int main()
     std::string img_name = "in000003.jpg";
     std::string result_img_directory = "/home/pi/Desktop/test_images/test_results/";
     std::string result_img_name = "out000000.jpg";
+
     // main loop
     while (1)
     {
