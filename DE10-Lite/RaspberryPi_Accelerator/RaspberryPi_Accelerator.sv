@@ -69,7 +69,7 @@ module RaspberryPi_Accelerator(
 //=======================================================
 
 //frequency the fpga operates on
-localparam desiredFrequency = 100.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
+localparam desiredFrequency = 100000000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
 //pin numbers for raspberry pi, sram 0,1,2,3 signals
 localparam int MOSI_PIN = 9; //raspberry pi pinout 19 GPIO 10
@@ -80,7 +80,7 @@ localparam int CS1_PIN = 5; //raspberry pi pinout 26 GPIO 7
 localparam int SRAM_SELECT0_PIN = 10; //connect to RPI GPIO 24
 localparam int SRAM_SELECT1_PIN = 12; //connect to RPI GPIO 23
 localparam int INST_VALID_PIN = 14; //connect to RPI GPIO pin 17
-localparam int JOB_DONE_PIN = 13; //connect to RPI GPIO pin  27
+localparam int IDLE_PIN = 13; //connect to RPI GPIO pin  27
 localparam int EXECUTE_TASK_PIN = 11; //connect to RPI GPIO pin 22
 
 localparam int CE0_PIN = 24;
@@ -118,7 +118,7 @@ logic [1:0] RPi_select;
 logic [3:0] decoder_out;
 logic [1:0] sram_select;
 //status signals between raspberry pi  and fpga
-logic inst_valid, job_done, execute_task;
+logic inst_valid, idle, execute_task;
 
 //signals going into srams
 //should only be controlled by muxes
@@ -173,7 +173,7 @@ assign sram_select[1] = GPIO[SRAM_SELECT1_PIN];
 
 //signals between RPi and FPGA task_manager
 assign GPIO[INST_VALID_PIN] = inst_valid;
-assign GPIO[JOB_DONE_PIN] = job_done;
+assign GPIO[IDLE_PIN] = idle;
 assign execute_task = GPIO[EXECUTE_TASK_PIN];
 
 //assigning chip enable to their corresponding srams
@@ -206,7 +206,7 @@ assign io_valid = mem_io_valid;
 assign rw_done = mem_rw_done;
 
 instruction_handler #32 I0(RPi_inst, mosi, RPiclk, RPi_select[1]);
-task_manager T0(inst_valid, job_done, RPi_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, mem_out, io_valid, rw_done);
+task_manager T0(inst_valid, idle, RPi_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, mem_out, io_valid, rw_done);
 
 
 //***************
@@ -218,7 +218,6 @@ task_manager T0(inst_valid, job_done, RPi_inst, execute_task, clk, sram_select, 
 //assign temp_pins[1] = sram_select[0];
 //assign temp_pins[2] = sram_select[1];
 //instruction_handler #32 I0(temp_inst, mosi, RPiclk, RPi_select[1]);
-//task_manager T0(inst_valid, job_done, temp_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, so, io_valid, rw_done);
 
 
 
@@ -333,6 +332,8 @@ task_manager T0(inst_valid, job_done, RPi_inst, execute_task, clk, sram_select, 
 //		end
 //	endcase
 //end
-//display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, out_reg);
+
+
+display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, idle);
 
 endmodule

@@ -3,7 +3,7 @@ module task_manager #(
 )
 (
 	output inst_valid,
-	output job_done,
+	output idle,
 	
 	input [N-1:0] RPi_inst,
 	input execute_task,
@@ -27,7 +27,7 @@ module task_manager #(
 //instruction type most be presented in the most significant byte of inst
 //can have up to 255 tasks, 8'b00000000 for instruction is reserved for no task
 //first task implemented will start at 255
-localparam int VALID_INST_POINTER = 253;
+localparam int VALID_INST_POINTER = 254;
 
 //maximum address of the sram
 localparam int MAX_ADDRESS = 'h1ffff;
@@ -37,7 +37,7 @@ typedef enum logic [7:0] {
 	BGS = 8'b11111111
 } state_t;
 
-state_t states;
+state_t states = IDLE;
 
 logic [23:0] state_counter;
 
@@ -59,7 +59,7 @@ assign inst_valid = &comparator_results;
 
 //signal determining if execution can proceed
 logic proceed;
-assign proceed = inst_valid & execute_task & job_done;
+assign proceed = inst_valid & execute_task & idle;
 
 //signals for IDLE
 logic [7:0] idle_inst [0:3];
@@ -93,8 +93,12 @@ begin
 			if (proceed)
 			begin
 				states <= state_t'(job_type);
-				job_done <= 0;
+				idle <= 0;
 				state_counter <= 0;
+			end
+			else
+			begin
+				idle <= 1;
 			end
 		end
 		
@@ -104,13 +108,13 @@ begin
 			if (bgs_job_done)
 			begin
 				states <= IDLE;
-				job_done <= 1;
+				idle <= 1;
 				task_select <= 0;
 				state_counter <= state_counter + 1;
 			end
 			if (state_counter == 0)
 			begin
-				job_done <= 0;
+				idle <= 0;
 				task_select <= 1;
 				
 				bgs_execute <= 1;
@@ -120,14 +124,14 @@ begin
 			else if (state_counter == 24'hffffff)
 			begin
 				states <= IDLE;
-				job_done <= 1;
+				idle <= 1;
 				task_select <= 0;
 				
 				state_counter <= 0;
 			end
 			else
 			begin
-				job_done <= 0;
+				idle <= 0;
 				task_select <= 1;
 				
 				state_counter <= state_counter + 1;

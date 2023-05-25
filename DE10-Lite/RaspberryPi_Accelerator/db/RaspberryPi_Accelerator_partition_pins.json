@@ -4,6 +4,22 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "HEX0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX0[5]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO[5]",
 					"strict" : false
 				},
@@ -28,7 +44,15 @@
 					"strict" : false
 				},
 				{
+					"name" : "GPIO[11]",
+					"strict" : false
+				},
+				{
 					"name" : "GPIO[12]",
+					"strict" : false
+				},
+				{
+					"name" : "GPIO[13]",
 					"strict" : false
 				},
 				{
