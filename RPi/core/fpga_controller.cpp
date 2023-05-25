@@ -26,6 +26,8 @@ const int result_img_address = 0;
 const int current_img_address = 16385;
 const int background_img_address = 65538;
 
+bool fpga_working = 0;
+
 // Function to write uchar to the SRAM chip.
 void writeData(int handle, int address, std::vector<uchar> data) {
     std::vector<char> buffer = {WRITE, (char)((address>>16)&0xFF), (char)((address>>8)&0xFF), (char)(address&0xFF)};
@@ -50,6 +52,7 @@ void notIdle(int gpio, int level, uint32_t tick)
 {
     if (level == 0) {
         gpioWrite(fpga_execute, 0);
+        fpga_working = 1;
     }
     
     std::cout << "FPGA executing..." << std::endl;
@@ -263,7 +266,7 @@ int main()
         writeData(handle_0, current_img_address, img_vector);
 
         // Wait till fpga is done
-        while (!gpioRead(fpga_idle)) {
+        while (!gpioRead(fpga_idle) && !fpga_working) {
             idle_counter ++;
 
             if (idle_counter > 1000000000) {
@@ -272,6 +275,7 @@ int main()
             }
         }
 
+        fpga_working = 0;
         idle_counter = 0;
 
         if (sram_select_0 == 0 && sram_select_1 == 0) {
