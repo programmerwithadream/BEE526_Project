@@ -62,7 +62,7 @@ void load_background_subtraction_inst(int handle) {
     uint32_t uint_result_img_address = (uint32_t) result_img_address;
     uint32_t uint_current_img_address = (uint32_t) current_img_address;
     uint32_t uint_background_img_address = (uint32_t) background_img_address;
-    std::vector<char> buffer = {WRITE, (char)((uint_result_img_address>>16)&0xFF), (char)((uint_result_img_address>>9)&0xFF), (char)((uint_result_img_address)&0xFF), (char)((uint_current_img_address>>16)&0xFF), (char)((uint_current_img_address>>8)&0xFF), (char)((uint_current_img_address)&0xFF), (char)((uint_background_img_address>>16)&0xFF), (char)((uint_background_img_address>>8)&0xFF), (char)((uint_background_img_address)&0xFF)};
+    std::vector<char> buffer = {0xFF, (char)((uint_result_img_address>>16)&0xFF), (char)((uint_result_img_address>>9)&0xFF), (char)((uint_result_img_address)&0xFF), (char)((uint_current_img_address>>16)&0xFF), (char)((uint_current_img_address>>8)&0xFF), (char)((uint_current_img_address)&0xFF), (char)((uint_background_img_address>>16)&0xFF), (char)((uint_background_img_address>>8)&0xFF), (char)((uint_background_img_address)&0xFF)};
 
     spiWrite(handle, &buffer[0], 10);
 }
