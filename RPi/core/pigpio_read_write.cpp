@@ -11,8 +11,7 @@ extern "C" {
 #include <chrono>
 #include <thread>
 
-#define CHANNEL_0 0
-#define CHANNEL_1 1
+#define CHANNEL 0
 #define SPEED 5000000
 #define READ 0x03
 #define WRITE 0x02
