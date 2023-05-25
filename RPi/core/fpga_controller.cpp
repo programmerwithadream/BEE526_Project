@@ -4,6 +4,8 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <string>
+#include <chrono>
+#include <thread>
 
 #define CHANNEL_0 0
 #define CHANNEL_1 1
@@ -62,7 +64,7 @@ void load_background_subtraction_inst(int handle) {
     uint32_t uint_result_img_address = (uint32_t) result_img_address;
     uint32_t uint_current_img_address = (uint32_t) current_img_address;
     uint32_t uint_background_img_address = (uint32_t) background_img_address;
-    std::vector<char> buffer = {0xFF, (char)((uint_result_img_address>>16)&0xFF), (char)((uint_result_img_address>>9)&0xFF), (char)((uint_result_img_address)&0xFF), (char)((uint_current_img_address>>16)&0xFF), (char)((uint_current_img_address>>8)&0xFF), (char)((uint_current_img_address)&0xFF), (char)((uint_background_img_address>>16)&0xFF), (char)((uint_background_img_address>>8)&0xFF), (char)((uint_background_img_address)&0xFF)};
+    std::vector<char> buffer = {0xFF, (char)((uint_result_img_address>>16)&0xFF), (char)((uint_result_img_address>>8)&0xFF), (char)((uint_result_img_address)&0xFF), (char)((uint_current_img_address>>16)&0xFF), (char)((uint_current_img_address>>8)&0xFF), (char)((uint_current_img_address)&0xFF), (char)((uint_background_img_address>>16)&0xFF), (char)((uint_background_img_address>>8)&0xFF), (char)((uint_background_img_address)&0xFF)};
 
     spiWrite(handle, &buffer[0], 10);
 }
@@ -102,7 +104,7 @@ int main()
     int inst_valid_counter = 0;
     while (!gpioRead(inst_valid)) {
         load_background_subtraction_inst(handle_1);
-        
+        std::this_thread::sleep_for(std::chrono::milliseconds(15));
         if(inst_valid_counter > 10) {
             std::cout << "unable to load instruction onto FPGA." << std::endl;
             return 1;
