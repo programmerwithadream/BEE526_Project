@@ -266,10 +266,10 @@ int main()
         writeData(handle_0, current_img_address, img_vector);
 
         // Wait till fpga is done
-        while (!gpioRead(fpga_idle) && !fpga_working) {
+        while (!fpga_working) {
             idle_counter ++;
 
-            if (idle_counter > 1000000000) {
+            if (idle_counter > 10000) {
                 std::cout << "FPGA is unable to complete execution." << std::endl;
                 return 1;
             }
