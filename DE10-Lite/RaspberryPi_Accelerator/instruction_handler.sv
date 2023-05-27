@@ -1,8 +1,6 @@
-module instruction_handler #(
-	parameter N = 80
-)
+module instruction_handler
 (
-	output [N-1:0] RPi_inst,
+	output [79:0] RPi_inst,
 	
 	//signals from raspberry pi
 	input MOSI,
@@ -11,29 +9,35 @@ module instruction_handler #(
 );
 
 enum {IDLE, READ} states = IDLE;
-
-always_ff @(posedge RPiclk)
-begin
-	if (cs1)
-	begin
-		states <= IDLE;
-	end
-	else
-	begin
-		states <= READ;
-	end
-end
+logic [7:0] state_counter;
 
 always_ff @(posedge RPiclk)
 begin
 	case (states)
 		IDLE:
 		begin
-		
+			if (cs1)
+			begin
+				state_counter <= 0;
+			end
+			else
+			begin
+				states <= READ;
+				RPi_inst <= {RPi_inst[78:0], MOSI};
+			end
 		end
 		READ:
 		begin
-			RPi_inst <= {RPi_inst[N-2:0], MOSI};
+			if (cs1)
+			begin
+				states <= IDLE;
+			end
+			else if (state_counter < 79)
+			begin
+				RPi_inst <= {RPi_inst[78:0], MOSI};
+				state_counter <= state_counter + 1;
+			end
+			
 		end
 	endcase
 end

@@ -1,11 +1,8 @@
-module task_manager #(
-	parameter N = 80
-)
-(
+module task_manager(
 	output inst_valid,
 	output idle,
 	
-	input [N-1:0] RPi_inst,
+	input [79:0] RPi_inst,
 	input execute_task,
 	
 	input clk,
@@ -27,35 +24,32 @@ module task_manager #(
 //instruction type most be presented in the most significant byte of inst
 //can have up to 255 tasks, 8'b00000000 for instruction is reserved for no task
 //first task implemented will start at 255
-localparam int VALID_INST_POINTER = 254;
+logic [7:0] valid_inst_pointer;
+assign valid_inst_pointer = 254;
 
 //maximum address of the sram
-localparam int MAX_ADDRESS = 'h1ffff;
+logic[23:0] max_address;
+assign max_address = 'h1ffff;
 
-typedef enum logic [7:0] {
-	IDLE = 8'b00,
-	BGS = 8'b11111111
-} state_t;
-
-state_t states = IDLE;
+enum {IDLE, BGS} states = IDLE;
 
 logic [23:0] state_counter;
 
-logic [7:0] job_type;
+logic[7:0] logic_states;
 logic [23:0] inst_address [0:2];
+assign logic_states = RPi_inst[79:72];
 //addresses for sram needs to be 24 bits
-assign job_type = RPi_inst[N-1:N-8];
-assign inst_address[0] = RPi_inst[N-9:N-32];
-assign inst_address[1] = RPi_inst[N-33:N-56];
-assign inst_address[2] = RPi_inst[N-57:0];
+assign inst_address[0] = RPi_inst[71:48];
+assign inst_address[1] = RPi_inst[47:24];
+assign inst_address[2] = RPi_inst[23:0];
 
 //comparators determining if RPi_inst represents a valid task
 logic [3:0] comparator_results;
-n_bit_comparator #8 C0(comparator_results[0], job_type, VALID_INST_POINTER);
-n_bit_comparator #24 C1(comparator_results[1], MAX_ADDRESS, inst_address[0]);
-n_bit_comparator #24 C2(comparator_results[2], MAX_ADDRESS, inst_address[1]);
-n_bit_comparator #24 C3(comparator_results[3], MAX_ADDRESS, inst_address[2]);
-assign inst_valid = &comparator_results;
+n_bit_comparator #9 C0(comparator_results[0], logic_states, valid_inst_pointer);
+n_bit_comparator #25 C1(comparator_results[1], max_address, inst_address[0]);
+n_bit_comparator #25 C2(comparator_results[2], max_address, inst_address[1]);
+n_bit_comparator #25 C3(comparator_results[3], max_address, inst_address[2]);
+assign inst_valid = comparator_results[3] & comparator_results[2] & comparator_results[1] & comparator_results[0];
 
 //signal determining if execution can proceed
 logic proceed;
@@ -79,27 +73,38 @@ background_subtraction B(sram_select, inst_address, mem_out, bgs_inst, bgs_addre
 //MUX FOR TASK SELECTION
 //**********************
 //
-logic task_select;
+logic task_select, job_done, job_incomplete;
 assign inst = task_select ? bgs_inst : idle_inst;
 assign address = task_select ? bgs_address : idle_address;
 assign write_in = task_select ? bgs_write_in : idle_write_in;
 assign byte_length = task_select ? bgs_byte_length : idle_byte_length;
+assign job_done = bgs_job_done | job_incomplete;
+
+
+always_ff @(posedge clk)
+begin
+	if (proceed)
+	begin
+		case(logic_states)
+			0: states <= IDLE;
+			255: states <= BGS;
+			default: states <= IDLE;
+		endcase
+	end
+	else if(job_done)
+	begin
+		states <= IDLE;
+	end
+end
 
 always_ff @(posedge clk)
 begin
 	case (states)
 		IDLE:
 		begin
-			if (proceed)
-			begin
-				states <= state_t'(job_type);
-				idle <= 0;
-				state_counter <= 0;
-			end
-			else
-			begin
-				idle <= 1;
-			end
+			idle <= 1;
+			state_counter <= 0;
+			job_incomplete <= 0;
 		end
 		
 		//background subtraction state
@@ -107,12 +112,14 @@ begin
 		begin
 			if (bgs_job_done)
 			begin
-				states <= IDLE;
 				idle <= 1;
-				task_select <= 0;
-				state_counter <= state_counter + 1;
+				
+				task_select <= 0;				
+				bgs_execute <= 0;
+				
+				state_counter <= 0;
 			end
-			if (state_counter == 0)
+			else if (state_counter == 0)
 			begin
 				idle <= 0;
 				task_select <= 1;
@@ -123,16 +130,19 @@ begin
 			end
 			else if (state_counter == 24'hffffff)
 			begin
-				states <= IDLE;
 				idle <= 1;
 				task_select <= 0;
+				bgs_execute <= 0;
 				
+				job_incomplete <= 1;
+								
 				state_counter <= 0;
 			end
 			else
 			begin
 				idle <= 0;
 				task_select <= 1;
+				bgs_execute <= 0;
 				
 				state_counter <= state_counter + 1;
 			end

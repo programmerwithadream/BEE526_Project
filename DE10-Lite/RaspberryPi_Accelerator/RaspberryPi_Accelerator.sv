@@ -69,7 +69,7 @@ module RaspberryPi_Accelerator(
 //=======================================================
 
 //frequency the fpga operates on
-localparam desiredFrequency = 100000000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
+localparam desiredFrequency = 1000000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
 //pin numbers for raspberry pi, sram 0,1,2,3 signals
 localparam int MOSI_PIN = 9; //raspberry pi pinout 19 GPIO 10
@@ -205,7 +205,7 @@ mem_connector MC0(decoder_out, sram_select, mem_in, mosi, mem_clk, clk, RPiclk, 
 assign io_valid = mem_io_valid;
 assign rw_done = mem_rw_done;
 
-instruction_handler #32 I0(RPi_inst, mosi, RPiclk, RPi_select[1]);
+instruction_handler I0(RPi_inst, mosi, RPiclk, RPi_select[1]);
 task_manager T0(inst_valid, idle, RPi_inst, execute_task, clk, sram_select, inst, address, write_in, byte_length, mem_out, io_valid, rw_done);
 
 
@@ -334,6 +334,11 @@ task_manager T0(inst_valid, idle, RPi_inst, execute_task, clk, sram_select, inst
 //end
 
 
-display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, idle);
+//logic [2:0] status_flags;
+//assign status_flags[2] = execute_task;
+//assign status_flags[1] = inst_valid;
+//assign status_flags[0] = idle;
+//display DI0(HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, status_flags);
+
 
 endmodule

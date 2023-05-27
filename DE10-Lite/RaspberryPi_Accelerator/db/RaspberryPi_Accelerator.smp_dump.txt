@@ -1,0 +1,5 @@
+
+State Machine - |RaspberryPi_Accelerator|task_manager:T0|states
+Name states.BGS 
+states.IDLE 0 
+states.BGS 1 
