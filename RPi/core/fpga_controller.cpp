@@ -119,7 +119,6 @@ int main()
     std::vector<uchar> img_vector;
 
     // initial setup
-    // setup 00 case
     gpioWrite(sram_select_0, 1);
     gpioWrite(sram_select_1, 0);
 
@@ -149,9 +148,9 @@ int main()
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
 
-    // setup 01 case
-    gpioWrite(sram_select_0, 1);
-    gpioWrite(sram_select_1, 0);
+    // setup
+    gpioWrite(sram_select_0, 0);
+    gpioWrite(sram_select_1, 1);
 
     // Load the image
     img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000001.jpg", cv::IMREAD_COLOR);
@@ -178,7 +177,7 @@ int main()
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
 
-    // setup 10 case
+    // setup
     gpioWrite(sram_select_0, 0);
     gpioWrite(sram_select_1, 0);
     
@@ -207,7 +206,7 @@ int main()
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
 
-    // setup 11 case <-- no need for the last case?
+    // setup
     gpioWrite(sram_select_0, 1);
     gpioWrite(sram_select_1, 1);
 
