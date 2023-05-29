@@ -203,13 +203,13 @@ int main()
 
         //wait till fpga is done
 
-        if (sram_select_0 == 0 && sram_select_1 == 0) {
+        if (gpioRead(sram_select_0) == 0 && gpioRead(sram_select_1) == 0) {
             gpioWrite(sram_select_0, 1);
             gpioWrite(sram_select_1, 0);
-        } else if (sram_select_0 == 1 && sram_select_1 == 0) {
+        } else if (gpioRead(sram_select_0) == 1 && gpioRead(sram_select_1) == 0) {
             gpioWrite(sram_select_0, 0);
             gpioWrite(sram_select_1, 1);
-        } else if (sram_select_0 == 0 && sram_select_1 == 1) {
+        } else if (gpioRead(sram_select_0) == 0 && gpioRead(sram_select_1) == 1) {
             gpioWrite(sram_select_0, 1);
             gpioWrite(sram_select_1, 1);
         } else {
