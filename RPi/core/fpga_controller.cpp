@@ -120,7 +120,7 @@ int main()
 
     // initial setup
     // setup 00 case
-    gpioWrite(sram_select_0, 0);
+    gpioWrite(sram_select_0, 1);
     gpioWrite(sram_select_1, 0);
 
     // Load the image
@@ -180,10 +180,10 @@ int main()
 
     // setup 10 case
     gpioWrite(sram_select_0, 0);
-    gpioWrite(sram_select_1, 1);
+    gpioWrite(sram_select_1, 0);
     
     // Load the image
-    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000002.jpg", cv::IMREAD_COLOR);
+    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000003.jpg", cv::IMREAD_COLOR);
 
     // Check if the image is loaded successfully
     if(img.empty())
@@ -211,6 +211,28 @@ int main()
     gpioWrite(sram_select_0, 1);
     gpioWrite(sram_select_1, 1);
 
+    // Load the image
+    img = cv::imread("/home/pi/Desktop/test_images/PETS2006/input/in000002.jpg", cv::IMREAD_COLOR);
+
+    // Check if the image is loaded successfully
+    if(img.empty())
+    {
+        std::cout << "Could not read the image." << std::endl;
+        return 1;
+    }
+    
+    // Resize the image to 128x128
+    cv::resize(img, resized_img, cv::Size(128, 128));
+
+    // Convert the resized image to a single vector
+    img_vector.assign(resized_img.datastart, resized_img.dataend);
+
+    // Writing current image onto sram
+    writeData(handle_0, current_img_address, img_vector);
+
+    // Converting background img to a single vector
+    img_vector.assign(resized_background_img.datastart, resized_background_img.dataend);
+
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
 
@@ -218,7 +240,7 @@ int main()
 
     int index = 0;
     std::string directory = "/home/pi/Desktop/test_images/PETS2006/input/";
-    std::string img_name = "in000003.jpg";
+    std::string img_name = "in000004.jpg";
     std::string result_img_directory = "/home/pi/Desktop/test_images/test_results/";
     std::string result_img_name = "out000000.jpg";
 
@@ -314,14 +336,14 @@ int main()
             result_img_name = "out00" + std::to_string(index) + ".jpg";
         }
 
-        if (index + 3 < 10){
-            img_name = "in00000" + std::to_string(index + 3) + ".jpg";
+        if (index + 4 < 10){
+            img_name = "in00000" + std::to_string(index + 4) + ".jpg";
         } else if (index + 3< 100) {
-            img_name = "in0000" + std::to_string(index + 3) + ".jpg";
+            img_name = "in0000" + std::to_string(index + 4) + ".jpg";
         } else if (index + 3< 1000) {
-            img_name = "in000" + std::to_string(index + 3) + ".jpg";
+            img_name = "in000" + std::to_string(index + 4) + ".jpg";
         } else {
-            img_name = "in00" + std::to_string(index + 3) + ".jpg";
+            img_name = "in00" + std::to_string(index + 4) + ".jpg";
         }
 
 
