@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Sun May 28 22:30:52 2023
+Mon May 29 15:33:38 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -52,12 +52,11 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
  44. Port Connectivity Checks: "task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0"
  45. Port Connectivity Checks: "task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB"
  46. Port Connectivity Checks: "task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER"
- 47. Port Connectivity Checks: "task_manager:T0|background_subtraction:B|four_to_one_mux:BACKGROUND_SHIFT_IN_MUX"
- 48. Port Connectivity Checks: "mem_connector:MC0"
- 49. Post-Synthesis Netlist Statistics for Top Partition
- 50. Elapsed Time Per Partition
- 51. Analysis & Synthesis Messages
- 52. Analysis & Synthesis Suppressed Messages
+ 47. Port Connectivity Checks: "mem_connector:MC0"
+ 48. Post-Synthesis Netlist Statistics for Top Partition
+ 49. Elapsed Time Per Partition
+ 50. Analysis & Synthesis Messages
+ 51. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -84,15 +83,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 28 22:30:51 2023       ;
+; Analysis & Synthesis Status        ; Successful - Mon May 29 15:33:38 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 18,591                                      ;
-;     Total combinational functions  ; 18,486                                      ;
-;     Dedicated logic registers      ; 17,015                                      ;
-; Total registers                    ; 17015                                       ;
+; Total logic elements               ; 18,712                                      ;
+;     Total combinational functions  ; 18,584                                      ;
+;     Dedicated logic registers      ; 17,039                                      ;
+; Total registers                    ; 17039                                       ;
 ; Total pins                         ; 185                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -236,20 +235,20 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 18,591 ;
+; Estimated Total logic elements              ; 18,712 ;
 ;                                             ;        ;
-; Total combinational functions               ; 18486  ;
+; Total combinational functions               ; 18584  ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 17217  ;
-;     -- 3 input functions                    ; 455    ;
-;     -- <=2 input functions                  ; 814    ;
+;     -- 4 input functions                    ; 17311  ;
+;     -- 3 input functions                    ; 450    ;
+;     -- <=2 input functions                  ; 823    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 18267  ;
+;     -- normal mode                          ; 18365  ;
 ;     -- arithmetic mode                      ; 219    ;
 ;                                             ;        ;
-; Total registers                             ; 17015  ;
-;     -- Dedicated logic registers            ; 17015  ;
+; Total registers                             ; 17039  ;
+;     -- Dedicated logic registers            ; 17039  ;
 ;     -- I/O registers                        ; 0      ;
 ;                                             ;        ;
 ; I/O pins                                    ; 185    ;
@@ -257,261 +256,328 @@ https://fpgasoftware.intel.com/eula.
 ; Embedded Multiplier 9-bit elements          ; 0      ;
 ;                                             ;        ;
 ; Maximum fan-out node                        ; clk    ;
-; Maximum fan-out                             ; 16898  ;
-; Total fan-out                               ; 139699 ;
+; Maximum fan-out                             ; 16922  ;
+; Total fan-out                               ; 140156 ;
 ; Average fan-out                             ; 3.89   ;
 +---------------------------------------------+--------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                          ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                       ; Entity Name             ; Library Name ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-------------------------+--------------+
-; |RaspberryPi_Accelerator                           ; 18486 (75)          ; 17015 (33)                ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                  ; RaspberryPi_Accelerator ; work         ;
-;    |instruction_handler:I0|                        ; 14 (14)             ; 89 (89)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|instruction_handler:I0                                                           ; instruction_handler     ; work         ;
-;    |mem_connector:MC0|                             ; 525 (0)             ; 260 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                ; mem_connector           ; work         ;
-;       |four_to_one_mux:MMISO|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|four_to_one_mux:MMISO                                          ; four_to_one_mux         ; work         ;
-;       |sram_spi_read_write:S0|                     ; 126 (126)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0                                         ; sram_spi_read_write     ; work         ;
-;       |sram_spi_read_write:S1|                     ; 128 (128)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1                                         ; sram_spi_read_write     ; work         ;
-;       |sram_spi_read_write:S2|                     ; 129 (129)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2                                         ; sram_spi_read_write     ; work         ;
-;       |sram_spi_read_write:S3|                     ; 128 (128)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3                                         ; sram_spi_read_write     ; work         ;
-;       |two_to_one_mux:MCE0|                        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE0                                            ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MCE1|                        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE1                                            ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MCE2|                        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE2                                            ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MCE3|                        ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE3                                            ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MI0|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI0                                             ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MI1|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI1                                             ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MI2|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI2                                             ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MI3|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI3                                             ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MSCLK0|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK0                                          ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MSCLK1|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK1                                          ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MSCLK2|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK2                                          ; two_to_one_mux          ; work         ;
-;       |two_to_one_mux:MSCLK3|                      ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK3                                          ; two_to_one_mux          ; work         ;
-;    |task_manager:T0|                               ; 17872 (69)          ; 16633 (28)                ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0                                                                  ; task_manager            ; work         ;
-;       |background_subtraction:B|                   ; 17803 (17781)       ; 16605 (16575)             ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B                                         ; background_subtraction  ; work         ;
-;          |foreground_detector:F0|                  ; 8 (8)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0                  ; foreground_detector     ; work         ;
-;          |four_to_one_mux:CURRENT_INPUT_VALID_MUX| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:CURRENT_INPUT_VALID_MUX ; four_to_one_mux         ; work         ;
-;          |four_to_one_mux:CURRENT_SHIFT_IN_MUX|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:CURRENT_SHIFT_IN_MUX    ; four_to_one_mux         ; work         ;
-;          |rgb_converter:CURRENTCONVERTER|          ; 9 (9)               ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|rgb_converter:CURRENTCONVERTER          ; rgb_converter           ; work         ;
-+----------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------------------------------------------------------------------+-------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                              ;
++-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                                                        ; Entity Name             ; Library Name ;
++-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |RaspberryPi_Accelerator                              ; 18584 (78)          ; 17039 (33)                ; 0           ; 0          ; 0            ; 0       ; 0         ; 185  ; 0            ; 0          ; |RaspberryPi_Accelerator                                                                                                                                                   ; RaspberryPi_Accelerator ; work         ;
+;    |instruction_handler:I0|                           ; 14 (14)             ; 89 (89)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|instruction_handler:I0                                                                                                                            ; instruction_handler     ; work         ;
+;    |mem_connector:MC0|                                ; 506 (0)             ; 260 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0                                                                                                                                 ; mem_connector           ; work         ;
+;       |four_to_one_mux:MMISO|                         ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|four_to_one_mux:MMISO                                                                                                           ; four_to_one_mux         ; work         ;
+;       |sram_spi_read_write:S0|                        ; 123 (123)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0                                                                                                          ; sram_spi_read_write     ; work         ;
+;       |sram_spi_read_write:S1|                        ; 123 (123)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1                                                                                                          ; sram_spi_read_write     ; work         ;
+;       |sram_spi_read_write:S2|                        ; 123 (123)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2                                                                                                          ; sram_spi_read_write     ; work         ;
+;       |sram_spi_read_write:S3|                        ; 123 (123)           ; 65 (65)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3                                                                                                          ; sram_spi_read_write     ; work         ;
+;       |two_to_one_mux:MCE0|                           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE0                                                                                                             ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE1|                           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE1                                                                                                             ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE2|                           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE2                                                                                                             ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MCE3|                           ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MCE3                                                                                                             ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI0|                            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI0                                                                                                              ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI1|                            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI1                                                                                                              ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI2|                            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI2                                                                                                              ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MI3|                            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MI3                                                                                                              ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK0|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK0                                                                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK1|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK1                                                                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK2|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK2                                                                                                           ; two_to_one_mux          ; work         ;
+;       |two_to_one_mux:MSCLK3|                         ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|mem_connector:MC0|two_to_one_mux:MSCLK3                                                                                                           ; two_to_one_mux          ; work         ;
+;    |task_manager:T0|                                  ; 17986 (69)          ; 16657 (28)                ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0                                                                                                                                   ; task_manager            ; work         ;
+;       |background_subtraction:B|                      ; 17917 (17772)       ; 16629 (16575)             ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B                                                                                                          ; background_subtraction  ; work         ;
+;          |foreground_detector:F0|                     ; 127 (28)            ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0                                                                                   ; foreground_detector     ; work         ;
+;             |n_bit_subtractor:F1[0].SBMC|             ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[5].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[5].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[6].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[6].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;             |n_bit_subtractor:F1[0].SCMB|             ; 18 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[5].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[5].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[6].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[6].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[8].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_adder:D1|full_adder:F1[8].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[6].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[6].D1 ; full_adder              ; work         ;
+;             |n_bit_subtractor:F1[1].SBMC|             ; 16 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[5].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[5].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[6].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[6].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;             |n_bit_subtractor:F1[1].SCMB|             ; 18 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 13 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[5].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[5].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[6].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[6].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[8].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_adder:D1|full_adder:F1[8].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[6].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[1].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[6].D1 ; full_adder              ; work         ;
+;             |n_bit_subtractor:F1[2].SBMC|             ; 12 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 8 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 4 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SBMC|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;             |n_bit_subtractor:F1[2].SCMB|             ; 19 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB                                                       ; n_bit_subtractor        ; work         ;
+;                |n_bit_adder:D1|                       ; 14 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1                                        ; n_bit_adder             ; work         ;
+;                   |full_adder:F1[2].D1|               ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[2].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[3].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[3].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[4].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[4].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[5].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[5].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[6].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[6].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[7].D1|               ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[7].D1                    ; full_adder              ; work         ;
+;                   |full_adder:F1[8].D1|               ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_adder:D1|full_adder:F1[8].D1                    ; full_adder              ; work         ;
+;                |n_bit_twos_comp:D0|                   ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0                                    ; n_bit_twos_comp         ; work         ;
+;                   |n_bit_adder:D0|                    ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0                     ; n_bit_adder             ; work         ;
+;                      |full_adder:F1[2].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[2].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[3].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[3].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[4].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[4].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[5].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[5].D1 ; full_adder              ; work         ;
+;                      |full_adder:F1[6].D1|            ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[2].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0|full_adder:F1[6].D1 ; full_adder              ; work         ;
+;          |four_to_one_mux:BACKGROUND_INPUT_VALID_MUX| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:BACKGROUND_INPUT_VALID_MUX                                                               ; four_to_one_mux         ; work         ;
+;          |four_to_one_mux:BACKGROUND_SHIFT_IN_MUX|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:BACKGROUND_SHIFT_IN_MUX                                                                  ; four_to_one_mux         ; work         ;
+;          |four_to_one_mux:CURRENT_INPUT_VALID_MUX|    ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:CURRENT_INPUT_VALID_MUX                                                                  ; four_to_one_mux         ; work         ;
+;          |four_to_one_mux:CURRENT_SHIFT_IN_MUX|       ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|four_to_one_mux:CURRENT_SHIFT_IN_MUX                                                                     ; four_to_one_mux         ; work         ;
+;          |rgb_converter:BACKGROUNDCONVERTER|          ; 0 (0)               ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER                                                                        ; rgb_converter           ; work         ;
+;          |rgb_converter:CURRENTCONVERTER|             ; 9 (9)               ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|rgb_converter:CURRENTCONVERTER                                                                           ; rgb_converter           ; work         ;
++-------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                       ;
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-; Register name                                                                         ; Reason for Removal                                                               ;
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
-; task_manager:T0|background_subtraction:B|relative_instructions[3][2]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][3]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][4]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][5]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][6]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][7]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][2]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][3]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][4]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][5]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][6]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][7]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][0]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][2]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][3]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][4]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][5]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][6]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[1][7]                  ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[0..23] ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S3|bit_length[0..2]                             ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S2|bit_length[0..2]                             ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0..2]                             ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0..2]                             ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][1]                  ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
-; task_manager:T0|background_subtraction:B|relative_instructions[2][0]                  ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][1]                  ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
-; task_manager:T0|states[1..9,11..31]                                                   ; Merged with task_manager:T0|states[10]                                           ;
-; instruction_handler:I0|states[1..9,11..31]                                            ; Merged with instruction_handler:I0|states[10]                                    ;
-; mem_connector:MC0|sram_spi_read_write:S3|bit_length[3..9,11..16,19..26]               ; Merged with mem_connector:MC0|sram_spi_read_write:S3|bit_length[10]              ;
-; mem_connector:MC0|sram_spi_read_write:S3|states[2..9,11..31]                          ; Merged with mem_connector:MC0|sram_spi_read_write:S3|states[10]                  ;
-; mem_connector:MC0|sram_spi_read_write:S2|bit_length[3..9,11..16,19..26]               ; Merged with mem_connector:MC0|sram_spi_read_write:S2|bit_length[10]              ;
-; mem_connector:MC0|sram_spi_read_write:S2|states[2..9,11..31]                          ; Merged with mem_connector:MC0|sram_spi_read_write:S2|states[10]                  ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[3..9,11..16,19..26]               ; Merged with mem_connector:MC0|sram_spi_read_write:S1|bit_length[10]              ;
-; mem_connector:MC0|sram_spi_read_write:S1|states[2..9,11..31]                          ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[10]                  ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[3..9,11..16,19..26]               ; Merged with mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]              ;
-; mem_connector:MC0|sram_spi_read_write:S0|states[2..9,11..31]                          ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[10]                  ;
-; task_manager:T0|background_subtraction:B|inst[0][3]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[0][4]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[0][5]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[0][6]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[0][7]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][2]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][3]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][4]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][5]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][6]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[2][7]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[1][3]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[1][4]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[1][5]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[1][6]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[1][7]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][2]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][3]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][4]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][5]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][6]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|inst[3][7]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; task_manager:T0|background_subtraction:B|states[2..9,11..31]                          ; Merged with task_manager:T0|background_subtraction:B|states[10]                  ;
-; task_manager:T0|background_subtraction:B|byte_length[0][10]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][11]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][12]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][13]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][16]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][17]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][18]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][19]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][1]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][20]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][21]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][22]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][23]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][2]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][3]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][4]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][5]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][6]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][7]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][8]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][9]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][0]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][10]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][11]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][12]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][13]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][16]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][17]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][18]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][19]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][1]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][20]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][21]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][22]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][23]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][2]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][3]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][4]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][5]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][6]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][7]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][8]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[1][9]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][0]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][10]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][11]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][12]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][13]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][16]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][17]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][18]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][19]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][1]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][20]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][21]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][22]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][23]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][2]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][3]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][4]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][5]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][6]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][7]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][8]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[2][9]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][0]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][10]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][11]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][12]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][13]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][16]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][17]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][18]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][19]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][1]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][20]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][21]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][22]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][23]                           ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][2]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][3]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][4]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][5]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][6]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][7]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][8]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|background_subtraction:B|byte_length[3][9]                            ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
-; task_manager:T0|states[10]                                                            ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|inst[0][2]                                   ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
-; instruction_handler:I0|states[10]                                                     ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|states[10]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S3|states[10]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S2|states[10]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S1|states[10]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S0|states[10]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|inst[1][2]                                   ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|background_subtraction:B|byte_length[0][0]                            ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S3|bit_length[10]                               ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S2|bit_length[10]                               ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[10]                               ; Stuck at GND due to stuck port data_in                                           ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]                               ; Stuck at GND due to stuck port data_in                                           ;
-; task_manager:T0|task_select                                                           ; Merged with task_manager:T0|idle                                                 ;
-; Total Number of Removed Registers = 471                                               ;                                                                                  ;
-+---------------------------------------------------------------------------------------+----------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                         ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+; Register name                                                           ; Reason for Removal                                                               ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------------------+
+; task_manager:T0|background_subtraction:B|relative_instructions[3][2]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][3]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][4]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][5]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][6]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][7]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][2]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][3]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][4]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][5]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][6]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][7]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][0]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][2]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][3]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][4]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][5]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][6]    ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[1][7]    ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S3|bit_length[0..2]               ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S2|bit_length[0..2]               ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0..2]               ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0..2]               ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][1]    ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
+; task_manager:T0|background_subtraction:B|relative_instructions[2][0]    ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][1]    ; Merged with task_manager:T0|background_subtraction:B|relative_instructions[3][0] ;
+; task_manager:T0|states[1..9,11..31]                                     ; Merged with task_manager:T0|states[10]                                           ;
+; instruction_handler:I0|states[1..9,11..31]                              ; Merged with instruction_handler:I0|states[10]                                    ;
+; mem_connector:MC0|sram_spi_read_write:S3|bit_length[3..9,11..16,19..26] ; Merged with mem_connector:MC0|sram_spi_read_write:S3|bit_length[10]              ;
+; mem_connector:MC0|sram_spi_read_write:S3|states[2..9,11..31]            ; Merged with mem_connector:MC0|sram_spi_read_write:S3|states[10]                  ;
+; mem_connector:MC0|sram_spi_read_write:S2|bit_length[3..9,11..16,19..26] ; Merged with mem_connector:MC0|sram_spi_read_write:S2|bit_length[10]              ;
+; mem_connector:MC0|sram_spi_read_write:S2|states[2..9,11..31]            ; Merged with mem_connector:MC0|sram_spi_read_write:S2|states[10]                  ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[3..9,11..16,19..26] ; Merged with mem_connector:MC0|sram_spi_read_write:S1|bit_length[10]              ;
+; mem_connector:MC0|sram_spi_read_write:S1|states[2..9,11..31]            ; Merged with mem_connector:MC0|sram_spi_read_write:S1|states[10]                  ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[3..9,11..16,19..26] ; Merged with mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]              ;
+; mem_connector:MC0|sram_spi_read_write:S0|states[2..9,11..31]            ; Merged with mem_connector:MC0|sram_spi_read_write:S0|states[10]                  ;
+; task_manager:T0|background_subtraction:B|inst[0][3]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[0][4]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[0][5]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[0][6]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[0][7]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][2]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][3]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][4]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][5]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][6]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[2][7]                     ; Merged with task_manager:T0|background_subtraction:B|inst[0][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[1][3]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[1][4]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[1][5]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[1][6]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[1][7]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][2]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][3]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][4]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][5]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][6]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|inst[3][7]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; task_manager:T0|background_subtraction:B|states[2..9,11..31]            ; Merged with task_manager:T0|background_subtraction:B|states[10]                  ;
+; task_manager:T0|background_subtraction:B|byte_length[0][10]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][11]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][12]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][13]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][16]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][17]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][18]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][19]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][1]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][20]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][21]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][22]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][23]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][2]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][3]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][4]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][5]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][6]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][7]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][8]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][9]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][0]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][10]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][11]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][12]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][13]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][16]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][17]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][18]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][19]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][1]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][20]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][21]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][22]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][23]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][2]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][3]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][4]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][5]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][6]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][7]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][8]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[1][9]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][0]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][10]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][11]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][12]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][13]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][16]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][17]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][18]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][19]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][1]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][20]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][21]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][22]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][23]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][2]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][3]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][4]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][5]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][6]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][7]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][8]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[2][9]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][0]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][10]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][11]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][12]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][13]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][16]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][17]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][18]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][19]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][1]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][20]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][21]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][22]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][23]             ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][2]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][3]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][4]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][5]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][6]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][7]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][8]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|background_subtraction:B|byte_length[3][9]              ; Merged with task_manager:T0|background_subtraction:B|byte_length[0][0]           ;
+; task_manager:T0|states[10]                                              ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|inst[0][2]                     ; Merged with task_manager:T0|background_subtraction:B|inst[1][2]                  ;
+; instruction_handler:I0|states[10]                                       ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|states[10]                     ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S3|states[10]                     ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S2|states[10]                     ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S1|states[10]                     ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S0|states[10]                     ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|inst[1][2]                     ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|background_subtraction:B|byte_length[0][0]              ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S3|bit_length[10]                 ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S2|bit_length[10]                 ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[10]                 ; Stuck at GND due to stuck port data_in                                           ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]                 ; Stuck at GND due to stuck port data_in                                           ;
+; task_manager:T0|task_select                                             ; Merged with task_manager:T0|idle                                                 ;
+; Total Number of Removed Registers = 447                                 ;                                                                                  ;
++-------------------------------------------------------------------------+----------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                                         ;
-+-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; Register name                                                                     ; Reason for Removal        ; Registers Removed due to This Register                                              ;
-+-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
-; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[0] ; Stuck at GND              ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[1],  ;
-;                                                                                   ; due to stuck port data_in ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[2],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[3],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[4],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[5],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[6],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[7],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[8],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[9],  ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[10], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[11], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[12], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[13], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[14], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[15], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[16], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[17], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[18], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[19], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[20], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[21], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[22], ;
-;                                                                                   ;                           ; task_manager:T0|background_subtraction:B|rgb_converter:BACKGROUNDCONVERTER|rgb[23]  ;
-; task_manager:T0|background_subtraction:B|byte_length[0][0]                        ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S3|bit_length[10],                            ;
-;                                                                                   ; due to stuck port data_in ; mem_connector:MC0|sram_spi_read_write:S2|bit_length[10],                            ;
-;                                                                                   ;                           ; mem_connector:MC0|sram_spi_read_write:S1|bit_length[10],                            ;
-;                                                                                   ;                           ; mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]                             ;
-; task_manager:T0|background_subtraction:B|relative_instructions[3][2]              ; Stuck at GND              ; task_manager:T0|background_subtraction:B|inst[1][2]                                 ;
-;                                                                                   ; due to stuck port data_in ;                                                                                     ;
-; mem_connector:MC0|sram_spi_read_write:S3|bit_length[0]                            ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S3|states[10]                                 ;
-;                                                                                   ; due to stuck port data_in ;                                                                                     ;
-; mem_connector:MC0|sram_spi_read_write:S2|bit_length[0]                            ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S2|states[10]                                 ;
-;                                                                                   ; due to stuck port data_in ;                                                                                     ;
-; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0]                            ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S1|states[10]                                 ;
-;                                                                                   ; due to stuck port data_in ;                                                                                     ;
-; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0]                            ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S0|states[10]                                 ;
-;                                                                                   ; due to stuck port data_in ;                                                                                     ;
-+-----------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                 ;
++----------------------------------------------------------------------+---------------------------+----------------------------------------------------------+
+; Register name                                                        ; Reason for Removal        ; Registers Removed due to This Register                   ;
++----------------------------------------------------------------------+---------------------------+----------------------------------------------------------+
+; task_manager:T0|background_subtraction:B|byte_length[0][0]           ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S3|bit_length[10], ;
+;                                                                      ; due to stuck port data_in ; mem_connector:MC0|sram_spi_read_write:S2|bit_length[10], ;
+;                                                                      ;                           ; mem_connector:MC0|sram_spi_read_write:S1|bit_length[10], ;
+;                                                                      ;                           ; mem_connector:MC0|sram_spi_read_write:S0|bit_length[10]  ;
+; task_manager:T0|background_subtraction:B|relative_instructions[3][2] ; Stuck at GND              ; task_manager:T0|background_subtraction:B|inst[1][2]      ;
+;                                                                      ; due to stuck port data_in ;                                                          ;
+; mem_connector:MC0|sram_spi_read_write:S3|bit_length[0]               ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S3|states[10]      ;
+;                                                                      ; due to stuck port data_in ;                                                          ;
+; mem_connector:MC0|sram_spi_read_write:S2|bit_length[0]               ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S2|states[10]      ;
+;                                                                      ; due to stuck port data_in ;                                                          ;
+; mem_connector:MC0|sram_spi_read_write:S1|bit_length[0]               ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S1|states[10]      ;
+;                                                                      ; due to stuck port data_in ;                                                          ;
+; mem_connector:MC0|sram_spi_read_write:S0|bit_length[0]               ; Stuck at GND              ; mem_connector:MC0|sram_spi_read_write:S0|states[10]      ;
+;                                                                      ; due to stuck port data_in ;                                                          ;
++----------------------------------------------------------------------+---------------------------+----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -519,47 +585,48 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 17015 ;
-; Number of registers using Synchronous Clear  ; 164   ;
-; Number of registers using Synchronous Load   ; 16479 ;
+; Total registers                              ; 17039 ;
+; Number of registers using Synchronous Clear  ; 165   ;
+; Number of registers using Synchronous Load   ; 16484 ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 430   ;
+; Number of registers using Clock Enable       ; 449   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|state_counter[25]  ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|write_counter[0]   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|buffer_pointer[5]  ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RaspberryPi_Accelerator|instruction_handler:I0|state_counter[0]                     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|task_select                                 ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|state_counter[23]                           ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|states[1]          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|states[0]          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|states[1]          ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|states[1]          ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|shift_reg[30]      ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|shift_reg[26]      ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|shift_reg[30]      ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|shift_reg[28]      ;
-; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|shift_reg[13]      ;
-; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|shift_reg[18]      ;
-; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|shift_reg[21]      ;
-; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|shift_reg[19]      ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|states[0]          ;
-; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|byte_length[1][15] ;
-; 7:1                ; 48 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|address[3][13]     ;
-; 7:1                ; 48 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|address[2][14]     ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|inst[1][1]         ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|inst[0][1]         ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|Mux136             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|state_counter[31]                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|write_counter[1]                                ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|rgb_converter:CURRENTCONVERTER|state_counter[4] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|buffer_pointer[4]                               ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RaspberryPi_Accelerator|instruction_handler:I0|state_counter[0]                                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|idle                                                                     ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|state_counter[14]                                                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|states[0]                                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|states[1]                                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|states[0]                                       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|states[1]                                       ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|shift_reg[29]                                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|shift_reg[31]                                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|shift_reg[25]                                   ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|shift_reg[24]                                   ;
+; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S0|shift_reg[5]                                    ;
+; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|shift_reg[21]                                   ;
+; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|shift_reg[5]                                    ;
+; 6:1                ; 23 bits   ; 92 LEs        ; 46 LEs               ; 46 LEs                 ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|shift_reg[3]                                    ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|states[0]                                       ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|byte_length[2][15]                              ;
+; 7:1                ; 48 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|address[1][14]                                  ;
+; 7:1                ; 48 bits   ; 192 LEs       ; 96 LEs               ; 96 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|address[0][10]                                  ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|inst[3][1]                                      ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|inst[0][1]                                      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|Mux136                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -924,15 +991,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "task_manager:T0|background_subtraction:B|four_to_one_mux:BACKGROUND_SHIFT_IN_MUX"      ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; sig_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "mem_connector:MC0"                                                                         ;
 +-------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -948,28 +1006,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 185                         ;
-; cycloneiii_ff         ; 17015                       ;
-;     ENA               ; 259                         ;
-;     ENA SCLR          ; 91                          ;
+; cycloneiii_ff         ; 17039                       ;
+;     ENA               ; 277                         ;
+;     ENA SCLR          ; 92                          ;
 ;     ENA SCLR SLD      ; 48                          ;
 ;     ENA SLD           ; 32                          ;
 ;     SCLR              ; 25                          ;
-;     SLD               ; 16399                       ;
+;     SLD               ; 16404                       ;
 ;     plain             ; 161                         ;
 ; cycloneiii_io_obuf    ; 71                          ;
-; cycloneiii_lcell_comb ; 18486                       ;
+; cycloneiii_lcell_comb ; 18584                       ;
 ;     arith             ; 219                         ;
 ;         2 data inputs ; 189                         ;
 ;         3 data inputs ; 30                          ;
-;     normal            ; 18267                       ;
+;     normal            ; 18365                       ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 614                         ;
-;         3 data inputs ; 425                         ;
-;         4 data inputs ; 17217                       ;
+;         2 data inputs ; 623                         ;
+;         3 data inputs ; 420                         ;
+;         4 data inputs ; 17311                       ;
 ;                       ;                             ;
-; Max LUT depth         ; 6.00                        ;
-; Average LUT depth     ; 3.07                        ;
+; Max LUT depth         ; 12.00                       ;
+; Average LUT depth     ; 6.28                        ;
 +-----------------------+-----------------------------+
 
 
@@ -978,7 +1036,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:04:04     ;
+; Top            ; 00:01:33     ;
 +----------------+--------------+
 
 
@@ -988,7 +1046,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Sun May 28 22:25:48 2023
+    Info: Processing started: Mon May 29 15:31:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1031,7 +1089,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file two_to_
     Info (12023): Found entity 1: two_to_four_decoder File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/two_to_four_decoder.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file raspberrypi_accelerator.sv
     Info (12023): Found entity 1: RaspberryPi_Accelerator File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 6
-Warning (10236): Verilog HDL Implicit Net warning at background_subtraction.sv(312): created implicit net for "backgroudn_shift_in" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 312
 Critical Warning (10846): Verilog HDL Instantiation warning at BCD_converter.sv(27): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 27
 Critical Warning (10846): Verilog HDL Instantiation warning at BCD_converter.sv(28): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/BCD_converter.sv Line: 28
 Critical Warning (10846): Verilog HDL Instantiation warning at display.sv(16): instance has no name File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/display.sv Line: 16
@@ -1096,10 +1153,10 @@ Info (12128): Elaborating entity "background_subtraction" for hierarchy "task_ma
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(84): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 84
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(85): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 85
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(86): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 86
-Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(354): truncated value with size 32 to match size of target (3) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 354
-Info (12128): Elaborating entity "rgb_converter" for hierarchy "task_manager:T0|background_subtraction:B|rgb_converter:CURRENTCONVERTER" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 316
+Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(361): truncated value with size 32 to match size of target (3) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 361
+Info (12128): Elaborating entity "rgb_converter" for hierarchy "task_manager:T0|background_subtraction:B|rgb_converter:CURRENTCONVERTER" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 323
 Warning (10230): Verilog HDL assignment warning at rgb_converter.sv(33): truncated value with size 32 to match size of target (5) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/rgb_converter.sv Line: 33
-Info (12128): Elaborating entity "foreground_detector" for hierarchy "task_manager:T0|background_subtraction:B|foreground_detector:F0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 389
+Info (12128): Elaborating entity "foreground_detector" for hierarchy "task_manager:T0|background_subtraction:B|foreground_detector:F0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 396
 Info (12128): Elaborating entity "n_bit_subtractor" for hierarchy "task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/foreground_detector.sv Line: 22
 Info (12128): Elaborating entity "n_bit_twos_comp" for hierarchy "task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_subtractor.sv Line: 13
 Info (12128): Elaborating entity "n_bit_adder" for hierarchy "task_manager:T0|background_subtraction:B|foreground_detector:F0|n_bit_subtractor:F1[0].SCMB|n_bit_twos_comp:D0|n_bit_adder:D0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/n_bit_twos_comp.sv Line: 21
@@ -1328,16 +1385,16 @@ Warning (21074): Design contains 16 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 41
     Warning (15610): No output dependent on input pin "GSENSOR_INT[1]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
     Warning (15610): No output dependent on input pin "GSENSOR_INT[2]" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 52
-Info (21057): Implemented 18825 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 18946 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 17 input pins
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
-    Info (21061): Implemented 18640 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 279 warnings
-    Info: Peak virtual memory: 5012 megabytes
-    Info: Processing ended: Sun May 28 22:30:52 2023
-    Info: Elapsed time: 00:05:04
-    Info: Total CPU time (on all processors): 00:05:47
+    Info (21061): Implemented 18761 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
+    Info: Peak virtual memory: 5022 megabytes
+    Info: Processing ended: Mon May 29 15:33:38 2023
+    Info: Elapsed time: 00:01:51
+    Info: Total CPU time (on all processors): 00:02:06
 
 
 +------------------------------------------+

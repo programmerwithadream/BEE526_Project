@@ -20,7 +20,7 @@ assign red = rgb[7:0];
 
 always_ff @(posedge clk)
 begin
-	if(input_valid)
+	if (input_valid)
 	begin
 		rgb <= {rgb[22:0], shift_in};
 		
@@ -32,15 +32,20 @@ begin
 		begin
 			state_counter <= state_counter + 1;
 		end
-	end
-	
-	if(state_counter == 24)
-	begin
-		output_valid <= 1;
+		
+		if(state_counter == 23)
+		begin
+			output_valid <= 1;
+		end
+		else
+		begin
+			output_valid <= 0;
+		end
 	end
 	else
 	begin
 		output_valid <= 0;
+		state_counter <= 0;
 	end
 end
 

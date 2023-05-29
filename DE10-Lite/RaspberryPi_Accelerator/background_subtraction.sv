@@ -297,6 +297,13 @@ begin
 				byte_length[(SRAM_SELECT_INT + 1) % 4] <= 0;
 				*/
 			end
+			else
+			begin
+				inst[0] <= 0;
+				inst[1] <= 0;
+				inst[2] <= 0;
+				inst[3] <= 0;
+			end
 		end
 	endcase
 end
@@ -309,7 +316,7 @@ logic current_output_valid;
 logic background_output_valid;
 
 four_to_one_mux CURRENT_SHIFT_IN_MUX(current_shift_in, mem_out[0], mem_out[1], mem_out[2], mem_out[3], reverse_relative_indices[2][0], reverse_relative_indices[2][1]);
-four_to_one_mux BACKGROUND_SHIFT_IN_MUX(backgroudn_shift_in, mem_out[0], mem_out[1], mem_out[2], mem_out[3], reverse_relative_indices[3][0], reverse_relative_indices[3][1]);
+four_to_one_mux BACKGROUND_SHIFT_IN_MUX(background_shift_in, mem_out[0], mem_out[1], mem_out[2], mem_out[3], reverse_relative_indices[3][0], reverse_relative_indices[3][1]);
 four_to_one_mux CURRENT_INPUT_VALID_MUX(current_input_valid, io_valid[0], io_valid[1], io_valid[2], io_valid[3], reverse_relative_indices[2][0], reverse_relative_indices[2][1]);
 four_to_one_mux BACKGROUND_INPUT_VALID_MUX(background_input_valid, io_valid[0], io_valid[1], io_valid[2], io_valid[3], reverse_relative_indices[3][0], reverse_relative_indices[3][1]);
 
