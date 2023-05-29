@@ -44,12 +44,14 @@ assign inst_address[1] = RPi_inst[47:24];
 assign inst_address[2] = RPi_inst[23:0];
 
 //comparators determining if RPi_inst represents a valid task
+/*
 logic [3:0] comparator_results;
 n_bit_comparator #9 C0(comparator_results[0], logic_states, valid_inst_pointer);
 n_bit_comparator #25 C1(comparator_results[1], max_address, inst_address[0]);
 n_bit_comparator #25 C2(comparator_results[2], max_address, inst_address[1]);
 n_bit_comparator #25 C3(comparator_results[3], max_address, inst_address[2]);
-assign inst_valid = comparator_results[3] & comparator_results[2] & comparator_results[1] & comparator_results[0];
+*/
+assign inst_valid = (logic_states >= valid_inst_pointer) & (max_address >= inst_address[0]) & (max_address >= inst_address[1]) & (max_address >= inst_address[2]);
 
 //signal determining if execution can proceed
 logic proceed;
@@ -103,6 +105,7 @@ begin
 		IDLE:
 		begin
 			idle <= 1;
+			task_select <= 0;
 			state_counter <= 0;
 			job_incomplete <= 0;
 		end

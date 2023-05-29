@@ -23,7 +23,8 @@ generate
 		n_bit_subtractor #9 SBMC(background_minus_current_rgb_bytes[k], background_minus_current_signs[k], background_rgb_bytes[k], current_rgb_bytes[k]);
 		
 		assign absolute_difference_rgb_bytes[k] = current_minus_background_signs[k] ? background_minus_current_rgb_bytes[k] : current_minus_background_rgb_bytes[k];
-		n_bit_comparator #9 THRESHOLDCOMP(comparator_results[k], absolute_difference_rgb_bytes[k], THRESHOLD);
+		//n_bit_comparator #9 THRESHOLDCOMP(comparator_results[k], absolute_difference_rgb_bytes[k], THRESHOLD);
+		assign comparator_results[k] = absolute_difference_rgb_bytes[k] >= THRESHOLD;
 	end
 endgenerate
 
