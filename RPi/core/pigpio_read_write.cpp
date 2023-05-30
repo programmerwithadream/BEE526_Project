@@ -5,7 +5,7 @@ extern "C" {
 #include <iostream>
 #include <pigpio.h>
 
-#include <opencv2/opencv.hpp>
+//#include <opencv2/opencv.hpp>
 #include <vector>
 #include <string>
 #include <chrono>
@@ -68,20 +68,83 @@ int main() {
     // Open SPI channel
     int handle = spiOpen(CHANNEL, SPEED, 0);
 
+       // Set the pins
+    gpioSetMode(sram_select_0, PI_OUTPUT);
+    gpioSetMode(sram_select_1, PI_OUTPUT);
+    gpioSetMode(inst_valid, PI_INPUT);
+    gpioSetMode(fpga_idle, PI_INPUT);
+    gpioSetMode(fpga_execute, PI_OUTPUT);
+
+    // Enable pull-up resistor
+    gpioSetPullUpDown(inst_valid, PI_PUD_UP);
+    gpioSetPullUpDown(fpga_idle, PI_PUD_UP);
     
+    int length = 49152;
+
+    // Write some data
+    std::vector<uint8_t> dataToWrite;
+    std::vector<uint8_t> readBack;
+
+    for (int i = 0; i < length; i++) {
+        dataToWrite.push_back(i);
+    }
+
     gpioWrite(sram_select_0, 0);
     gpioWrite(sram_select_1, 0);
 
-    int length = 16384;
+    writeData(handle, 0x000000, dataToWrite);
 
     // Read the data back
-    std::vector<uint8_t> readBack = readData(handle, 0x000000, length);
+    readBack = readData(handle, 0x000000, dataToWrite.size());
 
     // Print the read data
     for (int i = 0; i < length; i++) {
         std::cout << "Address " << i << " contains: " << unsigned(readBack[i]) << std::endl;
     }
     std::cout << std::endl;
+
+    gpioWrite(sram_select_0, 1);
+    gpioWrite(sram_select_1, 0);
+
+    writeData(handle, 0x000000, dataToWrite);
+
+    // Read the data back
+    readBack = readData(handle, 0x000000, dataToWrite.size());
+
+    // Print the read data
+    for (int i = 0; i < length; i++) {
+        std::cout << "Address " << i << " contains: " << unsigned(readBack[i]) << std::endl;
+    }
+    std::cout << std::endl;
+
+    gpioWrite(sram_select_0, 0);
+    gpioWrite(sram_select_1, 1);
+
+    writeData(handle, 0x000000, dataToWrite);
+
+    // Read the data back
+    readBack = readData(handle, 0x000000, dataToWrite.size());
+
+    // Print the read data
+    for (int i = 0; i < length; i++) {
+        std::cout << "Address " << i << " contains: " << unsigned(readBack[i]) << std::endl;
+    }
+    std::cout << std::endl;
+
+    gpioWrite(sram_select_0, 1);
+    gpioWrite(sram_select_1, 1);
+
+    writeData(handle, 0x000000, dataToWrite);
+
+    // Read the data back
+    readBack = readData(handle, 0x000000, dataToWrite.size());
+
+    // Print the read data
+    for (int i = 0; i < length; i++) {
+        std::cout << "Address " << i << " contains: " << unsigned(readBack[i]) << std::endl;
+    }
+    std::cout << std::endl;
+
 
     // Close SPI channel
     spiClose(handle);
