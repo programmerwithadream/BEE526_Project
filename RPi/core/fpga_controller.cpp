@@ -337,9 +337,9 @@ int main()
 
         if (index + 4 < 10){
             img_name = "in00000" + std::to_string(index + 4) + ".jpg";
-        } else if (index + 3< 100) {
+        } else if (index + 4 < 100) {
             img_name = "in0000" + std::to_string(index + 4) + ".jpg";
-        } else if (index + 3< 1000) {
+        } else if (index + 4 < 1000) {
             img_name = "in000" + std::to_string(index + 4) + ".jpg";
         } else {
             img_name = "in00" + std::to_string(index + 4) + ".jpg";

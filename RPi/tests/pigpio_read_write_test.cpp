@@ -9,6 +9,12 @@ extern "C" {
 #define SPEED 5000000
 #define READ 0x03
 #define WRITE 0x02
+// GPIO pin number
+const int sram_select_0 = 24; //GPIO 0 is physical pin 11
+const int sram_select_1 = 23;
+const int inst_valid = 17;
+const int fpga_idle = 27;
+const int fpga_execute= 22;
 
 // g++ pigpio_read_write.cpp -o pigpio_read_write -lpigpio -lrt
 // sudo ./pigpio_read_write
@@ -60,6 +66,19 @@ int main() {
     int handle = spiOpen(CHANNEL, SPEED, 0);
 
     int length = 49152;
+    // Set the pins
+    gpioSetMode(sram_select_0, PI_OUTPUT);
+    gpioSetMode(sram_select_1, PI_OUTPUT);
+    gpioSetMode(inst_valid, PI_INPUT);
+    gpioSetMode(fpga_idle, PI_INPUT);
+    gpioSetMode(fpga_execute, PI_OUTPUT);
+
+    // Enable pull-up resistor
+    gpioSetPullUpDown(inst_valid, PI_PUD_UP);
+    gpioSetPullUpDown(fpga_idle, PI_PUD_UP);
+
+    gpioWrite(sram_select_0, 1);
+    gpioWrite(sram_select_1, 1);
 
     // Write some data
     std::vector<uint8_t> dataToWrite;
