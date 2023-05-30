@@ -63,6 +63,23 @@ logic [23:0] idle_address [0:3];
 logic [3:0] idle_write_in;
 logic [23:0] idle_byte_length [0:3];
 
+assign idle_inst[0] = 0;
+assign idle_inst[1] = 0;
+assign idle_inst[2] = 0;
+assign idle_inst[3] = 0;
+assign idle_address[0] = 0;
+assign idle_address[1] = 0;
+assign idle_address[2] = 0;
+assign idle_address[3] = 0;
+assign idle_write_in[0] = 0;
+assign idle_write_in[1] = 0;
+assign idle_write_in[2] = 0;
+assign idle_write_in[3] = 0;
+assign idle_byte_length[0] = 0;
+assign idle_byte_length[1] = 0;
+assign idle_byte_length[2] = 0;
+assign idle_byte_length[3] = 0;
+
 //signals for background subtraction
 logic [7:0] bgs_inst [0:3];
 logic [23:0] bgs_address [0:3];

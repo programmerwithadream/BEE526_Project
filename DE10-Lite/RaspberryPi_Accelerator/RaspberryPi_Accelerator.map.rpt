@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RaspberryPi_Accelerator
-Mon May 29 15:33:38 2023
+Tue May 30 15:59:01 2023
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -83,7 +83,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon May 29 15:33:38 2023       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 30 15:59:00 2023       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RaspberryPi_Accelerator                     ;
 ; Top-level Entity Name              ; RaspberryPi_Accelerator                     ;
@@ -606,7 +606,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|background_subtraction:B|buffer_pointer[4]                               ;
 ; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |RaspberryPi_Accelerator|instruction_handler:I0|state_counter[0]                                                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|idle                                                                     ;
-; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|state_counter[14]                                                        ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; Yes        ; |RaspberryPi_Accelerator|task_manager:T0|state_counter[15]                                                        ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S3|states[0]                                       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S2|states[1]                                       ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |RaspberryPi_Accelerator|mem_connector:MC0|sram_spi_read_write:S1|states[0]                                       ;
@@ -1036,7 +1036,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:01:33     ;
+; Top            ; 00:01:35     ;
 +----------------+--------------+
 
 
@@ -1046,7 +1046,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Mon May 29 15:31:47 2023
+    Info: Processing started: Tue May 30 15:57:08 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RaspberryPi_Accelerator -c RaspberryPi_Accelerator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1139,17 +1139,9 @@ Warning (10230): Verilog HDL assignment warning at sram_spi_read_write.sv(127): 
 Info (12128): Elaborating entity "instruction_handler" for hierarchy "instruction_handler:I0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 208
 Warning (10230): Verilog HDL assignment warning at instruction_handler.sv(38): truncated value with size 32 to match size of target (8) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/instruction_handler.sv Line: 38
 Info (12128): Elaborating entity "task_manager" for hierarchy "task_manager:T0" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/RaspberryPi_Accelerator.sv Line: 209
-Warning (10858): Verilog HDL warning at task_manager.sv(61): object idle_inst used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 61
-Warning (10858): Verilog HDL warning at task_manager.sv(62): object idle_address used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 62
-Warning (10858): Verilog HDL warning at task_manager.sv(63): object idle_write_in used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 63
-Warning (10858): Verilog HDL warning at task_manager.sv(64): object idle_byte_length used but never assigned File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 64
-Warning (10230): Verilog HDL assignment warning at task_manager.sv(132): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 132
-Warning (10230): Verilog HDL assignment warning at task_manager.sv(150): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 150
-Warning (10030): Net "idle_inst" at task_manager.sv(61) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 61
-Warning (10030): Net "idle_address" at task_manager.sv(62) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 62
-Warning (10030): Net "idle_write_in" at task_manager.sv(63) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 63
-Warning (10030): Net "idle_byte_length" at task_manager.sv(64) has no driver or initial value, using a default initial value '0' File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 64
-Info (12128): Elaborating entity "background_subtraction" for hierarchy "task_manager:T0|background_subtraction:B" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 72
+Warning (10230): Verilog HDL assignment warning at task_manager.sv(149): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 149
+Warning (10230): Verilog HDL assignment warning at task_manager.sv(167): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 167
+Info (12128): Elaborating entity "background_subtraction" for hierarchy "task_manager:T0|background_subtraction:B" File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/task_manager.sv Line: 89
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(84): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 84
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(85): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 85
 Warning (10230): Verilog HDL assignment warning at background_subtraction.sv(86): truncated value with size 32 to match size of target (24) File: C:/Users/justi/Desktop/MSEE/BEE526/BEE526_Project/DE10-Lite/RaspberryPi_Accelerator/background_subtraction.sv Line: 86
@@ -1390,11 +1382,11 @@ Info (21057): Implemented 18946 device resources after synthesis - the final res
     Info (21059): Implemented 97 output pins
     Info (21060): Implemented 71 bidirectional pins
     Info (21061): Implemented 18761 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
-    Info: Peak virtual memory: 5022 megabytes
-    Info: Processing ended: Mon May 29 15:33:38 2023
-    Info: Elapsed time: 00:01:51
-    Info: Total CPU time (on all processors): 00:02:06
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 270 warnings
+    Info: Peak virtual memory: 5023 megabytes
+    Info: Processing ended: Tue May 30 15:59:01 2023
+    Info: Elapsed time: 00:01:53
+    Info: Total CPU time (on all processors): 00:02:11
 
 
 +------------------------------------------+

@@ -69,7 +69,7 @@ module RaspberryPi_Accelerator(
 //=======================================================
 
 //frequency the fpga operates on
-localparam desiredFrequency = 1000000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
+localparam desiredFrequency = 500000.0 / 2.0, divisor = 50_000_000 / desiredFrequency;
 
 //pin numbers for raspberry pi, sram 0,1,2,3 signals
 localparam int MOSI_PIN = 9; //raspberry pi pinout 19 GPIO 10

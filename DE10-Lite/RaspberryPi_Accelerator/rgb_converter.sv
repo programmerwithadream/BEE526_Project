@@ -44,8 +44,8 @@ begin
 	end
 	else
 	begin
-		output_valid <= 0;
 		state_counter <= 0;
+		output_valid <= 0;
 	end
 end
 
