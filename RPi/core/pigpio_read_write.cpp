@@ -71,13 +71,6 @@ int main() {
        // Set the pins
     gpioSetMode(sram_select_0, PI_OUTPUT);
     gpioSetMode(sram_select_1, PI_OUTPUT);
-    gpioSetMode(inst_valid, PI_INPUT);
-    gpioSetMode(fpga_idle, PI_INPUT);
-    gpioSetMode(fpga_execute, PI_OUTPUT);
-
-    // Enable pull-up resistor
-    gpioSetPullUpDown(inst_valid, PI_PUD_UP);
-    gpioSetPullUpDown(fpga_idle, PI_PUD_UP);
     
     int length = 49152;
 
