@@ -18,8 +18,8 @@
 #define READ 0x03
 #define WRITE 0x02
 
-// g++ -o fpga_controller_test fpga_controller_test.cpp `pkg-config --cflags --libs opencv` -lpigpio -lrt -lpthread
-// sudo ./fpga_controller_test
+// g++ -o real_time_background_subtraction real_time_background_subtraction.cpp `pkg-config --cflags --libs opencv` -lpigpio -lrt -lpthread
+// sudo ./real_time_background_subtraction
 
 // GPIO pin number
 const int sram_select_0 = 24; //GPIO 0 is physical pin 11
@@ -78,8 +78,8 @@ void load_background_subtraction_inst(int handle) {
 }
 
 int main() {
-    Mat frame;
-    VideoCapture cap;
+    cv::Mat frame;
+    cv::VideoCapture cap;
 
     cap.open(DEVICE_ID, API_ID);
 
@@ -96,12 +96,12 @@ int main() {
             return 1;
         }
 
-        imshow("Camera Stream", frame);
+        cv::imshow("Camera Stream", frame);
 
         // If any key is pressed, convert the frame variable to a vector
-        if (waitKey(5) >= 0) {
-            Mat flat = frame.reshape(1, frame.total() * frame.channels());
-            vector<uchar> img_vector = frame.isContinuous() ? flat : flat.clone();
+        if (cv::waitKey(5) >= 0) {
+            cv::Mat flat = frame.reshape(1, frame.total() * frame.channels());
+            std::vector<uchar> img_vector = frame.isContinuous() ? flat : flat.clone();
         }
     }
 
