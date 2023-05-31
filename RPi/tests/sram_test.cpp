@@ -63,7 +63,6 @@ int main() {
         return 1;
     }
     
-    digitalWrite(10, HIGH);
     
     //int test = 257;
     //uint8_t testuint = test;

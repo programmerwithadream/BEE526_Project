@@ -142,11 +142,15 @@ int main()
     // Writing current image onto sram
     writeData(handle_0, current_img_address, img_vector);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
+
     // Converting background img to a single vector
     img_vector.assign(resized_background_img.datastart, resized_background_img.dataend);
 
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
     // setup
     gpioWrite(sram_select_0, 0);
@@ -171,11 +175,15 @@ int main()
     // Writing current image onto sram
     writeData(handle_0, current_img_address, img_vector);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
+
     // Converting background img to a single vector
     img_vector.assign(resized_background_img.datastart, resized_background_img.dataend);
 
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
     // setup
     gpioWrite(sram_select_0, 0);
@@ -200,11 +208,15 @@ int main()
     // Writing current image onto sram
     writeData(handle_0, current_img_address, img_vector);
 
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
+
     // Converting background img to a single vector
     img_vector.assign(resized_background_img.datastart, resized_background_img.dataend);
 
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
     // setup
     gpioWrite(sram_select_0, 1);
@@ -215,6 +227,8 @@ int main()
 
     // Writing background image onto sram
     writeData(handle_0, background_img_address, img_vector);
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
     //bool test_switch = 0;
 
