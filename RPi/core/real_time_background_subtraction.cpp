@@ -30,9 +30,13 @@ const int fpga_idle = 27;
 const int fpga_execute= 22;
 
 // sram addresses for current image, background image, and result image
-const int result_img_address = 0;
-const int current_img_address = 16385;
-const int background_img_address = 65538;
+// const int result_img_address = 0;
+// const int current_img_address = 16385;
+// const int background_img_address = 65538;
+
+const int result_img_address = 65538;
+const int current_img_address = 0;
+const int background_img_address = 49153;
 
 bool fpga_working = 0;
 
