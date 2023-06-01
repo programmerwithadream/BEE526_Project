@@ -258,52 +258,52 @@ int main() {
         // std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         // If any key is pressed, convert the frame variable to a vector
-        if (cv::waitKey(5) >= 0) {
-        //     // Setting up background images onto srams
-        //     cap.read(frame);
+        if (cv::waitKey(5) >= 32) {
+            // Setting up background images onto srams
+            cap.read(frame);
 
-        //     if (frame.empty()) {
-        //         std::cout << "Could not read the image." << std::endl;
-        //         return 1;
-        //     }
+            if (frame.empty()) {
+                std::cout << "Could not read the image." << std::endl;
+                return 1;
+            }
 
-        //     cv::resize(frame, resized_frame, cv::Size(128, 128));
-        //     cv::resize(frame, background_frame, cv::Size(128, 128));
+            cv::resize(frame, resized_frame, cv::Size(128, 128));
+            cv::resize(frame, background_frame, cv::Size(128, 128));
 
-        //     resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
-        //     background_frame_vec.assign(background_frame.datastart, background_frame.dataend);
+            resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
+            background_frame_vec.assign(background_frame.datastart, background_frame.dataend);
 
-        //     gpioWrite(sram_select_0, 0);
-        //     gpioWrite(sram_select_1, 0);
+            gpioWrite(sram_select_0, 0);
+            gpioWrite(sram_select_1, 0);
 
-        //     writeData(handle_0, current_img_address, resized_frame_vec);
-        //     writeData(handle_0, background_img_address, background_frame_vec);
+            writeData(handle_0, current_img_address, resized_frame_vec);
+            writeData(handle_0, background_img_address, background_frame_vec);
 
-        //     std::this_thread::sleep_for(std::chrono::milliseconds(15));
+            std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
-        //     gpioWrite(sram_select_0, 1);
-        //     gpioWrite(sram_select_1, 0);
+            gpioWrite(sram_select_0, 1);
+            gpioWrite(sram_select_1, 0);
 
-        //     writeData(handle_0, current_img_address, resized_frame_vec);
-        //     writeData(handle_0, background_img_address, background_frame_vec);
+            writeData(handle_0, current_img_address, resized_frame_vec);
+            writeData(handle_0, background_img_address, background_frame_vec);
             
-        //     std::this_thread::sleep_for(std::chrono::milliseconds(15));
+            std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
-        //     gpioWrite(sram_select_0, 0);
-        //     gpioWrite(sram_select_1, 1);
+            gpioWrite(sram_select_0, 0);
+            gpioWrite(sram_select_1, 1);
 
-        //     writeData(handle_0, current_img_address, resized_frame_vec);
-        //     writeData(handle_0, background_img_address, background_frame_vec);
+            writeData(handle_0, current_img_address, resized_frame_vec);
+            writeData(handle_0, background_img_address, background_frame_vec);
             
-        //     std::this_thread::sleep_for(std::chrono::milliseconds(15));
+            std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
-        //     gpioWrite(sram_select_0, 1);
-        //     gpioWrite(sram_select_1, 1);
+            gpioWrite(sram_select_0, 1);
+            gpioWrite(sram_select_1, 1);
 
-        //     writeData(handle_0, current_img_address, resized_frame_vec);
-        //     writeData(handle_0, background_img_address, background_frame_vec);
+            writeData(handle_0, current_img_address, resized_frame_vec);
+            writeData(handle_0, background_img_address, background_frame_vec);
             
-        //     std::this_thread::sleep_for(std::chrono::milliseconds(15));
+            std::this_thread::sleep_for(std::chrono::milliseconds(15));
         }
     }
 
