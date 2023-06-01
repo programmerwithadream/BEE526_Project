@@ -212,7 +212,7 @@ int main() {
 
         resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
 
-        writeData(handle_0, current_img_address, resized_frame_vector);
+        writeData(handle_0, current_img_address, resized_frame_vec);
 
         // Wait till fpga is done
         while (!fpga_working | !gpioRead(fpga_idle)) {
