@@ -258,7 +258,7 @@ int main() {
         // std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         // If any key is pressed, convert the frame variable to a vector
-        if (cv::waitKey(5) >= 32) {
+        if (cv::waitKey(5) == 32) {
             // Setting up background images onto srams
             cap.read(frame);
 
