@@ -254,7 +254,7 @@ int main() {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         // If any key is pressed, convert the frame variable to a vector
-        // if (cv::waitKey(5) >= 0) {
+        if (cv::waitKey(5) >= 0) {
         //     // Setting up background images onto srams
         //     cap.read(frame);
 
@@ -300,7 +300,7 @@ int main() {
         //     writeData(handle_0, background_img_address, background_frame_vec);
             
         //     std::this_thread::sleep_for(std::chrono::milliseconds(15));
-        // }
+        }
     }
 
     spiClose(handle_0);
