@@ -125,7 +125,6 @@ int main() {
     cv::Mat frame;
     cv::Mat resized_frame;
     cv::Mat background_frame;
-    cv::Mat result_frame;
     std::vector<uchar> resized_frame_vec;
     std::vector<uchar> background_frame_vec;
     std::vector<uchar> result_frame_vec;
@@ -211,7 +210,7 @@ int main() {
         
         cv::resize(frame, resized_frame, cv::Size(128, 128));
 
-        resized_frame_vector.assign(resized_frame.datastart, resized_frame.dataend);
+        resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
 
         writeData(handle_0, current_img_address, resized_frame_vector);
 
@@ -243,7 +242,7 @@ int main() {
         }
 
         result_frame_vec = readData(handle_0, result_img_address, 16384);
-        result_frame(128, 128, CV_8UC1, result_frame_vec.data());
+        cv::Mat result_frame(128, 128, CV_8UC1, result_frame_vec.data());
 
         cv::imshow("Camera Stream", result_frame);
 
