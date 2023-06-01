@@ -187,7 +187,7 @@ int main() {
 
     while (true) {
         while (1) {
-            if (gpioRead(inst_valid && fpga_idle)) {
+            if (gpioRead(inst_valid) && gpioRead(fpga_idle)) {
                 gpioWrite(fpga_execute, 1);
                 break;
             }
@@ -244,7 +244,10 @@ int main() {
         result_frame_vec = readData(handle_0, result_img_address, 16384);
         cv::Mat result_frame(128, 128, CV_8UC1, result_frame_vec.data());
 
+        
+        std::this_thread::sleep_for(std::chrono::milliseconds(15));
         cv::imshow("Camera Stream", result_frame);
+        std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
         // If any key is pressed, convert the frame variable to a vector
         if (cv::waitKey(5) >= 0) {

@@ -13,8 +13,8 @@
 #define READ 0x03
 #define WRITE 0x02
 
-// g++ -o fpga_controller_test fpga_controller_test.cpp `pkg-config --cflags --libs opencv` -lpigpio -lrt -lpthread
-// sudo ./fpga_controller_test
+// g++ -o fpga_controller fpga_controller.cpp `pkg-config --cflags --libs opencv` -lpigpio -lrt -lpthread
+// sudo ./fpga_controller
 
 // GPIO pin number
 const int sram_select_0 = 24; //GPIO 0 is physical pin 11
@@ -240,7 +240,7 @@ int main()
     while (1)
     {
         while (1) {
-            if (gpioRead(inst_valid && fpga_idle)) {
+            if (gpioRead(inst_valid) && gpioRead(fpga_idle)) {
                 gpioWrite(fpga_execute, 1);
                 break;
             }
@@ -309,6 +309,7 @@ int main()
         std::string result_full_path = result_img_directory + result_img_name;
         // Save the restored image
         cv::imwrite(result_full_path, result_img);
+        cv::imshow("image stream", result_img);
 
         index++;
 
