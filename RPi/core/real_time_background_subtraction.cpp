@@ -215,7 +215,7 @@ int main() {
         
         cv::resize(frame, resized_frame, cv::Size(128, 128));
 
-        //cv::imshow("resized_frame", resized_frame);
+        cv::imshow("resized_frame", resized_frame);
 
         resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
 
