@@ -66,7 +66,7 @@ void notIdle(int gpio, int level, uint32_t tick)
         fpga_working = 1;
     }
     
-    std::cout << "FPGA executing..." << std::endl;
+    // std::cout << "FPGA executing..." << std::endl;
 }
 
 void load_background_subtraction_inst(int handle) {
@@ -249,9 +249,9 @@ int main() {
         result_frame = temp;
 
         
-        std::this_thread::sleep_for(std::chrono::milliseconds(15));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(15));
         cv::imshow("result frame", result_frame);
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
         // If any key is pressed, convert the frame variable to a vector
         if (cv::waitKey(5) >= 0) {
