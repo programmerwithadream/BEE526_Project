@@ -125,6 +125,7 @@ int main() {
     cv::Mat frame;
     cv::Mat resized_frame;
     cv::Mat background_frame;
+    cv::Mat result_frame;
     std::vector<uchar> resized_frame_vec;
     std::vector<uchar> background_frame_vec;
     std::vector<uchar> result_frame_vec;
@@ -242,7 +243,8 @@ int main() {
         }
 
         result_frame_vec = readData(handle_0, result_img_address, 16384);
-        cv::Mat result_frame(128, 128, CV_8UC1, result_frame_vec.data());
+        cv::Mat temp(128, 128, CV_8UC1, result_frame_vec.data());
+        result_frame = temp;
 
         
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
