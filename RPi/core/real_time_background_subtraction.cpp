@@ -211,6 +211,8 @@ int main() {
         
         cv::resize(frame, resized_frame, cv::Size(128, 128));
 
+        cv::imshow("resized_frame", resized_frame);
+
         resized_frame_vec.assign(resized_frame.datastart, resized_frame.dataend);
 
         writeData(handle_0, current_img_address, resized_frame_vec);
@@ -248,7 +250,7 @@ int main() {
 
         
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
-        cv::imshow("Camera Stream", result_frame);
+        cv::imshow("result frame", result_frame);
         std::this_thread::sleep_for(std::chrono::milliseconds(15));
 
         // If any key is pressed, convert the frame variable to a vector
